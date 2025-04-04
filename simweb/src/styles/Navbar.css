@@ -1,0 +1,141 @@
+/* NAVBAR CONTAINER */
+.navbar {
+    background-color: #000;
+    padding: 15px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+}
+
+/* NAVBAR INNER CONTAINER */
+.navbar-container {
+    width: 85%;
+    max-width: 1300px;
+    padding: 12px 25px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border: 1px solid rgba(255, 255, 255, 0.3); /* Thinner, consistent border */
+    border-radius: 16px;
+}
+
+/* LOGO SECTION */
+.logo-section {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+/* LOGO */
+.logo {
+    width: 38px;
+    height: auto;
+}
+
+.brand-name {
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    letter-spacing: 0.5px;
+}
+
+/* NAVIGATION LINKS */
+.nav-links {
+    display: flex;
+    align-items: center;
+    list-style: none;
+    gap: 40px;
+    color: white;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-links li {
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 500;
+    transition: color 0.3s;
+}
+
+.nav-links li:hover {
+    color: orange;
+}
+
+/* FOOTER SECTION */
+.bottom-section {
+    width: 85%;
+    max-width: 1300px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border: 1px solid rgba(255, 255, 255, 0.3); /* Border now matches navbar */
+    border-radius: 16px;
+    margin-top: 12px;
+}
+
+/* FOOTER ITEMS */
+.footer-item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    color: white;
+    font-size: 14px;
+    padding: 14px 50px;
+    width: 50%;
+    cursor: pointer;
+    transition: color 0.3s;
+}
+
+/* SEPARATOR LINE */
+.left-border {
+    border-right: 1px solid rgba(255, 255, 255, 0.3); /* Aligns with the navbar border */
+}
+
+/* FOOTER ITEM HOVER */
+.footer-item:hover {
+    color: orange;
+}
+
+/* ICONS */
+.footer-icon {
+    font-size: 16px;
+}
+
+/* HAMBURGER MENU */
+.hamburger-menu {
+    display: none;
+    cursor: pointer;
+    font-size: 20px;
+    color: white;
+}
+
+/* RESPONSIVE DESIGN */
+@media (max-width: 768px) {
+    .nav-links {
+        display: none; /* Hide menu items */
+    }
+
+    .hamburger-menu {
+        display: block;
+    }
+
+    .bottom-section {
+        flex-direction: column;
+    }
+
+    .footer-item {
+        width: 100%;
+        border-right: none;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+    }
+
+    .footer-item:last-child {
+        border-bottom: none;
+    }
+}
