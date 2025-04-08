@@ -1,17 +1,48 @@
-import { motion } from "framer-motion";
+import React from "react";
+import "../styles/Services.css";
+
+const services = [
+  {
+    title: "Simulation",
+    image: "/simulation.jpg",
+  },
+  {
+    title: "Photography",
+    image: "/photography.jpg",
+  },
+  {
+    title: "Event Management",
+    image: "/project2.png",
+  },
+  {
+    title: "Digital Marketing",
+    image: "/digital.jpg",
+  },
+];
+
+// Duplicate services for smooth infinite-like scroll
+const loopedServices = [...services, ...services];
 
 export default function Services() {
   return (
-    <motion.section className="p-8 text-white bg-black">
-      <h2 className="text-3xl font-bold mb-4">Our Services</h2>
-      <motion.div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-        {["Simulation", "Photography", "Event Management", "Digital Modeling"].map((service, index) => (
-          <motion.div key={index} className="p-4 bg-gray-800 rounded-md"
-            whileHover={{ scale: 1.05 }}>
-            {service}
-          </motion.div>
-        ))}
-      </motion.div>
-    </motion.section>
+    <section className="services-section">
+      <h2 className="services-heading">O U R &emsp; S E R V I C E S</h2>
+      <div className="scroll-container">
+        <div className="services-grid">
+          {loopedServices.map((service, index) => (
+            <div className="service-card" key={index}>
+              <div
+                className="service-image"
+                style={{ backgroundImage: `url(${service.image})` }}
+              >
+                <div className="service-overlay">
+                  <h3>{service.title}</h3>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
   );
 }

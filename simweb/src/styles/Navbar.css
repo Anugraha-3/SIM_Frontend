@@ -1,118 +1,130 @@
 /* Floating Centered Navbar */
 .navbar {
-    position: fixed;
-    top: 20px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 90%;
-    max-width: 1400px;
-    background-color: #0e0e0e;
-    border: 2px solid #2e2e2e;
-    border-radius: 20px;
-    padding: 10px 30px;
-    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
-    z-index: 1000;
-  }
-  
-  /* Split sections */
+  position: fixed;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 90%;
+  max-width: 1400px;
+  background-color: #000000;
+  border: 2px solid #2e2e2e;
+  border-radius: 20px;
+  padding: 10px 30px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
+  z-index: 1000;
+}
+
+/* Split sections */
+.navbar-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+/* Left Section */
+.navbar-left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.navbar-logo {
+  width: 70px;
+  height: 50px;
+  object-fit: contain;
+  border-radius: 6px;
+}
+
+.logo-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #111;
+  padding: 5px;
+  border-radius: 10px;
+  border: hidden;
+}
+
+.navbar-title {
+  color: white;
+  font-size: 9px;
+  font-weight: bold;
+  letter-spacing: 0.5px;
+}
+
+/* Center Section */
+.navbar-center {
+  display: flex;
+  gap: 30px;
+}
+
+.navbar-option {
+  position: relative;
+  color: white;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: all 0.3s ease;
+}
+
+.navbar-option::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  height: 2px;
+  width: 0%;
+  background-color: #0396ff;
+  transition: width 0.4s ease;
+  border-radius: 4px;
+}
+
+.navbar-option:hover::after {
+  width: 100%;
+}
+
+.navbar-option:hover {
+  color: rgb(249, 246, 245);
+  text-shadow: 0 0 4px #0396ff, 0 0 10px #0396ff;
+  /* box-shadow: 0 0 6px rgb(255, 253, 252), 0 0 12px #ff4f03; */
+  border-radius: 6px;
+  padding: 4px 8px;
+  transition: all 0.3s ease-in-out;
+}
+
+/* Right Section */
+.navbar-right {
+  display: flex;
+  gap: 20px;
+  padding-right: 20px;
+}
+
+/* Icons */
+.icon {
+  font-size: 16px;
+}
+
+/* Logo Hover */
+.logo-box:hover {
+  box-shadow: 0 0 15px #0396ff;
+  transition: box-shadow 0.3s ease-in-out;
+}
+
+/* Responsive Layout */
+@media (max-width: 768px) {
   .navbar-container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 100%;
-  }
-  
-  /* Left Section */
-  .navbar-left {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-  }
-  
-  .navbar-logo {
-    width:70px;
-    height: 50px;
-    object-fit : contain;
-    border-radius : 6px;
+    flex-direction: column;
+    gap: 10px;
   }
 
-  .logo-box {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    background-color: #111;
-    padding:5px;
-    border-radius: 10px;
-    border: 2px solid #2e2e2e;
-  }
-  .navbar-title {
-    color: white;
-    font-size: 9px;
-    font-weight: bold;
-    letter-spacing : 0.5px;
-    //position : center;
-  }
-  
-  /* Center Section */
-  .navbar-center {
-    display: flex;
-    gap: 30px;
-  }
-  
-  .navbar-option {
-    color: white;
-    font-size: 16px;
-    font-weight: 500;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    transition: all 0.3s ease;
-  }
-  
-  /*
-  .navbar-option:hover {
-    color : #ff4f03;;
-  }
-  */
-  .navbar-option:hover {
-    color:rgb(249, 246, 245);
-    text-shadow: 0 0 4px #ff4f03, 0 0 10px #ff4f03;
-    box-shadow: 0 0 6pxrgb(255, 253, 252), 0 0 12px #ff4f03;
-    border-radius: 6px;
-    padding: 4px 8px;
-    transition: all 0.3s ease-in-out;
-  }
-  
-  
-  /* Right Section */
+  .navbar-center,
   .navbar-right {
-    display: flex;
-    gap: 20px;
-    padding-right : 20px;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
   }
-  
-  /* Icons */
-  .icon {
-    font-size: 16px;
-  }
-  
-  /* For cleaner layout on small screens */
-  @media (max-width: 768px) {
-    .navbar-container {
-      flex-direction: column;
-      gap: 10px;
-    }
-  
-    .navbar-center, .navbar-right {
-      flex-direction: row;
-      flex-wrap: wrap;
-      justify-content: center;
-    }
-  }
-  
-  .logo-box:hover {
-    box-shadow: 0 0 15px rgba(255, 255, 255, 0.6);
-    transition: box-shadow 0.3s ease-in-out;
-  }
-  
+}

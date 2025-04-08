@@ -1,0 +1,111 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap');
+
+.loader-wrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 9999;
+  width: 100vw;
+  height: 100vh;
+  background: #000000; /* Dark navy background */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  transition: opacity 1s ease;
+}
+
+.loader {
+  position: relative;
+  width: 150px;
+  height: 150px;
+  background: transparent;
+  border-radius: 50%;
+  box-shadow: 25px 25px 75px rgba(0, 0, 100, 0.35); /* subtle blue glow */
+  border: 1px solid #1a2b55;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.loader::before {
+  content: '';
+  position: absolute;
+  inset: 20px;
+  background: transparent;
+  border: 1px dashed #274b91;
+  border-radius: 50%;
+  box-shadow: inset -5px -5px 25px rgba(0, 0, 50, 0.2),
+              inset 5px 5px 35px rgba(0, 0, 100, 0.3);
+}
+
+.loader::after {
+  content: '';
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  border: 1px dashed #274b91;
+  box-shadow: inset -5px -5px 25px rgba(0, 0, 50, 0.2),
+              inset 5px 5px 35px rgba(0, 0, 100, 0.3);
+}
+
+.loader span {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 50%;
+  height: 100%;
+  background: transparent;
+  transform-origin: top left;
+  animation: radar81 2s linear infinite;
+  border-top: 1px dashed #66ccff;
+}
+
+.loader span::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #00bfff;
+  transform-origin: top left;
+  transform: rotate(-55deg);
+  filter: blur(30px) drop-shadow(20px 20px 20px #00bfff);
+}
+
+@keyframes radar81 {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.loader-text {
+  margin-top: 2rem;
+  font-family: 'Orbitron', sans-serif;
+  font-size: 1.2rem;
+  text-align: center;
+  line-height: 1.8rem;
+  background: linear-gradient(90deg, #00f0ff, #00ffbf, #00f0ff);
+  background-size: 400%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: neonFlow 4s linear infinite;
+  letter-spacing: 1px;
+}
+
+@keyframes neonFlow {
+  0% {
+    background-position: 0%;
+  }
+  100% {
+    background-position: 400%;
+  }
+}

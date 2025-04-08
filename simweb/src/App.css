@@ -40,3 +40,20 @@
 .read-the-docs {
   color: #888;
 }
+/* Make sure the root occupies full height and keeps background behind */
+.app-root {
+  position: relative;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* This keeps all foreground content above the stars */
+.app-content {
+  position: relative;
+  z-index: 1;
+}
+
+/* Prevent horizontal overflow globally */
+.body::-webkit-scrollbar {
+  display: none;                /* Chrome, Safari */
+}

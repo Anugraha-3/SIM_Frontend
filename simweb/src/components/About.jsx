@@ -1,11 +1,20 @@
-import { motion } from "framer-motion";
+import React from "react";
+import "../styles/About.css";
 
 export default function About() {
   return (
-    <motion.section className="p-8 text-white bg-gray-900"
-      initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 1 }}>
-      <h2 className="text-3xl font-bold">About Us</h2>
-      <p className="mt-4">We are an innovation-driven company...</p>
-    </motion.section>
+    <section className="about-section">
+      <h2 className="about-title">A B O U T &emsp; U S</h2>
+      <p className="about-text">
+        At <span className="sun">SUN</span> INFO <span className="media">MEDIA</span>, we are more than just a business.
+        We are the architects of imagination, the curators of innovation, and
+        the pioneers of cutting-edge&nbsp;experiences.
+        Our passion lies in blending creativity with technology to create awe-inspiring
+        solutions that captivate audiences.
+        <br />
+        Unlocking the future through innovation, we redefine reality —
+        from holographic displays to immersive simulators.
+      </p>
+    </section>
   );
 }
