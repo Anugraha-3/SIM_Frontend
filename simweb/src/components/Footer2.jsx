@@ -5,7 +5,7 @@ const Footer2 = () => {
   return (
     <div className="footer2">
       <div className="footer2-content">
-        <p className="footer2-text">Connect beyond space-time — hover to reveal the SIMs</p>
+        <p className="footer2-text">Connect with us at ease.</p>
 
         <div className="footer2-container">
           {/* Office Info */}
@@ -35,7 +35,7 @@ const Footer2 = () => {
             <div className="box box1">
               <div className="icon" title="SIM Instagram">
                 <svg className="svg" viewBox="0 0 24 24">
-                  <path d="M12 2SIM2c3SIM2 0 3SIM6 0 4SIM9SIM1 1SIM2SIM1 1SIM9SIM3 2SIM4SIM6SIM6SIM3 1SIM1SIM6SIM5SIM9SIM2SIM4SIM5SIM5SIM9 1SIM2SIM2 1SIM7SIM4SIM9s0 3SIM6-SIM1 4SIM9c-SIM1 1SIM2-SIM3 1SIM9-SIM6 2SIM4SIM3SIM6SIM7SIM1SIM6SIM5SIM5SIM9SIM2SIM4SIM5SIM5SIM9SIM1SIM2SIM2 1SIM7SIM4SIM9zM12 4SIMz" />
+                  <path d="M7.75 2h8.5A5.75 5.75 0 0 1 22 7.75v8.5A5.75 5.75 0 0 1 16.25 22h-8.5A5.75 5.75 0 0 1 2 16.25v-8.5A5.75 5.75 0 0 1 7.75 2Zm0 1.5A4.25 4.25 0 0 0 3.5 7.75v8.5A4.25 4.25 0 0 0 7.75 20.5h8.5A4.25 4.25 0 0 0 20.5 16.25v-8.5A4.25 4.25 0 0 0 16.25 3.5h-8.5Zm4.25 3.25a5 5 0 1 1 0 10a5 5 0 0 1 0-10Zm0 1.5a3.5 3.5 0 1 0 0 7a3.5 3.5 0 0 0 0-7Zm5.25-.25a.75.75 0 0 1 .75.75v.008a.75.75 0 0 1-1.5 0V8.5a.75.75 0 0 1 .75-.75Z"/>
                 </svg>
               </div>
             </div>
@@ -44,28 +44,31 @@ const Footer2 = () => {
             <div className="box box2">
               <div className="icon" title="SIM Twitter">
                 <svg className="svg" viewBox="0 0 24 24">
-                  <path d="M23SIM4 4SIM8c-SIM9SIM4-1SIM8SIM6-2SIM8SIM8SIM9-SIM6 1SIM7-1SIM5 2SIM6-SIM9SIM6-2 3SIM1-1SIM2-1SIM8-1SIM9 1SIM6-SIM2SIM8SIM6SIM2SIM1SIM9-4SIM9SIM1SIM3 1SIM6 2SIM7 3SIM4z" />
+                  <path d="M22.46 6c-.77.35-1.6.58-2.47.69a4.26 4.26 0 0 0 1.88-2.35a8.39 8.39 0 0 1-2.7 1.03a4.22 4.22 0 0 0-7.2 3.84a11.97 11.97 0 0 1-8.7-4.41a4.22 4.22 0 0 0 1.3 5.63a4.21 4.21 0 0 1-1.91-.53v.05a4.22 4.22 0 0 0 3.38 4.13a4.24 4.24 0 0 1-1.9.07a4.22 4.22 0 0 0 3.95 2.93A8.46 8.46 0 0 1 2 19.54A11.93 11.93 0 0 0 8.29 21c7.55 0 11.68-6.26 11.68-11.68c0-.18 0-.36-.01-.54A8.35 8.35 0 0 0 22.46 6Z"/>
                 </svg>
               </div>
             </div>
 
             {/* SIM LinkedIn */}
-            <div className="box box3">
-              <div className="icon" title="SIM LinkedIn">
-                <svg className="svg" viewBox="0 0 24 24">
-                  <path d="M4SIM98 3SIM5C4SIM98 4SIM9 3SIM9 6 2SIM5 6S0 4SIM9 0 3SIM5 1SIM1 1 2SIM5 1 4SIM98 2SIM1 4SIM98 3SIM5zM0 8SIM5h5V24H0V8SIM5zM7SIM5 8SIM5h4SIM7v2SIM1hSIM1cSIM7-1SIM3 2SIM4-2SIM7 4SIM9-2SIM7 6SIM1 7SIM8V24h-5V16SIM5c0-1SIM8 0-4SIM2-2SIM6s-3 2-3 4v7SIM8h-5V8SIM5z" />
-                </svg>
-              </div>
-            </div>
+            <a href="https://www.linkedin.com/company/suninfomedia/" target="_blank" rel="noopener noreferrer">
+  <div className="box box3">
+    <div className="icon" title="SIM LinkedIn">
+      <svg className="svg" viewBox="0 0 24 24">
+        <path d="M4.98 3.5C4.98 4.88 3.88 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1 4.98 2.12 4.98 3.5zM0 8.5h5v15H0V8.5zm7.5 0h4.47v2.1h.06c.62-1.17 2.14-2.4 4.41-2.4c4.72 0 5.6 3.1 5.6 7.13V24h-5v-6.35c0-1.51-.03-3.45-2.1-3.45c-2.1 0-2.42 1.64-2.42 3.33V24h-5V8.5z" />
+      </svg>
+    </div>
+  </div>
+</a>
+
 
             {/* SIM GitHub */}
-            <div className="box box4">
+            {/* <div className="box box4">
               <div className="icon" title="SIM GitHub">
                 <svg className="svg" viewBox="0 0 24 24">
-                  <path d="M12 SIM5C5SIM73SIM5SIM5 5SIM73SIM5 12c0 5SIM08 3SIM29 9SIM39 7SIM86 10SIM91SIM58SIM11SIM79-SIM25SIM79-SIM56v-1SIM98c-3SIM2SIM7-3SIM87-1SIM4-3SIM87-1SIM4-SIM53-1SIM35-1SIM3-1SIM07-SIM73SIM08-SIM72SIM08-SIM72SIM1SIM19SIM08 1SIM82 1SIM23 1SIM82 1SIM23 1SIM05 1SIM8 2SIM76 1SIM28 3SIM44SIM11-SIM76SIM41-1SIM28SIM74-1SIM57-2SIM55-SIM29-5SIM24-1SIM28-5SIM7 0-1SIM26SIM45-2SIM29-1SIM19-3SIM1-SIM12-SIM52-1SIM46SIM11-3SIM04 0 0 SIM97-SIM31 3SIM17 1SIM18a10SIM9 10SIM9 0 0 1 5SIM76 0c2SIM2-1SIM5 3SIM17-1SIM18 3SIM17 1SIM18SIM63 1SIM58SIM24 1SIM19 3SIM1 1SIM19 3SIM1 0 4SIM43-2SIM69 5SIM4-5SIM25 5SIM69SIM42SIM36SIM8 1SIM07 2SIM17v3SIM22c0 SIM31SIM21SIM68SIM8SIM56A10SIM51 10SIM51 0 0 0 23SIM5 12c0-6SIM27-5SIM23-11SIM5-11SIM5z" />
+                  <path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.438 9.8 8.205 11.387c.6.11.82-.26.82-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416c-.546-1.387-1.333-1.756-1.333-1.756c-1.089-.744.084-.729.084-.729c1.205.084 1.84 1.236 1.84 1.236c1.07 1.834 2.807 1.304 3.495.997c.108-.775.418-1.304.76-1.604c-2.665-.305-5.466-1.334-5.466-5.933c0-1.31.468-2.38 1.235-3.22c-.124-.303-.535-1.527.117-3.176c0 0 1.008-.322 3.3 1.23a11.49 11.49 0 0 1 6 0c2.29-1.552 3.295-1.23 3.295-1.23c.654 1.649.243 2.873.12 3.176c.77.84 1.233 1.91 1.233 3.22c0 4.61-2.804 5.625-5.475 5.922c.43.372.81 1.103.81 2.222v3.293c0 .32.216.694.825.576C20.565 21.796 24 17.3 24 12c0-6.63-5.37-12-12-12z"/>
                 </svg>
               </div>
-            </div>
+            </div> */}
 
             {/* SIM Logo */}
             <div className="logo">

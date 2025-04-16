@@ -26,7 +26,7 @@ const loopedServices = [...services, ...services];
 export default function Services() {
   return (
     <section className="services-section">
-      <h2 className="services-heading">O U R &emsp; S E R V I C E S</h2>
+      <h2 className="services-heading"><span className="numb">02</span> Our Amazing Services</h2>
       <div className="scroll-container">
         <div className="services-grid">
           {loopedServices.map((service, index) => (

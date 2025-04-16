@@ -1,21 +1,47 @@
-import { FaPaperclip, FaCalendarAlt } from "react-icons/fa";
+import { FaPaperclip, FaCalendarAlt, FaBars, FaTimes } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
+import { useState, useEffect } from "react";
 import logo from "../assets/sim_logo.png";
 import "../styles/Navbar.css";
 
 const Navbar = ({ scrollToSection }) => {
   const navigate = useNavigate();
+  const [menuOpen, setMenuOpen] = useState(false);
+  const [activeSection, setActiveSection] = useState("");
 
-  const handleScroll = (ref) => {
+  const handleScroll = (ref, sectionName) => {
+    setMenuOpen(false); // Close menu on click
     if (ref?.current) {
       ref.current.scrollIntoView({ behavior: "smooth" });
+      setActiveSection(sectionName);
     }
   };
+
+  // Active section detection on scroll
+  useEffect(() => {
+    const sectionRefs = Object.entries(scrollToSection);
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            const name = sectionRefs.find(([_, ref]) => ref.current === entry.target)?.[0];
+            if (name) setActiveSection(name);
+          }
+        });
+      },
+      { threshold: 0.6 }
+    );
+
+    sectionRefs.forEach(([_, ref]) => {
+      if (ref.current) observer.observe(ref.current);
+    });
+
+    return () => observer.disconnect();
+  }, [scrollToSection]);
 
   return (
     <nav className="navbar">
       <div className="navbar-container">
-        
         {/* Left: Logo */}
         <div className="navbar-left">
           <div className="logo-box">
@@ -24,38 +50,46 @@ const Navbar = ({ scrollToSection }) => {
           </div>
         </div>
 
-        {/* Center: Nav Links */}
-        <div className="navbar-center">
-          <div className="navbar-option" onClick={() => handleScroll(scrollToSection.services)}>
-            Services
-          </div>
-          <div className="navbar-option" onClick={() => handleScroll(scrollToSection.about)}>
+        {/* Hamburger Menu (Mobile) */}
+        <div className="navbar-hamburger" onClick={() => setMenuOpen(!menuOpen)}>
+          {menuOpen ? <FaTimes /> : <FaBars />}
+        </div>
+
+        {/* Center & Right Links */}
+        <div className={`navbar-links ${menuOpen ? "show" : ""}`}>
+          <div
+            className={`navbar-option ${activeSection === "about" ? "active" : ""}`}
+            onClick={() => handleScroll(scrollToSection.about, "about")}
+          >
             About
           </div>
-          <div className="navbar-option" onClick={() => handleScroll(scrollToSection.team)}>
-            Team
+          <div
+            className={`navbar-option ${activeSection === "services" ? "active" : ""}`}
+            onClick={() => handleScroll(scrollToSection.services, "services")}
+            title="Explore our services"
+          >
+            
+            <span>Services</span>
           </div>
-          <div className="navbar-option" onClick={() => handleScroll(scrollToSection.contact)}>
-            Contact
+          <div
+            className={`navbar-option ${activeSection === "team" ? "active" : ""}`}
+            onClick={() => handleScroll(scrollToSection.team, "team")}
+          >
+            Team
           </div>
           <div className="navbar-option" onClick={() => navigate("/globe")}>
             Gallery
           </div>
-        </div>
-
-        {/* Right: Icon Buttons */}
-        <div className="navbar-right">
-          <div className="navbar-option" onClick={() => handleScroll(scrollToSection.services)}>
-            <FaPaperclip className="icon" />
-            <span>Services</span>
-          </div>
-          <div style={{ width: "15px" }}></div>
-          <div className="navbar-option" onClick={() => handleScroll(scrollToSection.contact)}>
-            <FaCalendarAlt className="icon" />
+      
+          <div
+            className={`navbar-option ${activeSection === "contact" ? "active" : ""}`}
+            onClick={() => handleScroll(scrollToSection.contact, "contact")}
+            title="Reach out to us"
+          >
+            
             <span>Get in Touch</span>
           </div>
         </div>
-        
       </div>
     </nav>
   );

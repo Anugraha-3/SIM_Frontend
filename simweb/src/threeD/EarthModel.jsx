@@ -1,4 +1,4 @@
-import { useRef, useEffect, useState } from "react";
+import { useRef } from "react";
 import { useLoader, useFrame } from "@react-three/fiber";
 import * as THREE from "three";
 import { TextureLoader } from "three";
@@ -15,8 +15,6 @@ function EarthModel() {
   const cloudsRef = useRef();
   const galaxyRef = useRef();
 
-  const [mouse, setMouse] = useState({ x: 0, y: 0 });
-
   const [colorMap, bumpMap, cloudMap, nightMap, oceanMap, bgMap] = useLoader(TextureLoader, [
     Albedo,
     Bump,
@@ -26,33 +24,15 @@ function EarthModel() {
     Stars,
   ]);
 
-  useEffect(() => {
-    const handleMouseMove = (e) => {
-      const x = (e.clientX / window.innerWidth) * 2 - 1;
-      const y = -(e.clientY / window.innerHeight) * 2 + 1;
-      setMouse({ x, y });
-    };
-
-    window.addEventListener("mousemove", handleMouseMove);
-    return () => window.removeEventListener("mousemove", handleMouseMove);
-  }, []);
-
   useFrame(({ clock }) => {
     const elapsed = clock.getElapsedTime();
-
     if (earthRef.current) earthRef.current.rotation.y = elapsed * 0.05;
     if (cloudsRef.current) cloudsRef.current.rotation.y = elapsed * 0.06;
-
-    // Parallax effect on background galaxy
-    if (galaxyRef.current) {
-      galaxyRef.current.rotation.y = mouse.x * 0.3;
-      galaxyRef.current.rotation.x = mouse.y * 0.15;
-    }
   });
 
   return (
     <>
-      {/* Background Galaxy (Mouse Responsive) */}
+      {/* Static Background Galaxy */}
       <mesh ref={galaxyRef}>
         <sphereGeometry args={[80, 64, 64]} />
         <meshBasicMaterial map={bgMap} side={THREE.BackSide} />
@@ -61,13 +41,16 @@ function EarthModel() {
       {/* Earth */}
       <mesh ref={earthRef}>
         <sphereGeometry args={[1, 64, 64]} />
-        <meshPhongMaterial
+        <meshPhysicalMaterial
           map={colorMap}
           bumpMap={bumpMap}
           bumpScale={0.05}
-          specularMap={oceanMap}
           emissiveMap={nightMap}
           emissiveIntensity={0.8}
+          clearcoat={1}
+          clearcoatRoughness={0.1}
+          metalness={0.1}
+          roughness={1}
         />
       </mesh>
 

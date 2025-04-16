@@ -1,0 +1,187 @@
+/* Fullscreen & Overflow Handling */
+html, body {
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  width: 100vw;
+  height: 100vh;
+  background: #000;
+}
+
+/* Container Fix */
+#infinite-grid-menu-canvas {
+  cursor: grab;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  position: fixed;
+  inset: 0;
+  outline: none;
+  background: radial-gradient(circle at center, #0d0d0d, #1a1a1a);
+  z-index: 0;
+}
+
+/* Title Styling with Glow */
+.face-title {
+  user-select: none;
+  position: absolute;
+  font-weight: 900;
+  font-size: clamp(2.5rem, 5vw, 4.5rem);
+  left: 5vw;
+  top: 50%;
+  transform: translateY(-50%);
+  max-width: 35vw;
+  color: #00ffff;
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.6s ease;
+  text-shadow: 0 0 15px #00ffff, 0 0 25px #00ffff, 0 0 35px cyan;
+  animation: glowPulse 2.5s infinite alternate;
+}
+
+.face-title.active {
+  opacity: 1;
+  pointer-events: auto;
+  transform: scale(1.05) translateY(-50%);
+}
+
+.face-title.inactive {
+  opacity: 0;
+  transform: scale(0.85) translateY(-50%);
+}
+
+/* Description Styling with Glow */
+.face-description {
+  user-select: none;
+  position: absolute;
+  max-width: 35vw;
+  top: 55%;
+  font-size: clamp(1rem, 2vw, 1.5rem);
+  right: 5vw;
+  transform: translateY(-50%);
+  text-align: right;
+  color: #ffffff;
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.6s ease;
+  text-shadow: 0 0 10px cyan, 0 0 20px #00ffff;
+  animation: glowPulse 2.5s infinite alternate;
+}
+
+.face-description.active {
+  opacity: 1;
+  pointer-events: auto;
+  transform: scale(1.05) translateY(-50%);
+}
+
+.face-description.inactive {
+  opacity: 0;
+  transform: scale(0.85) translateY(-50%);
+}
+
+/* Button Enhancements */
+.action-button {
+  position: absolute;
+  left: 50%;
+  z-index: 10;
+  width: 60px;
+  height: 60px;
+  display: grid;
+  place-items: center;
+  background: #00ffff;
+  color: #000;
+  font-weight: bold;
+  border: 4px solid #000;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: all 0.4s ease;
+  box-shadow: 0 0 10px #00ffff, 0 0 20px #00ffff;
+}
+
+.action-button.active {
+  bottom: 3.8em;
+  transform: translateX(-50%) scale(1);
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.action-button.inactive {
+  bottom: -80px;
+  transform: translateX(-50%) scale(0);
+  opacity: 0;
+  pointer-events: none;
+}
+
+.action-button:hover {
+  box-shadow: 0 0 20px 10px cyan;
+  transform: translateX(-50%) scale(1.2);
+}
+
+/* Image Presentation */
+.gallery-item-image {
+  border-radius: 15px;
+  box-shadow: 0 0 20px #00ffff88;
+  transition: transform 0.5s ease, box-shadow 0.5s ease;
+}
+
+.gallery-item-image:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 40px #00ffff;
+}
+
+/* Animation */
+@keyframes glowPulse {
+  from {
+    text-shadow: 0 0 10px #00ffff, 0 0 20px #00ffff;
+  }
+  to {
+    text-shadow: 0 0 20px #00ffff, 0 0 40px cyan;
+  }
+}
+
+/* Responsive Layout Adjustments */
+@media (max-width: 1200px) {
+  .face-title,
+  .face-description {
+    max-width: 50vw;
+  }
+}
+
+@media (max-width: 1024px) {
+  .face-title {
+    font-size: clamp(1.8rem, 4vw, 3rem);
+    max-width: 60vw;
+  }
+
+  .face-description {
+    font-size: clamp(1rem, 2.5vw, 1.3rem);
+    max-width: 60vw;
+  }
+}
+
+@media (max-width: 768px) {
+  .face-title {
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    max-width: 80vw;
+  }
+
+  .face-description {
+    right: 50%;
+    transform: translate(50%, -50%);
+    text-align: center;
+    max-width: 80vw;
+  }
+}
+
+@media (max-width: 600px) {
+  .face-title {
+    font-size: clamp(1.2rem, 6vw, 2rem);
+    display: none;
+  }
+
+  .face-description {
+    margin-top: 9rem;
+  }
+}

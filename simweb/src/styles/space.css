@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap');
 
+/* Loader Wrapper */
 .loader-wrapper {
   position: fixed;
   top: 0;
@@ -81,12 +82,12 @@
   0% {
     transform: rotate(0deg);
   }
-
   100% {
     transform: rotate(360deg);
   }
 }
 
+/* Text for the Loader */
 .loader-text {
   margin-top: 2rem;
   font-family: 'Orbitron', sans-serif;
@@ -108,4 +109,9 @@
   100% {
     background-position: 400%;
   }
+}
+
+/* Normal Cursor (default system cursor) */
+body {
+  cursor: default;
 }
