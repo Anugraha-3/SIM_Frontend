@@ -18,58 +18,58 @@ const members = [
   {
     name: "KeerthiVarman",
     image: keerthi,
-    role: "Commander",
+    role: "Founder & CEO – Sun Info Media",
     description:
-      "Douglas Gerald Hurley is an American engineer, former Marine Corps pilot and former NASA astronaut. He launched into space for the third time as commander of Crew Dragon Demo-2.",
+      "The visionary behind Sun Info Media, Keerthi Varman leads the team with a passion for innovation and technology. With a clear focus on growth and creativity, he drives the company toward building impactful digital experiences and future-ready solutions.",
   },
   {
     name: "Muthu Pandian",
     image: muthu,
-    role: "Manager",
+    role: "Manager – Game & 3D Designer",
     description:
-      "Mark Richard Shuttleworth is the founder and CEO of Canonical, the company behind Ubuntu. He was the first South African to travel to space.",
+      "Leads the creative vision for game design and 3D development, blending innovation with design expertise to deliver high-quality interactive experiences.",
   },
   {
     name: "Siva perumal",
     image: siva,
-    role: "Senior Editor",
+    role: "Videographer, Photographer & Senior Editor",
     description:
-      "Pilot on the first operational SpaceX Crew Dragon flight. Glover is a U.S. Navy commander and Expedition 64 crew member.",
+      "Specializes in capturing compelling visuals and delivering polished edits. With a sharp eye and years of experience, he brings stories to life through video.",
   },
   {
     name: "Seenu Bala",
     image: seenu,
-    role: "Designer",
+    role: "Developer",
     description:
-      "Anousheh Ansari is an Iranian American engineer and co-founder of Prodea Systems. She was the first Iranian in space.",
+      "Focused on building solid and scalable digital solutions. Seenibala supports the team with technical expertise and efficient development practices.",
   },
   {
     name: "Anuz Balamurali",
     image: anuz,
-    role: "Frontend Developer",
+    role: "Full Stack developer",
     description:
-      "Anousheh Ansari is an Iranian American engineer and co-founder of Prodea Systems. She was the first Iranian in space.",
+      "Anuz Balamurali is a driven Software Systems student with hands-on experience in full-stack development and a keen eye on Human-Computer Interaction. With a solid grip on data structures and problem-solving, he builds intuitive digital solutions—from dynamic car resale platforms to offline payment systems.",
   },
   {
     name: "Dineshprasath G A",
     image: dinesh,
-    role: "Backend Developer",
+    role: "Full Stack developer",
     description:
-      "Anousheh Ansari is an Iranian American engineer and co-founder of Prodea Systems. She was the first Iranian in space.",
+      "He is a developer with expertise in building secure, scalable web applications and intelligent systems.With a strong foundation in cybersecurity, AI, and machine learning, he integrates smart, data-driven solutions into his projects. His work combines secure architecture, user-focused design, and advanced analytics to deliver reliable and intelligent digital experiences.",
   },
   {
     name: "Kalaiyarasi",
     image: kalai,
-    role: "Senior Content Writer",
+    role: "Junior Editor & Content Writer",
     description:
-      "Anousheh Ansari is an Iranian American engineer and co-founder of Prodea Systems. She was the first Iranian in space.",
+      "Works on editing and writing content that communicates clearly and creatively. Passionate about storytelling and visual details.",
   },
   {
-    name: "Sandra",
+    name: "Sandra Grace",
     image: sandra,
-    role: "Senior Content Writer",
+    role: "Junior 3D Designer & Content Writer",
     description:
-      "Anousheh Ansari is an Iranian American engineer and co-founder of Prodea Systems. She was the first Iranian in space.",
+      "Combines 3D design skills with a flair for content creation. Sandra supports visual development and helps shape engaging written content.",
   },
 ];
 
@@ -151,8 +151,8 @@ export default function CrewPage() {
             </div>
 
             <div className="nav-buttons">
-              <button onClick={prevMember}>⏮ Prev</button>
-              <button onClick={nextMember}>Next ⏭</button>
+              <button onClick={prevMember}>⏮</button>
+              <button onClick={nextMember}>⏭</button>
             </div>
           </motion.div>
         </AnimatePresence>

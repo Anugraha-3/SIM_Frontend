@@ -1,188 +1,132 @@
 .footer2 {
-    background: radial-gradient(ellipse at bottom, #0d0d1f 0%, #000000 100%);
-    background-image: url('https://www.transparenttextures.com/patterns/stardust.png'); /* starry texture */
-    color: #e0e0e0;
-    padding: 3rem 2rem;
-    font-family: 'Segoe UI', sans-serif;
-    overflow: hidden;
-    position: relative;
+  background: radial-gradient(ellipse at bottom, #0d0d1f 0%, #000000 100%);
+  background-image: url('https://www.transparenttextures.com/patterns/stardust.png');
+  color: #e0e0e0;
+  padding: 3rem 2rem;
+  font-family: 'Segoe UI', sans-serif;
+  overflow: hidden;
+  position: relative;
+}
+
+.footer2-content {
+  max-width: 1400px;
+  margin: 0 auto;
+  position: relative;
+}
+
+.footer2-text {
+  text-align: center;
+  font-size: 1.25rem;
+  margin-bottom: 2rem;
+  letter-spacing: 1px;
+  color: #d1c4e9;
+}
+
+.footer2-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 2rem;
+}
+
+/* Office Info */
+.office-info {
+  flex: 1;
+  min-width: 300px;
+  background: rgba(255, 255, 255, 0.05);
+  padding: 1.5rem;
+  border-radius: 1rem;
+  backdrop-filter: blur(10px);
+  animation: fadeInLeft 1.5s ease-out forwards;
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.05);
+}
+
+.office-info h3 {
+  margin-bottom: 1rem;
+  font-size: 1.5rem;
+  color: #ffccbc;
+}
+
+.office-info p {
+  margin: 0.5rem 0;
+  line-height: 1.5;
+  font-size: 1rem;
+}
+
+/* Map */
+.map-container {
+  margin-top: 1rem;
+  border-radius: 0.75rem;
+  overflow: hidden;
+  border: 2px solid #333;
+}
+
+/* Social Media Card */
+.enhanced-social-card {
+  flex: 1;
+  max-width: 200px;
+  background: linear-gradient(145deg, #370c6b, #152a6f);
+  border-radius: 2rem;
+  box-shadow: 0 0 25px rgba(255, 255, 255, 0.08);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  padding: 2rem 1rem;
+  animation: fadeInRight 1.5s ease-out forwards;
+}
+
+.enhanced-social-card .box {
+  width: 60px;
+  height: 60px;
+  background: #121212;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  transition: transform 0.3s ease, background 0.3s ease;
+  cursor: pointer;
+}
+
+.enhanced-social-card .box:hover {
+  transform: scale(1.1);
+  background: #4e4eff;
+}
+
+.svg {
+  fill: white;
+  width: 24px;
+  height: 24px;
+}
+
+.logo {
+  margin-top: 1rem;
+}
+
+.logo-svg {
+  width: 50px;
+  height: 50px;
+}
+
+/* Animations */
+@keyframes fadeInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-50px);
   }
-  
-  .footer2-content {
-    max-width: 1400px;
-    margin: 0 auto;
-    position: relative;
+  to {
+    opacity: 1;
+    transform: translateX(0);
   }
-  
-  .footer2-text {
-    text-align: center;
-    font-size: 1.25rem;
-    margin-bottom: 2rem;
-    letter-spacing: 1px;
-    color: #d1c4e9;
+}
+
+@keyframes fadeInRight {
+  from {
+    opacity: 0;
+    transform: translateX(50px);
   }
-  
-  .footer2-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    gap: 2rem;
-    position: relative;
+  to {
+    opacity: 1;
+    transform: translateX(0);
   }
-  
-  /* Office Info Styling */
-  .office-info {
-    flex: 1;
-    min-width: 300px;
-    background: rgba(255, 255, 255, 0.05);
-    padding: 1.5rem;
-    border-radius: 1rem;
-    backdrop-filter: blur(10px);
-    animation: fadeInLeft 1.5s ease-out forwards;
-    box-shadow: 0 0 20px rgba(255, 255, 255, 0.05);
-  }
-  
-  .office-info h3 {
-    margin-bottom: 1rem;
-    font-size: 1.5rem;
-    color: #ffccbc;
-  }
-  
-  .office-info p {
-    margin: 0.5rem 0;
-    line-height: 1.5;
-    font-size: 1rem;
-  }
-  
-  /* Map */
-  .map-container {
-    margin-top: 1rem;
-    border-radius: 0.75rem;
-    overflow: hidden;
-    border: 2px solid #333;
-  }
-  
-  /* Social Media Card */
-  .enhanced-social-card {
-    flex: 1;
-    min-width: 320px;
-    max-width: 420px;
-    background: linear-gradient(145deg, #1a1a2e, #16213e);
-    border-radius: 2rem;
-    box-shadow: 0 0 25px rgba(255, 255, 255, 0.08);
-    position: relative;
-    padding: 2rem;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
-    align-items: center;
-    animation: floatUp 3s ease-out forwards;
-  }
-  
-  /* Glowing Nebula Background Animation */
-  .enhanced-social-card::before {
-    content: '';
-    position: absolute;
-    top: -20%;
-    left: -20%;
-    width: 140%;
-    height: 140%;
-    background: radial-gradient(circle, #7f00ff22 0%, #000 80%);
-    filter: blur(80px);
-    animation: pulseGlow 6s ease-in-out infinite;
-    z-index: 0;
-  }
-  
-  .box {
-    position: relative;
-    width: 60px;
-    height: 60px;
-    margin: 0.5rem;
-    border-radius: 50%;
-    background: #ffffff0d;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    transition: transform 0.4s ease;
-    cursor: pointer;
-    z-index: 1;
-  }
-  
-  .box:hover {
-    transform: scale(1.2) rotate(10deg);
-    box-shadow: 0 0 15px #ffffff33;
-  }
-  
-  .icon .svg {
-    width: 28px;
-    height: 28px;
-    fill: #fff;
-    transition: fill 0.3s ease;
-  }
-  
-  .icon:hover .svg {
-    fill: #90caf9;
-  }
-  
-  .logo {
-    position: absolute;
-    bottom: -20px;
-    right: -20px;
-    background: #ffffff18;
-    padding: 0.8rem;
-    border-radius: 50%;
-    box-shadow: 0 0 20px rgba(255, 255, 255, 0.12);
-    z-index: 2;
-  }
-  
-  .logo-svg {
-    width: 50px;
-    height: 50px;
-  }
-  
-  /* Animations */
-  @keyframes floatUp {
-    from {
-      transform: translateY(50px);
-      opacity: 0;
-    }
-    to {
-      transform: translateY(0);
-      opacity: 1;
-    }
-  }
-  
-  @keyframes fadeInLeft {
-    from {
-      transform: translateX(-40px);
-      opacity: 0;
-    }
-    to {
-      transform: translateX(0);
-      opacity: 1;
-    }
-  }
-  
-  @keyframes pulseGlow {
-    0%, 100% {
-      opacity: 0.4;
-      transform: scale(1);
-    }
-    50% {
-      opacity: 0.8;
-      transform: scale(1.1);
-    }
-  }
-  
-  /* Responsive Adjustments */
-  @media (max-width: 768px) {
-    .footer2-container {
-      flex-direction: column;
-      align-items: center;
-    }
-  
-    .enhanced-social-card {
-      max-width: 100%;
-    }
-  }
-  
+}

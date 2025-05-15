@@ -10,6 +10,7 @@ import Team from './components/Team';
 import Footer from './components/Footer';
 import Footer2 from './components/Footer2';
 import GlobeGallery from './pages/Gallery';
+import Keerthi from './pages/keerthi'; // 👈 Import the new Keerthi page
 
 import './styles/globe.css';
 import './styles/space.css';
@@ -44,10 +45,9 @@ export default function App() {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    // Simulate loading delay — tweak duration as needed
     const timer = setTimeout(() => {
       setIsLoading(false);
-    }, 2500); // 2.5 seconds
+    }, 2500);
 
     return () => clearTimeout(timer);
   }, []);
@@ -60,6 +60,7 @@ export default function App() {
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/globe" element={<GlobeGallery />} />
+          <Route path="/keerthi" element={<Keerthi />} /> {/* 👈 Route for Keerthi page */}
         </Routes>
       )}
     </Router>

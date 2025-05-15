@@ -31,13 +31,15 @@ html, body {
   top: 50%;
   transform: translateY(-50%);
   max-width: 35vw;
-  color: #00ffff;
+  color: #8A2BE2; /* A professional shade of purple */
   opacity: 0;
   pointer-events: none;
   transition: all 0.6s ease;
-  text-shadow: 0 0 15px #00ffff, 0 0 25px #00ffff, 0 0 35px cyan;
-  animation: glowPulse 2.5s infinite alternate;
+  margin-top: 150px;
+  text-shadow: 0 0 10px #8A2BE2, 0 0 20px #8A2BE2, 0 0 30px #9b59b6, 0 0 40px #9b59b6;
+  margin-left: -40px;
 }
+
 
 .face-title.active {
   opacity: 1;
@@ -53,31 +55,31 @@ html, body {
 /* Description Styling with Glow */
 .face-description {
   user-select: none;
-  position: absolute;
+  position: fixed; /* Change to fixed positioning for better placement */
   max-width: 35vw;
-  top: 55%;
+  bottom: 2rem; /* Position it at the bottom */
+  right: 2rem; /* Position it at the right */
   font-size: clamp(1rem, 2vw, 1.5rem);
-  right: 5vw;
-  transform: translateY(-50%);
   text-align: right;
-  color: #ffffff;
-  opacity: 0;
-  pointer-events: none;
-  transition: all 0.6s ease;
-  text-shadow: 0 0 10px cyan, 0 0 20px #00ffff;
-  animation: glowPulse 2.5s infinite alternate;
+  color: #9b59b6; /* Purple color */
+  opacity: 1; /* No need for transition of opacity */
+  pointer-events: auto; /* Ensure it remains interactive */
+  transition: none; /* Remove transitions for static effect */
+  text-shadow: 0 0 10px #9b59b6, 0 0 20px #8A2BE2, 0 0 30px #8A2BE2; /* Purple glow effect */
 }
 
 .face-description.active {
+  /* No animation needed */
   opacity: 1;
   pointer-events: auto;
-  transform: scale(1.05) translateY(-50%);
 }
 
 .face-description.inactive {
+  /* No animation needed */
   opacity: 0;
-  transform: scale(0.85) translateY(-50%);
+  pointer-events: none;
 }
+
 
 /* Button Enhancements */
 .action-button {

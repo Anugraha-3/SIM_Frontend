@@ -40,19 +40,19 @@ const Gallery = () => {
   };
 
   const items = [
-    { image: img2, title: "Sun Info Media", description: "Flagship Events" },
-    { image: img3, title: "Sun Info Media", description: "Overall trophy winners" },
+    { image: img2, title: "Sun Info Media", description: "Ad Shooting" },
+    { image: img3, title: "Sun Info Media", description: "Political Events" },
     { image: img1, title: "Welcome to", description: "Try rotating the globe 🌍🖐" },
-    { image: img4, title: "Sun Info Media", description: 'Flash Mob by Students' },
-    { image: img5, title: "Sun Info Media", description: 'Inauguration Ceremony' },
-    { image: img6, title: "Sun Info Media", description: 'Chief Guest Addressing' },
-    { image: img7, title: "Sun Info Media", description: "Mr. Melinia 2025" },
-    { image: img8, title: "Sun Info Media", description: "Technical Event" },
-    { image: img9, title: "Sun Info Media", description: "Cultural Performance" },
-    { image: img10, title: "Sun Info Media", description: "Faculty at Valediction" },
-    { image: img11, title: "Sun Info Media", description: "Trophy Unveiling" },
-    { image: img12, title: "Sun Info Media", description: "The Team Behind" },
-    { image: img13, title: "Sun Info Media", description: "Basketball Tournament" },
+    { image: img4, title: "Sun Info Media", description: 'Political Events' },
+    { image: img5, title: "Sun Info Media", description: 'VR/AR Shopping' },
+    { image: img6, title: "Sun Info Media", description: 'VR/AR Shopping' },
+    { image: img7, title: "Sun Info Media", description: "Ship Simulators" },
+    { image: img8, title: "Sun Info Media", description: "Ship Simulators" },
+    { image: img9, title: "Sun Info Media", description: "Train Simulators" },
+    { image: img10, title: "Sun Info Media", description: "Train Simulators" },
+    { image: img11, title: "Sun Info Media", description: "Car Simulators" },
+    { image: img12, title: "Sun Info Media", description: "Car Simulators" },
+    { image: img13, title: "Sun Info Media", description: "Truck Simulators" },
   ];
 
   if (loading) return <LoadingScreen />;

@@ -66,13 +66,13 @@
 }
 
 .about-text .sun {
-  color: #ff3b3b;
+  color: #ff5e00;
   font-weight: bold;
   text-shadow: 0 0 5px #ff3b3b88;
 }
 
 .about-text .media {
-  color: #00ff90;
+  color: #00ff1e;
   font-weight: bold;
   text-shadow: 0 0 5px #00ff9088;
 }
@@ -132,4 +132,15 @@
   .about-text {
     font-size: 1rem;
   }
+}
+.know-more-link {
+  color: #6e00c8;
+  font-weight: bold;
+  text-decoration: underline;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.know-more-link:hover {
+  color: #0c39dc;
 }
