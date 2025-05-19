@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { useNavigate } from "react-router-dom";
 import Loader from "../components/loader";
-import "./keerthi.css";
+import "../styles/Keerthi.css"; // Adjust the path as necessary
 import keerthiImg from "../assets/keerthivarman.png";
 
 const timeline = [

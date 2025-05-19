@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 import { mat4, quat, vec2, vec3 } from 'gl-matrix';
-import './InfiniteMenu.css';
+import '../styles/InfiniteMenu.css';
 
 const discVertShaderSource = `#version 300 es
 
