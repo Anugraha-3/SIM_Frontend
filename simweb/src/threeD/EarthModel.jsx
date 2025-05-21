@@ -44,12 +44,12 @@ function EarthModel() {
         <meshPhysicalMaterial
           map={colorMap}
           bumpMap={bumpMap}
-          bumpScale={0.05}
+          bumpScale={0.1}
           emissiveMap={nightMap}
           emissiveIntensity={0.8}
           clearcoat={1}
           clearcoatRoughness={0.1}
-          metalness={0.1}
+          metalness={0.3}
           roughness={1}
         />
       </mesh>

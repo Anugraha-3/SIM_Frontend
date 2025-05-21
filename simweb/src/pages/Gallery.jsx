@@ -57,14 +57,19 @@ const Gallery = () => {
 
   if (loading) return <LoadingScreen />;
 
-  return (
-    <div className={`gallery-container ${animate ? 'fade-in' : ''}`}>
-      <button className="back-button" onClick={handleBackClick}>
-        ← Back to Home
-      </button>
-      <InfiniteMenu items={items} />
-    </div>
-  );
+ return (
+  <div className={`gallery-container ${animate ? 'fade-in' : ''} relative z-10 p-6`}>
+    <button
+      className="back-button px-4 py-2 bg-white text-black font-semibold rounded-lg hover:bg-gray-200 active:scale-95 transition-transform duration-200"
+      onClick={handleBackClick}
+    >
+      ← Back to Home
+    </button>
+
+    <InfiniteMenu items={items} />
+  </div>
+);
+
 };
 
 export default Gallery;

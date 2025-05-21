@@ -23,6 +23,7 @@ function HomePage() {
 
   return (
     <>
+    
       <Navbar
         scrollToSection={{
           about: aboutRef,

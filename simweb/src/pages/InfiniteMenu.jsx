@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react';
+  import { useEffect, useRef, useState } from 'react';
 import { mat4, quat, vec2, vec3 } from 'gl-matrix';
 import '../styles/InfiniteMenu.css';
 

@@ -1,7 +1,7 @@
 import { useMemo, useState, useEffect, useRef } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { useSwipeable } from "react-swipeable";
-import "../styles/Team.css";
+// import "../styles/Team.css";
 
 // Images
 import keerthi from "../assets/keerthivarman.png";
@@ -118,60 +118,85 @@ export default function CrewPage() {
   const member = members[current];
 
   return (
-    <div className="crew-wrapper">
-      <div className="page-title">
-        <span className="number">03</span> Meet Your Crew
-      </div>
+  <div className="bg-black text-white px-5 py-20 overflow-hidden font-primary">
+  <h2 className="text-3xl md:text-4xl font-bold uppercase tracking-wider mb-10 relative text-left inline-block">
+    <span className="text-gray-700 mr-3">03</span> Meet Your Crew
+    <span className="absolute left-0 -bottom-1 w-full h-1 bg-gradient-to-r from-pink-500 to-indigo-500"></span>
+  </h2>
 
-      <div className="crew-content" {...handlers}>
-        <AnimatePresence mode="wait">
-          <motion.div
-            key={member.name}
-            className="crew-left"
-            initial={{ opacity: 0, x: -30 }}
-            animate={{ opacity: 1, x: 0 }}
-            exit={{ opacity: 0, x: 30 }}
-            transition={{ duration: 0.5 }}
-          >
-            <h4 className="crew-role">{member.role}</h4>
-            <h3 className="crew-name">{member.name}</h3>
-            <p className="crew-description">{member.description}</p>
+  <div className="flex flex-col lg:flex-row items-center justify-between gap-10 lg:gap-20" {...handlers}>
+    {/* Left: Text Content */}
+    <AnimatePresence mode="wait">
+      <motion.div
+        key={member.name}
+        className="w-full lg:w-1/2 text-center lg:text-left lg:pl-60"  // ⬅️ Push content slightly right
+        initial={{ opacity: 0, x: -30 }}
+        animate={{ opacity: 1, x: 0 }}
+        exit={{ opacity: 0, x: -30 }}
+        transition={{ duration: 0.5 }}
+      >
+        <h4 className="text-lg uppercase opacity-60 tracking-widest mb-2.5">{member.role}</h4>
+        <h3 className="text-4xl uppercase text-white mb-5">{member.name}</h3>
+        <p className="text-base leading-relaxed text-[#d0d6f9] whitespace-pre-wrap px-2.5 lg:px-0">
+          {member.description}
+        </p>
 
-            <div className="crew-dots">
-              {members.map((_, i) => (
-                <span
-                  key={i}
-                  className={`dot ${current === i ? "active" : ""}`}
-                  onClick={() => {
-                    setCurrent(i);
-                    resetAutoSlide();
-                  }}
-                />
-              ))}
-            </div>
-
-            <div className="nav-buttons">
-              <button onClick={prevMember}>⏮</button>
-              <button onClick={nextMember}>⏭</button>
-            </div>
-          </motion.div>
-        </AnimatePresence>
-
-        <div className="crew-right">
-          <AnimatePresence mode="wait">
-            <motion.img
-              key={member.name}
-              src={member.image}
-              alt={member.role}
-              className="crew-image"
-              initial={{ opacity: 0, scale: 0.95 }}
-              animate={{ opacity: 1, scale: 1 }}
-              exit={{ opacity: 0, scale: 0.95 }}
-              transition={{ duration: 0.8 }}
+        {/* Dots */}
+        <div className="flex gap-3 justify-center lg:justify-start mt-7">
+          {members.map((_, i) => (
+            <span
+              key={i}
+              className={`w-3.5 h-3.5 rounded-full bg-white transition-all duration-300 cursor-pointer ${
+                current === i
+                  ? 'opacity-100 shadow-[0_0_6px_2px_rgba(255,255,255,0.4)]'
+                  : 'opacity-30 hover:opacity-60 hover:scale-120'
+              }`}
+              onClick={() => {
+                setCurrent(i);
+                resetAutoSlide();
+              }}
             />
-          </AnimatePresence>
+          ))}
         </div>
-      </div>
-    </div>
+
+        {/* Navigation Buttons */}
+        <div className="flex gap-3 justify-center lg:justify-start mt-5">
+          <button
+            className="bg-transparent text-white border-2 border-white px-4 py-1.5 rounded-lg text-base font-orbitron cursor-pointer transition-all duration-300 hover:bg-white hover:text-black hover:scale-105"
+            onClick={prevMember}
+          >
+            ⏮
+          </button>
+          <button
+            className="bg-transparent text-white border-2 border-white px-4 py-1.5 rounded-lg text-base font-orbitron cursor-pointer transition-all duration-300 hover:bg-white hover:text-black hover:scale-105"
+            onClick={nextMember}
+          >
+            ⏭
+          </button>
+        </div>
+      </motion.div>
+    </AnimatePresence>
+
+    {/* Right: Image */}
+    <div className="w-full lg:w-1/2 flex justify-center lg:justify-end lg:pr-60">
+  <AnimatePresence mode="wait">
+    <motion.img
+      key={member.name}
+      src={member.image}
+      alt={member.role}
+      className="w-72 h-72 md:w-96 md:h-96 object-cover object-center rounded-full shadow-[0_0_40px_10px_rgba(0,174,255,0.4)] transition-transform duration-400 ease-in-out hover:scale-105 hover:shadow-[0_0_60px_20px_rgba(0,174,255,0.6)]"
+      initial={{ opacity: 0, scale: 0.95 }}
+      animate={{ opacity: 1, scale: 1 }}
+      exit={{ opacity: 0, scale: 0.95 }}
+      transition={{ duration: 0.8 }}
+    />
+  </AnimatePresence>
+</div>
+
+  </div>
+</div>
+
+
   );
+
 }
