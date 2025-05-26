@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import {  AnimatePresence } from "framer-motion";
 
 const projects = [
   {
@@ -69,13 +69,24 @@ export default function RecentWork() {
         </AnimatePresence>
 
         <div className="absolute bottom-5 left-1/2 transform -translate-x-1/2 flex gap-3 z-20">
-          {projects.map((_, i) => (
-            <span
-              key={i}
+          {projects.map((project, i) => (
+            <button
+              key={project.title}
+              type="button"
+              aria-label={`Go to project: ${project.title}`}
+              aria-pressed={i === index}
+              tabIndex={0}
               onClick={() => goTo(i)}
-              className={`w-[14px] h-[14px] rounded-full cursor-pointer transition-colors duration-300 ${
+              onKeyDown={(e) => {
+                if (e.key === "Enter" || e.key === " ") {
+                  e.preventDefault();
+                  goTo(i);
+                }
+              }}
+              className={`w-[14px] h-[14px] rounded-full cursor-pointer transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-yellow-500 ${
                 i === index ? "bg-yellow-500" : "bg-gray-400"
               }`}
+              style={{ border: "none", padding: 0, background: "none" }}
             />
           ))}
         </div>

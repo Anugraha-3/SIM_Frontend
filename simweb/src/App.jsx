@@ -11,6 +11,7 @@ import Footer from './components/Footer';
 import Footer2 from './components/Footer2';
 import GlobeGallery from './pages/Gallery';
 import Keerthi from './pages/keerthi'; // 👈 Import the new Keerthi page
+import RobotChat from "./pages/RobotChat";
 
 import './styles/globe.css';
 import './styles/space.css';
@@ -62,6 +63,7 @@ export default function App() {
           <Route path="/" element={<HomePage />} />
           <Route path="/globe" element={<GlobeGallery />} />
           <Route path="/keerthi" element={<Keerthi />} /> {/* 👈 Route for Keerthi page */}
+          <Route path="/robot-chat" element={<RobotChat />} />
         </Routes>
       )}
     </Router>
