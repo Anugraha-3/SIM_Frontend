@@ -1,8 +1,8 @@
 // tailwind.config.js
-const plugin = require('tailwindcss/plugin'); // ✅ Add this line
+import plugin from 'tailwindcss/plugin'; // ✅ Use ES module import
 
 /** @type {import('tailwindcss').Config} */
-module.exports = {
+export default {
   content: [
     "./index.html",
     "./src/**/*.{js,ts,jsx,tsx}",

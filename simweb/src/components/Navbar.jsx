@@ -107,24 +107,43 @@ const Navbar = ({ scrollToSection }) => {
               Gallery
             </div>
 
-            {/* Robot Viewer Inline (Desktop only) */}
-            <div
-              className="hidden md:flex items-center ml-2 cursor-pointer"
-              style={{ width: 80, height: 60 }}
-              onClick={() => setShowRobotChat(true)}
-              title="Open Dog Chat"
-            >
-              <RobotViewer
-                key={isDesktop ? "desktop" : "mobile"}
-                width="80px"
-                height="60px"
-                position={[0, -0.3, 1.2]}
-                rotation={[0, -Math.PI / 2 + 0.4, 0]}
-                scale={0.4}
-              />
-            </div>
+            {/* Robot Viewer Inline (Desktop only, larger and always visible) */}
+                  <div
+                    className="hidden md:flex items-center ml-2 cursor-pointer"
+                    style={{
+                    width: 90,
+                    height: 60,
+                    padding: 4,
+                    background: "rgba(0,0,0,0.25)",
+                    borderRadius: "12px",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    overflow: "hidden"
+                    }}
+                    role="button"
+                    tabIndex={0}
+                    onClick={() => setShowRobotChat(true)}
+                    onKeyDown={e => {
+                    if (e.key === "Enter" || e.key === " ") {
+                      e.preventDefault();
+                      setShowRobotChat(true);
+                    }
+                    }}
+                    title="Open Dog Chat"
+                    aria-label="Open Dog Chat"
+                  >
+                    <RobotViewer
+                    key={isDesktop ? "desktop" : "mobile"}
+                    width="28px"
+                    height="28px"
+                    position={[-0.9, -12.9, -45]}
+                    rotation={[0, -Math.PI / 2 + 0.6, 0]}
+                    scale={-1.2}
+                    style={{ display: "block" }}
+                    />
+                  </div>
 
-            {/* DODDY AI Button (Mobile only) */}
+                  {/* DODDY AI Button (Mobile only) */}
             <button
               className="flex md:hidden items-center gap-2 text-white font-bold px-4 py-2 rounded-lg shadow transition-all duration-200"
               style={{

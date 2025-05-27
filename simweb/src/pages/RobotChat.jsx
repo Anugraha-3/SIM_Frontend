@@ -10,13 +10,46 @@ const RobotChatUI = ({ onClose }) => {
   const [mediaRecorder, setMediaRecorder] = useState(null);
   const chatEndRef = useRef(null);
 
-  const handleSend = () => {
+  const handleSend = async () => {
     if (input.trim() === "") return;
-    setMessages((prev) => [...prev, { text: input, from: 'user' }]);
+    const userMsg = { text: input, from: 'user', id: Date.now() + Math.random() };
+    setMessages((prev) => [...prev, userMsg]);
     setInput("");
     setTimeout(() => {
       chatEndRef.current?.scrollIntoView({ behavior: "smooth" });
     }, 100);
+
+    try {
+      const formData = new FormData();
+      formData.append('text', input);
+      const res = await fetch('http://127.0.0.1:8000/chat/', {
+        method: 'POST',
+        body: formData,
+      });
+      if (!res.ok) {
+        const errorText = await res.text();
+        throw new Error('Backend error: ' + errorText);
+      }
+      const data = await res.json();
+      // Ensure audioUrl is a public URL
+      let audioUrl = data.audio_file;
+      if (audioUrl && !audioUrl.startsWith("http")) {
+        audioUrl = `http://127.0.0.1:8000/audio/${audioUrl}`;
+      }
+      setMessages((prev) => [
+        ...prev,
+        {
+          from: 'bot',
+          text: data.text,
+          audioUrl: audioUrl,
+          voice: data.voice,
+          source_language: data.source_language,
+          id: Date.now() + Math.random()
+        }
+      ]);
+    } catch (err) {
+      alert('Failed to get response. ' + (err?.message || ''));
+    }
   };
 
   const handleMicClick = async () => {
@@ -25,8 +58,8 @@ const RobotChatUI = ({ onClose }) => {
         const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
         let recorder, audioChunks = [];
         let audioContext, analyser, source, silenceStart = null;
-        const silenceThreshold = 0.01; // Adjust as needed
-        const silenceDuration = 3000; // 3 seconds
+        const silenceThreshold = 0.01;
+        const silenceDuration = 3000;
         if (window.Recorder) {
           recorder = new window.Recorder(new (window.AudioContext || window.webkitAudioContext)(), { type: 'audio/wav' });
           await recorder.init(stream);
@@ -55,7 +88,7 @@ const RobotChatUI = ({ onClose }) => {
             const formData = new FormData();
             formData.append('audio', blob, 'recording.wav');
             try {
-              const res = await fetch('http://localhost:3001/api/upload-audio', {
+              const res = await fetch('http://127.0.0.1:8000/chat/', {
                 method: 'POST',
                 body: formData,
               });
@@ -64,10 +97,21 @@ const RobotChatUI = ({ onClose }) => {
                 throw new Error('Upload failed: ' + errorText);
               }
               const data = await res.json();
-              const audioUrl = `http://localhost:3001/api/audio/${data.filename}`;
+              // Ensure audioUrl is a public URL
+              let audioUrl = data.audio_file;
+              if (audioUrl && !audioUrl.startsWith("http")) {
+                audioUrl = `http://127.0.0.1:8000/audio/${audioUrl}`;
+              }
               setMessages((msgs) => [
                 ...msgs,
-                { from: 'user', text: '[Voice message sent]', audioUrl, id: Date.now() + Math.random() }
+                {
+                  from: 'bot',
+                  text: data.text,
+                  audioUrl: audioUrl,
+                  voice: data.voice,
+                  source_language: data.source_language,
+                  id: Date.now() + Math.random()
+                }
               ]);
             } catch (err) {
               alert('Failed to upload audio. ' + (err?.message || ''));
@@ -135,20 +179,25 @@ const RobotChatUI = ({ onClose }) => {
       )}
 
       {/* Main area: Robot and Chat */}
-      <div className="flex flex-1">
-        <div className="flex-1 flex items-center justify-center bg-[#343541]">
-          <RobotViewer
-            width="140px"
-            height="110px"
-            position={[0, -3.2, -6.5]}
-            rotation={[0, -Math.PI / 2 + 0.6, 0]}
-            scale={0.28}
-          />
-        </div>
+        <div className="flex flex-1 flex-col md:flex-row">
+          <div className="flex-1 flex items-center justify-center bg-[#343541]">
+            <RobotViewer
+          width="140px"
+          height="110px"
+          // Responsive position: further away on mobile (z: -20), original on desktop (z: -6.5)
+          position={[0, -3.2, window.innerWidth < 768 ? -20 : -6.5]}
+          rotation={[0, -Math.PI / 2 + 0.6, 0]}
+          scale={0.28}
+            />
+          </div>
 
-        <div className="flex-1 flex flex-col bg-[#343541]">
+          {/* Make only the right chat area scrollable */}
+        <div className="flex-1 flex flex-col bg-[#343541] h-full">
           {/* Chat messages */}
-          <div className="flex-1 px-6 py-4 overflow-y-auto space-y-3">
+          <div
+            className="px-6 py-4 space-y-3 overflow-y-auto"
+            style={{ flex: 1, minHeight: 0, maxHeight: "100%" }}
+          >
             {messages.map((msg) => (
               <div
                 key={msg.id || msg.timestamp || msg.text}
@@ -159,6 +208,7 @@ const RobotChatUI = ({ onClose }) => {
                 }`}
                 style={{ wordBreak: 'break-word' }}
               >
+                {/* Display audio if present, otherwise text */}
                 {msg.audioUrl ? (
                   <audio controls src={msg.audioUrl} className="w-full">
                     <track kind="captions" />
