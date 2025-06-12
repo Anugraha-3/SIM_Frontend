@@ -57,19 +57,73 @@ const Gallery = () => {
 
   if (loading) return <LoadingScreen />;
 
- return (
-  <div className={`gallery-container ${animate ? 'fade-in' : ''} relative z-10 p-6`}>
-    <button
-      className="back-button px-4 py-2 bg-white text-black font-semibold rounded-lg hover:bg-gray-200 active:scale-95 transition-transform duration-200"
-      onClick={handleBackClick}
-    >
-      ← Back to Home
-    </button>
+  return (
+    <div className="min-h-screen bg-gradient-to-br from-indigo-900 via-purple-900 to-pink-800 relative overflow-hidden">
+      {/* Background Effects */}
+      <div className="absolute inset-0 bg-black/20"></div>
+      <div className="absolute top-0 left-1/4 w-96 h-96 bg-purple-500/20 rounded-full blur-3xl"></div>
+      <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-pink-500/20 rounded-full blur-3xl"></div>
+      
+      {/* Back Button */}
+      <button
+        onClick={handleBackClick}
+        className="absolute top-6 left-6 z-50 flex items-center gap-2 px-4 py-2 bg-white/10 backdrop-blur-md rounded-full border border-white/20 text-white hover:bg-white/20 transition-all duration-300 hover:scale-105"
+      >
+        <span>←</span>
+        <span>Back to Home</span>
+      </button>
 
-    <InfiniteMenu items={items} />
-  </div>
-);
+      {/* Main Content */}
+      <div className="relative z-10 h-screen flex items-center justify-center">
+        <InfiniteMenu items={items} animate={animate} />
+      </div>
 
+      {/* Custom CSS for zoomed images */}
+      <style jsx>{`
+        /* Target the image containers within the InfiniteMenu */
+        :global(.infinite-menu-item img),
+        :global(.menu-item img),
+        :global([class*="item"] img),
+        :global([class*="slide"] img) {
+          transform: scale(1.3) !important;
+          object-fit: cover !important;
+          width: 100% !important;
+          height: 100% !important;
+          transition: transform 0.3s ease !important;
+        }
+
+        /* Alternative targeting if the above doesn't work */
+        :global(.gallery img) {
+          transform: scale(1.3) !important;
+          object-fit: cover !important;
+        }
+
+        /* Hover effect for images */
+        :global(.infinite-menu-item:hover img),
+        :global(.menu-item:hover img),
+        :global([class*="item"]:hover img),
+        :global([class*="slide"]:hover img) {
+          transform: scale(1.4) !important;
+        }
+
+        /* Ensure circular clipping is maintained */
+        :global(.infinite-menu-item),
+        :global(.menu-item),
+        :global([class*="item"]),
+        :global([class*="slide"]) {
+          overflow: hidden !important;
+          border-radius: 50% !important;
+        }
+
+        /* Additional fallback styles */
+        :global(.gallery-container img) {
+          transform: scale(1.3);
+          object-fit: cover;
+          object-position: center;
+        }
+      `}</style>
+    </div>
+  );
 };
 
 export default Gallery;

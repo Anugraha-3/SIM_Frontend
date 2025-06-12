@@ -9,9 +9,14 @@ import muthu from "../assets/muthu.jpg";
 import siva from "../assets/sivaperumal.png";
 import seenu from "../assets/seenu.png";
 import anuz from "../assets/anuz.jpg";
-import dinesh from "../assets/dine.jpg";
+//import dinesh from "../assets/dine.jpg";
 import kalai from "../assets/kalai.png";
 import sandra from "../assets/sandra.jpg";
+import anu from "../assets/anu.jpg"; 
+import ayub from "../assets/ayub.jpg"
+import deva from "../assets/deva.jpg"// 
+ import kavya from "../assets/kavya.jpg"
+ import vivek from "../assets/vivek.jpg"// Updated Anu image
 // import sandra from "../assets/sandra.jpg"; // Updated Sandra image
 
 const members = [
@@ -50,13 +55,13 @@ const members = [
     description:
       "Anuz Balamurali is a driven Software Systems student with hands-on experience in full-stack development and a keen eye on Human-Computer Interaction. With a solid grip on data structures and problem-solving, he builds intuitive digital solutions—from dynamic car resale platforms to offline payment systems.",
   },
-  {
+  /*{
     name: "Dineshprasath G A",
     image: dinesh,
     role: "Full Stack developer",
     description:
       "He is a developer with expertise in building secure, scalable web applications and intelligent systems.With a strong foundation in cybersecurity, AI, and machine learning, he integrates smart, data-driven solutions into his projects. His work combines secure architecture, user-focused design, and advanced analytics to deliver reliable and intelligent digital experiences.",
-  },
+  },*/
   {
     name: "Kalaiyarasi",
     image: kalai,
@@ -68,6 +73,41 @@ const members = [
     name: "Sandra Grace",
     image: sandra,
     role: "Junior 3D Designer & Content Writer",
+    description:
+      "Combines 3D design skills with a flair for content creation. Sandra supports visual development and helps shape engaging written content.",
+  },
+  {
+    name: "Ayub Alikhan",
+    image: ayub,
+    role: "Software Developer",
+    description:
+      "Combines 3D design skills with a flair for content creation. Sandra supports visual development and helps shape engaging written content.",
+  },
+  {
+    name: "Vivekanandhan",
+    image: vivek,
+    role: "Software Developer",
+    description:
+      "Combines 3D design skills with a flair for content creation. Sandra supports visual development and helps shape engaging written content.",
+  },
+  {
+    name: "Anugraha",
+    image: anu,
+    role: "Full Stack Developer",
+    description:
+      "Combines 3D design skills with a flair for content creation. Sandra supports visual development and helps shape engaging written content.",
+  },
+  {
+    name: "Devaranjanaa",
+    image: deva,
+    role: "Software Developer",
+    description:
+      "Combines 3D design skills with a flair for content creation. Sandra supports visual development and helps shape engaging written content.",
+  },
+  {
+    name: "Kavya",
+    image: kavya,
+    role: "Full Stack Developer",
     description:
       "Combines 3D design skills with a flair for content creation. Sandra supports visual development and helps shape engaging written content.",
   },
