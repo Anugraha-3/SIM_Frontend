@@ -15,6 +15,7 @@ import RobotChat from "./pages/RobotChat";
 import SimulationPage from "./components/services/SimulationPage";
 import PhotographyPage from "./components/services/PhotographyPage";
 import DigitalMarketingPage from "./components/services/DigitalMarketingPage";
+import VideoProductionPage from './components/services/VideoProductonPage';
 import './styles/globe.css';
 import './styles/space.css';
 
@@ -69,6 +70,7 @@ export default function App() {
           <Route path="/services/SimulationPage" element={<SimulationPage />} />
           <Route path="/services/PhotographyPage" element={<PhotographyPage />} />
           <Route path="/services/DigitalMarketingPage" element={<DigitalMarketingPage />} />
+          <Route path="/services/VideoProductionPage" element={<VideoProductionPage />} />
         </Routes>
       )}
     </Router>
