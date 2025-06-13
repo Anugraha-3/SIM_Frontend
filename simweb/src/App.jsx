@@ -14,6 +14,7 @@ import Keerthi from './pages/keerthi'; // 👈 Import the new Keerthi page
 import RobotChat from "./pages/RobotChat";
 import SimulationPage from "./components/services/SimulationPage";
 import PhotographyPage from "./components/services/PhotographyPage";
+import DigitalMarketingPage from "./components/services/DigitalMarketingPage";
 import './styles/globe.css';
 import './styles/space.css';
 
@@ -67,6 +68,7 @@ export default function App() {
           <Route path="/robot-chat" element={<RobotChat />} />
           <Route path="/services/SimulationPage" element={<SimulationPage />} />
           <Route path="/services/PhotographyPage" element={<PhotographyPage />} />
+          <Route path="/services/DigitalMarketingPage" element={<DigitalMarketingPage />} />
         </Routes>
       )}
     </Router>
