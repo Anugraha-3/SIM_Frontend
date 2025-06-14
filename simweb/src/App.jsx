@@ -16,8 +16,10 @@ import SimulationPage from "./components/services/SimulationPage";
 import PhotographyPage from "./components/services/PhotographyPage";
 import DigitalMarketingPage from "./components/services/DigitalMarketingPage";
 import VideoProductionPage from './components/services/VideoProductonPage';
+import HologramPage from './components/services/HologramPage';  
 import './styles/globe.css';
 import './styles/space.css';
+import ITServicesPage from './components/services/ITServicesPage';
 
 function HomePage() {
   const aboutRef = useRef(null);
@@ -71,6 +73,9 @@ export default function App() {
           <Route path="/services/PhotographyPage" element={<PhotographyPage />} />
           <Route path="/services/DigitalMarketingPage" element={<DigitalMarketingPage />} />
           <Route path="/services/VideoProductionPage" element={<VideoProductionPage />} />
+          <Route path="/services/HologramPage" element={<HologramPage />} />
+          <Route path = "/services/ITServicesPage" element = {<ITServicesPage/>}/>
+          {/* Add more routes as needed */}
         </Routes>
       )}
     </Router>

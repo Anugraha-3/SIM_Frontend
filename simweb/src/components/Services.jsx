@@ -18,14 +18,7 @@ const services = [
     description: "Professional photography services for events, products, and corporate needs.",
     route: "/services/PhotographyPage"
   },
-  {
-    id: "event-management",
-    title: "Event Management", 
-    image: "/project2.png",
-    icon: <Calendar className="w-8 h-8" />,
-    description: "Complete event planning and management services for memorable experiences.",
-    route: "/services/EventManagementPage"
-  },
+
   {
     id: "digital-marketing",
     title: "Digital Marketing",
@@ -57,14 +50,6 @@ const services = [
     icon: <Video className="w-8 h-8" />,
     description: "Professional video production services from concept to final cut.",
     route: "/services/VideoProductionPage"
-  },
-  {
-    id: "dome-theater",
-    title: "Dome Theater", 
-    image: "/dome.jpg",
-    icon: <Building className="w-8 h-8" />,
-    description: "Immersive dome theater experiences with 360-degree projection.",
-    route: "/services/DomeTheaterPage"
   }
 ];
 

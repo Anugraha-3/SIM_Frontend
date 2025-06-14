@@ -496,9 +496,7 @@ export default function LinearSimulatorsPage() {
 
                   {/* Action Buttons */}
                   <div className="flex flex-wrap gap-4 pt-6">
-                    <button className="px-8 py-4 bg-gradient-to-r from-pink-500 to-indigo-500 rounded-xl font-semibold hover:shadow-xl hover:shadow-pink-500/25 transition-all duration-300 hover:scale-105 group">
-                      <span className="group-hover:animate-pulse">Experience Now</span>
-                    </button>
+
                     <button 
                       onClick={() => openTechnicalDetails(simulator)}
                       className="px-8 py-4 border border-white/20 rounded-xl font-semibold hover:bg-white/5 hover:border-white/40 transition-all duration-300 hover:scale-105"
@@ -694,23 +692,7 @@ export default function LinearSimulatorsPage() {
             Step into our world of advanced simulation technology and discover experiences that push the boundaries of reality. 
             From the depths of the ocean to the vastness of space, your next adventure awaits.
           </p>
-          <div className="flex flex-wrap justify-center gap-6">
-            <button className="px-10 py-5 bg-gradient-to-r from-pink-500 to-indigo-500 rounded-xl font-bold text-lg hover:shadow-xl hover:shadow-pink-500/25 transition-all duration-300 hover:scale-105">
-              Book Your Session
-            </button>
-            <button 
-  onClick={() => {
-    const phoneNumber = "917788003366";
-    const message = "Hi, I'm interested in your simulation services. Can you provide more information?";
-    const encodedMessage = encodeURIComponent(message);
-    const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
-    window.open(whatsappUrl, '_blank');
-  }}
-  className="px-10 py-5 border border-white/20 rounded-xl font-bold text-lg hover:bg-white/5 hover:border-white/40 transition-all duration-300 hover:scale-105"
->
-  Contact Us
-</button>
-          </div>
+          
         </div>
       </div>
 

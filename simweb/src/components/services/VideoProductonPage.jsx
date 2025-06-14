@@ -133,15 +133,7 @@ export default function VideoProductionPage() {
               {serviceData.details}
             </p>
             
-            <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4">
-              <button className="px-8 py-3 bg-gradient-to-r from-red-500 via-purple-500 to-blue-500 rounded-lg font-semibold hover:shadow-lg hover:shadow-purple-500/25 transition-all flex items-center gap-2 hover:scale-105 group">
-                <Play className="w-5 h-5 group-hover:scale-110 transition-transform" />
-                Start Your Project
-              </button>
-              <button className="px-8 py-3 border border-white/20 rounded-lg font-semibold hover:bg-white/5 transition-all hover:scale-105 hover:border-white/40">
-                View Portfolio
-              </button>
-            </div>
+
           </div>
 
           {/* Features */}
