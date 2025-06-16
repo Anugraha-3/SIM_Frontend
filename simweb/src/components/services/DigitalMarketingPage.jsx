@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { ChevronLeft, ArrowRight, TrendingUp, Megaphone, FileText, MessageSquare, ChevronDown } from "lucide-react";
-
+import { ChevronLeft, ArrowRight, TrendingUp, Megaphone, FileText, MessageSquare, ChevronDown, MessageCircle, Mail, Phone, X } from "lucide-react";
 const servicesData = {
   "strategic-digital-marketing": {
     id: "strategic-digital-marketing",
@@ -68,15 +67,67 @@ const servicesData = {
   }
 };
 
+
+const contactData = {
+  linkedin: {
+    icon: "linkedin",
+    label: "LinkedIn",
+    action: () => window.open("https://www.linkedin.com/company/suninfomedia/", "_blank"),
+    color: "from-blue-600 to-blue-700"
+  },
+  whatsapp: {
+    icon: "message-circle",
+    label: "WhatsApp",
+    action: () => window.open("https://wa.me/917788003366", "_blank"), // Replace with your WhatsApp number
+    color: "from-green-500 to-green-600"
+  },
+  mail: {
+    icon: "mail",
+    label: "Email",
+    action: () => window.location.href = "mailto:admin@sunnetwork.info", // Replace with your email
+    color: "from-red-500 to-red-600"
+  },
+  phone: {
+    icon: "phone",
+    label: "Phone",
+    action: () => window.location.href = "tel:+917788003366", // Replace with your phone number
+    color: "from-purple-500 to-purple-600"
+  }
+};
+
 export default function DigitalMarketingServicesPage() {
   const [currentServiceId, setCurrentServiceId] = useState('strategic-digital-marketing');
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [isAnimating, setIsAnimating] = useState(false);
   const [mounted, setMounted] = useState(false);
-
+  const [showContactPopup, setShowContactPopup] = useState(false);
   useEffect(() => {
     setMounted(true);
   }, []);
+
+  useEffect(() => {
+  const handleClickOutside = (event) => {
+    if (showContactPopup && event.target.classList.contains('backdrop-blur-sm')) {
+      setShowContactPopup(false);
+    }
+  };
+
+  document.addEventListener('click', handleClickOutside);
+  return () => document.removeEventListener('click', handleClickOutside);
+}, [showContactPopup]);
+
+
+useEffect(() => {
+  const handleEscape = (event) => {
+    if (event.key === 'Escape' && showContactPopup) {
+      setShowContactPopup(false);
+    }
+  };
+
+  document.addEventListener('keydown', handleEscape);
+  return () => document.removeEventListener('keydown', handleEscape);
+}, [showContactPopup]);
+
 
   const serviceData = servicesData[currentServiceId];
   const servicesArray = Object.values(servicesData);
@@ -243,15 +294,16 @@ export default function DigitalMarketingServicesPage() {
             </div>
             
             <div className="flex flex-wrap items-center gap-6">
-              <button className="group px-8 py-4 bg-gradient-to-r from-pink-500 to-indigo-500 rounded-xl font-semibold hover:shadow-2xl hover:shadow-pink-500/25 transition-all duration-300 hover:scale-105 hover:-translate-y-1">
-                <span className="flex items-center gap-2">
-                  Get Started
-                  <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-                </span>
-              </button>
-              <button className="px-8 py-4 border border-white/30 rounded-xl font-semibold hover:bg-white/10 hover:border-white/50 transition-all duration-300 hover:scale-105">
-                Learn More
-              </button>
+              <button 
+  onClick={() => setShowContactPopup(true)}
+  className="group px-8 py-4 bg-gradient-to-r from-pink-500 to-indigo-500 rounded-xl font-semibold hover:shadow-2xl hover:shadow-pink-500/25 transition-all duration-300 hover:scale-105 hover:-translate-y-1"
+>
+  <span className="flex items-center gap-2">
+    Get Started
+    <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+  </span>
+</button>
+              
             </div>
           </div>
 
@@ -328,6 +380,158 @@ export default function DigitalMarketingServicesPage() {
         <div className="absolute bottom-1/4 -right-20 w-60 h-60 bg-indigo-500/5 rounded-full blur-3xl animate-pulse delay-75"></div>
         <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-80 h-80 bg-purple-500/3 rounded-full blur-3xl animate-pulse delay-150"></div>
       </div>
+
+      {/* Contact Popup */}
+{/* Enhanced Minimalistic Contact Popup */}
+{showContactPopup && (
+  <div className="fixed inset-0 bg-black/70 backdrop-blur-md z-50 flex items-center justify-center p-4 animate-in fade-in duration-400">
+    <div className="relative bg-gray-900/95 backdrop-blur-xl rounded-3xl border border-white/20 p-10 max-w-xl w-full shadow-2xl animate-in zoom-in-90 duration-400 overflow-hidden">
+      
+      {/* Floating background elements */}
+      <div className="absolute top-0 left-0 w-full h-full pointer-events-none">
+        <div className="absolute top-8 right-12 w-32 h-32 bg-gradient-to-r from-pink-500/5 to-indigo-500/5 rounded-full blur-2xl animate-pulse"></div>
+        <div className="absolute bottom-8 left-12 w-24 h-24 bg-gradient-to-r from-indigo-500/5 to-purple-500/5 rounded-full blur-2xl animate-pulse delay-75"></div>
+      </div>
+
+      {/* Close Button */}
+      <button
+        onClick={() => setShowContactPopup(false)}
+        className="absolute top-5 right-5 p-2 text-gray-400 hover:text-white hover:bg-white/10 rounded-full transition-all duration-300 hover:rotate-180 hover:scale-110 z-10"
+      >
+        <X className="w-4 h-4" />
+      </button>
+
+      {/* Header with enhanced animations */}
+      <div className="text-center mb-10 relative">
+        <div className="flex justify-center mb-5">
+          <div className="relative">
+            {/* Main icon with pulse ring */}
+            <div className="absolute inset-0 bg-gradient-to-r from-pink-500 to-indigo-500 rounded-2xl animate-ping opacity-20"></div>
+            <div className="relative p-4 bg-gradient-to-r from-pink-500 to-indigo-500 rounded-2xl animate-in zoom-in duration-500 delay-200">
+              {serviceData.icon}
+            </div>
+            
+            {/* Orbiting particles */}
+            <div className="absolute -inset-6 animate-spin" style={{ animationDuration: '8s' }}>
+              <div className="absolute top-0 left-1/2 w-2 h-2 bg-pink-500/60 rounded-full transform -translate-x-1/2 animate-pulse"></div>
+              <div className="absolute bottom-0 left-1/2 w-2 h-2 bg-indigo-500/60 rounded-full transform -translate-x-1/2 animate-pulse delay-100"></div>
+            </div>
+            <div className="absolute -inset-6 animate-spin" style={{ animationDuration: '12s', animationDirection: 'reverse' }}>
+              <div className="absolute top-1/2 left-0 w-1.5 h-1.5 bg-purple-500/60 rounded-full transform -translate-y-1/2 animate-pulse delay-200"></div>
+              <div className="absolute top-1/2 right-0 w-1.5 h-1.5 bg-cyan-500/60 rounded-full transform -translate-y-1/2 animate-pulse delay-300"></div>
+            </div>
+          </div>
+        </div>
+        
+        <div className="animate-in slide-in-from-bottom-4 duration-500 delay-300">
+          <h3 className="text-2xl font-semibold text-white mb-3">
+            Let's Get Started
+          </h3>
+          <p className="text-gray-400">Choose your preferred way to connect</p>
+        </div>
+        
+        {/* Animated line */}
+        <div className="flex justify-center mt-4">
+          <div className="w-0 h-0.5 bg-gradient-to-r from-pink-500 to-indigo-500 rounded-full animate-in slide-in-from-left duration-800 delay-500" 
+               style={{ animation: 'expandWidth 0.8s ease-out 0.5s forwards' }}>
+          </div>
+        </div>
+      </div>
+
+      {/* Enhanced Horizontal Contact Options */}
+      <div className="flex justify-center items-center gap-6 mb-8">
+        {Object.entries(contactData).map(([key, contact], index) => {
+          const IconComponent = {
+            linkedin: MessageCircle,
+            whatsapp: MessageCircle,
+            mail: Mail,
+            phone: Phone
+          }[key];
+
+          const colors = {
+            linkedin: "hover:bg-blue-500/15 hover:border-blue-400/40 hover:shadow-blue-500/20",
+            whatsapp: "hover:bg-green-500/15 hover:border-green-400/40 hover:shadow-green-500/20",
+            mail: "hover:bg-red-500/15 hover:border-red-400/40 hover:shadow-red-500/20",
+            phone: "hover:bg-purple-500/15 hover:border-purple-400/40 hover:shadow-purple-500/20"
+          };
+
+          const iconColors = {
+            linkedin: "group-hover:text-blue-400",
+            whatsapp: "group-hover:text-green-400",
+            mail: "group-hover:text-red-400",
+            phone: "group-hover:text-purple-400"
+          };
+
+          return (
+            <div key={key} className="relative">
+              <button
+                onClick={contact.action}
+                className={`group relative flex flex-col items-center gap-3 p-5 bg-white/5 border border-white/10 rounded-2xl hover:bg-white/10 transition-all duration-400 hover:scale-110 hover:-translate-y-2 animate-in slide-in-from-bottom-6 duration-500 hover:shadow-xl ${colors[key]}`}
+                style={{ animationDelay: `${600 + index * 150}ms` }}
+              >
+                {/* Hover glow effect */}
+                <div className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-400 bg-gradient-to-r from-white/5 to-white/10 blur-sm"></div>
+                
+                <div className="relative">
+                  {/* Icon background with animation */}
+                  <div className="absolute inset-0 bg-white/10 rounded-xl group-hover:scale-125 transition-transform duration-400 group-hover:rotate-12"></div>
+                  <div className="relative p-3 rounded-xl">
+                    <IconComponent className={`w-6 h-6 text-gray-300 transition-all duration-400 group-hover:scale-110 ${iconColors[key]}`} />
+                  </div>
+                </div>
+                
+                <span className={`text-sm font-medium text-gray-400 transition-all duration-400 group-hover:text-white`}>
+                  {contact.label}
+                </span>
+
+                {/* Ripple effect on click */}
+                <div className="absolute inset-0 rounded-2xl opacity-0 group-active:opacity-100 bg-white/20 transition-opacity duration-150"></div>
+              </button>
+
+              {/* Connection dots */}
+              {index < Object.keys(contactData).length - 1 && (
+                <div className="absolute top-1/2 -right-3 transform -translate-y-1/2">
+                  <div className="flex gap-1">
+                    <div className="w-1 h-1 bg-white/20 rounded-full animate-pulse" style={{ animationDelay: `${800 + index * 200}ms` }}></div>
+                    <div className="w-1 h-1 bg-white/20 rounded-full animate-pulse" style={{ animationDelay: `${900 + index * 200}ms` }}></div>
+                  </div>
+                </div>
+              )}
+            </div>
+          );
+        })}
+      </div>
+
+      {/* Enhanced Footer */}
+      <div className="text-center animate-in slide-in-from-bottom-4 duration-500" style={{ animationDelay: '1000ms' }}>
+        <div className="flex items-center justify-center gap-2 mb-3">
+          <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
+          <p className="text-sm text-gray-400">
+            Online now • Quick response guaranteed
+          </p>
+        </div>
+        
+        {/* Animated status indicators */}
+        <div className="flex justify-center gap-2 mt-4">
+          <div className="flex items-center gap-1">
+            <div className="w-2 h-2 bg-pink-500/60 rounded-full animate-bounce"></div>
+            <span className="text-xs text-gray-500">Fast</span>
+          </div>
+          <div className="w-px h-4 bg-white/10"></div>
+          <div className="flex items-center gap-1">
+            <div className="w-2 h-2 bg-indigo-500/60 rounded-full animate-bounce delay-75"></div>
+            <span className="text-xs text-gray-500">Reliable</span>
+          </div>
+          <div className="w-px h-4 bg-white/10"></div>
+          <div className="flex items-center gap-1">
+            <div className="w-2 h-2 bg-purple-500/60 rounded-full animate-bounce delay-150"></div>
+            <span className="text-xs text-gray-500">24/7</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+)}
     </div>
   );
 }

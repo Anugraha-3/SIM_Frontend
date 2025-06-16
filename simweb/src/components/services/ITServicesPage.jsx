@@ -88,26 +88,25 @@ const ContactModal = () => {
 
   return (
     <>
-      <div className="fixed inset-0 z-[100] flex items-center justify-center p-4">
-        {/* Backdrop */}
+      <div className="fixed inset-0 z-[9999] flex items-center justify-center p-4">
+        {/* Simplified Backdrop */}
         <div 
-          className="absolute inset-0 bg-black bg-opacity-60"
+          className="absolute inset-0 bg-black/70 backdrop-blur-sm"
           onClick={() => setShowContactModal(false)}
         />
         
-        {/* Modal */}
-        <div className="relative bg-white bg-opacity-10 border border-white border-opacity-20 rounded-2xl p-8 shadow-2xl backdrop-blur-md modal-appear">
-          {/* Close Button */}
+        {/* Simplified Modal */}
+<div className="relative bg-white/10 border border-white/20 rounded-2xl p-8 pb-12 shadow-2xl backdrop-blur-md transform transition-all duration-300 scale-100 opacity-100">          {/* Close Button */}
           <button
             onClick={() => setShowContactModal(false)}
-            className="absolute -top-2 -right-2 p-2 bg-white bg-opacity-10 rounded-full border border-white border-opacity-20 hover:bg-white hover:bg-opacity-20 transition-all duration-200"
+            className="absolute -top-2 -right-2 p-2 bg-white/10 rounded-full border border-white/20 hover:bg-white/20 transition-colors duration-200"
           >
             <X className="w-4 h-4" />
           </button>
 
           {/* Header */}
           <div className="text-center mb-8">
-            <div className="inline-flex p-3 bg-gradient-to-r from-pink-500 to-indigo-500 rounded-full mb-4 header-float">
+            <div className="inline-flex p-3 bg-gradient-to-r from-pink-500 to-indigo-500 rounded-full mb-4">
               <MessageCircle className="w-6 h-6 text-white" />
             </div>
             <h3 className="text-2xl font-semibold text-white mb-2">
@@ -118,30 +117,66 @@ const ContactModal = () => {
             </p>
           </div>
 
-          {/* Contact Options */}
+          {/* Simplified Contact Options */}
           <div className="flex gap-4 justify-center">
-            {contactOptions.map((option, index) => (
-              <button
-                key={index}
-                onClick={option.action}
-                title={option.title}
-                className={`p-4 bg-white bg-opacity-5 border border-white border-opacity-10 rounded-xl backdrop-blur-sm transition-all duration-300 hover:scale-105 hover:translate-y-[-2px] ${option.color} contact-btn`}
-                style={{ 
-                  animationDelay: `${index * 0.1}s`,
-                  opacity: 0,
-                  animation: `slideUp 0.4s ease-out ${index * 0.1}s forwards`
-                }}
-              >
-                <div className="transition-transform duration-300 hover:rotate-12">
-                  {option.icon}
-                </div>
-              </button>
-            ))}
-          </div>
+  {contactOptions.map((option, index) => (
+    <button
+      key={index}
+      onClick={option.action}
+      title={option.title}
+      className={`p-4 bg-white/5 border border-white/10 rounded-xl backdrop-blur-sm transition-all duration-200 hover:scale-105 ${option.color}`}
+    >
+      {option.icon}
+    </button>
+  ))}
+</div>
         </div>
       </div>
 
+
       <style jsx>{`
+
+      @keyframes contactFloat {
+  0%, 100% { 
+    transform: translateY(0px) rotate(0deg); 
+  }
+  25% { 
+    transform: translateY(-3px) rotate(1deg); 
+  }
+  75% { 
+    transform: translateY(-1px) rotate(-1deg); 
+  }
+}
+
+@keyframes contactGlow {
+  0%, 100% { 
+    box-shadow: 0 4px 15px rgba(236, 72, 153, 0.3);
+  }
+  50% { 
+    box-shadow: 0 8px 25px rgba(236, 72, 153, 0.5), 0 0 30px rgba(99, 102, 241, 0.3);
+  }
+}
+
+@keyframes iconBounce {
+  0%, 100% { 
+    transform: scale(1) rotate(0deg); 
+  }
+  50% { 
+    transform: scale(1.1) rotate(5deg); 
+  }
+}
+
+.animate-contact-float {
+  animation: contactFloat 3s ease-in-out infinite;
+}
+
+.animate-contact-glow {
+  animation: contactGlow 2s ease-in-out infinite;
+}
+
+.animate-icon-bounce {
+  animation: iconBounce 0.6s ease-in-out;
+}
         .modal-appear {
           animation: modalAppear 0.3s ease-out;
         }
@@ -230,7 +265,7 @@ const ContactModal = () => {
               className="flex items-center gap-2 px-4 py-2 bg-white/10 rounded-lg border border-white/20 hover:bg-white/20 transition-all duration-300 group hover:scale-105 hover:shadow-lg hover:shadow-pink-500/20"
             >
               <ChevronLeft className="w-5 h-5 transition-transform group-hover:-translate-x-1 group-hover:scale-110" />
-              <span className="font-medium">Back</span>
+              <span className="font-medium">Back to Services</span>
             </button>
 
             <div className="flex-1 max-w-3xl mx-8">
@@ -320,21 +355,7 @@ const ContactModal = () => {
                 </p>
               </div>
               
-              <div className="flex flex-col sm:flex-row items-start sm:items-center gap-6 mt-8">
-                <button className="group px-10 py-4 bg-gradient-to-r from-pink-500 to-indigo-500 rounded-xl font-semibold hover:shadow-xl hover:shadow-pink-500/30 transition-all duration-300 hover:scale-110 relative overflow-hidden animate-pulse-glow">
-                  <div className="absolute inset-0 bg-gradient-to-r from-white/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 animate-shimmer"></div>
-                  <div className="relative flex items-center gap-3">
-                    <Zap className="w-5 h-5 group-hover:rotate-12 transition-transform" />
-                    Get Started Now
-                  </div>
-                </button>
-                <button className="group px-10 py-4 border border-white/20 rounded-xl font-semibold hover:bg-gradient-to-r hover:from-pink-500/10 hover:to-indigo-500/10 hover:border-pink-300/50 transition-all duration-300 hover:scale-105 hover:shadow-lg">
-                  <div className="flex items-center gap-3">
-                    <Eye className="w-5 h-5 group-hover:scale-110 transition-transform" />
-                    Learn More
-                  </div>
-                </button>
-              </div>
+             
             </div>
 
             {/* Enhanced Stats */}

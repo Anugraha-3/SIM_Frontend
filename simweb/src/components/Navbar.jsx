@@ -59,7 +59,7 @@ const Navbar = ({ scrollToSection }) => {
         <div className="flex justify-between items-center w-full font-primary text-white">
           {/* Left Logo */}
           <div className="flex items-center gap-3">
-            <div className="flex flex-col items-center bg-black p-1 rounded-md hover:shadow-[0_0_15px_#0396ff] transition-shadow">
+            <div className="flex flex-col items-center bg-black p-1 rounded-md hover:shadow-[0_0_15px_rgba(236,72,153,0.6)] transition-shadow duration-300">
               <img src={logo} alt="SIM Logo" className="w-[70px] h-[50px] object-contain rounded-md" />
               <span className="text-[9px] font-bold tracking-wider font-accent">SUN INFO MEDIA</span>
             </div>
@@ -85,70 +85,105 @@ const Navbar = ({ scrollToSection }) => {
             ].map(({ name, ref }) => (
               <div
                 key={name}
-                className={`relative cursor-pointer transition-all text-white font-medium px-2 py-1 rounded-md hover:text-blue-400 ${
-                  activeSection === normalize(name) ? "text-blue-400" : ""
-                }`}
+                className="relative cursor-pointer group"
                 onClick={() => handleScroll(ref, name)}
               >
-                {name}
                 <span
-                  className={`absolute bottom-0 left-1/2 transform -translate-x-1/2 h-[2px] bg-blue-500 rounded transition-all duration-300 ${
-                    activeSection === normalize(name) ? "w-full" : "w-0"
+                  className={`transition-all duration-300 text-white font-medium px-2 py-1 rounded-md group-hover:text-transparent group-hover:bg-gradient-to-r group-hover:from-pink-500 group-hover:to-indigo-500 group-hover:bg-clip-text ${
+                    activeSection === normalize(name) ? "text-transparent bg-gradient-to-r from-pink-500 to-indigo-500 bg-clip-text" : ""
                   }`}
+                >
+                  {name}
+                </span>
+                {/* Enhanced smooth underline */}
+                <span
+                  className={`absolute -bottom-1 left-1/2 transform -translate-x-1/2 h-[2px] rounded-full transition-all duration-500 ease-out ${
+                    activeSection === normalize(name) ? "w-full opacity-100" : "w-0 opacity-0 group-hover:w-full group-hover:opacity-100"
+                  }`}
+                  style={{
+                    background: "linear-gradient(90deg, #ec4899 0%, #6366f1 100%)",
+                    boxShadow: "0 0 8px rgba(236, 72, 153, 0.6), 0 0 16px rgba(99, 102, 241, 0.4)"
+                  }}
+                />
+                {/* Additional glow effect on hover */}
+                <span
+                  className="absolute -bottom-1 left-1/2 transform -translate-x-1/2 h-[1px] rounded-full transition-all duration-700 ease-out opacity-0 group-hover:opacity-60 group-hover:w-[110%] w-0"
+                  style={{
+                    background: "linear-gradient(90deg, #ec4899 0%, #6366f1 100%)",
+                    filter: "blur(2px)"
+                  }}
                 />
               </div>
             ))}
 
-            {/* Static Gallery Link */}
+            {/* Static Gallery Link with enhanced hover effect */}
             <div
-              className="relative cursor-pointer transition-all text-white font-medium px-2 py-1 rounded-md hover:text-blue-400"
+              className="relative cursor-pointer group"
               onClick={() => navigate("/globe")}
             >
-              Gallery
+              <span className="transition-all duration-300 text-white font-medium px-2 py-1 rounded-md group-hover:text-transparent group-hover:bg-gradient-to-r group-hover:from-pink-500 group-hover:to-indigo-500 group-hover:bg-clip-text">
+                Gallery
+              </span>
+              {/* Enhanced smooth underline for Gallery */}
+              <span
+                className="absolute -bottom-1 left-1/2 transform -translate-x-1/2 h-[2px] w-0 rounded-full transition-all duration-500 ease-out group-hover:w-full opacity-0 group-hover:opacity-100"
+                style={{
+                  background: "linear-gradient(90deg, #ec4899 0%, #6366f1 100%)",
+                  boxShadow: "0 0 8px rgba(236, 72, 153, 0.6), 0 0 16px rgba(99, 102, 241, 0.4)"
+                }}
+              />
+              {/* Additional glow effect on hover for Gallery */}
+              <span
+                className="absolute -bottom-1 left-1/2 transform -translate-x-1/2 h-[1px] rounded-full transition-all duration-700 ease-out opacity-0 group-hover:opacity-60 group-hover:w-[110%] w-0"
+                style={{
+                  background: "linear-gradient(90deg, #ec4899 0%, #6366f1 100%)",
+                  filter: "blur(2px)"
+                }}
+              />
             </div>
 
             {/* Robot Viewer Inline (Desktop only, larger and always visible) */}
-                  <div
-                    className="hidden md:flex items-center ml-2 cursor-pointer"
-                    style={{
-                    width: 90,
-                    height: 60,
-                    padding: 4,
-                    background: "rgba(0,0,0,0.25)",
-                    borderRadius: "12px",
-                    alignItems: "center",
-                    justifyContent: "center",
-                    overflow: "hidden"
-                    }}
-                    role="button"
-                    tabIndex={0}
-                    onClick={() => setShowRobotChat(true)}
-                    onKeyDown={e => {
-                    if (e.key === "Enter" || e.key === " ") {
-                      e.preventDefault();
-                      setShowRobotChat(true);
-                    }
-                    }}
-                    title="Open Dog Chat"
-                    aria-label="Open Dog Chat"
-                  >
-                    <RobotViewer
-                    key={isDesktop ? "desktop" : "mobile"}
-                    width="28px"
-                    height="28px"
-                    position={[-0.9, -12.9, -45]}
-                    rotation={[0, -Math.PI / 2 + 0.6, 0]}
-                    scale={-1.2}
-                    style={{ display: "block" }}
-                    />
-                  </div>
+            <div
+              className="hidden md:flex items-center ml-2 cursor-pointer transition-all duration-300 hover:scale-110 hover:shadow-[0_0_15px_rgba(236,72,153,0.6)]"
+              style={{
+                width: 90,
+                height: 60,
+                padding: 4,
+                background: "rgba(0,0,0,0.25)",
+                borderRadius: "12px",
+                alignItems: "center",
+                justifyContent: "center",
+                overflow: "hidden"
+              }}
+              role="button"
+              tabIndex={0}
+              onClick={() => setShowRobotChat(true)}
+              onKeyDown={e => {
+                if (e.key === "Enter" || e.key === " ") {
+                  e.preventDefault();
+                  setShowRobotChat(true);
+                }
+              }}
+              title="Open Dog Chat"
+              aria-label="Open Dog Chat"
+            >
+              <RobotViewer
+                key={isDesktop ? "desktop" : "mobile"}
+                width="28px"
+                height="28px"
+                position={[-0.9, -12.9, -45]}
+                rotation={[0, -Math.PI / 2 + 0.6, 0]}
+                scale={-1.2}
+                style={{ display: "block" }}
+              />
+            </div>
 
-                  {/* DODDY AI Button (Mobile only) */}
+            {/* DODDY AI Button (Mobile only) with enhanced hover */}
             <button
-              className="flex md:hidden items-center gap-2 text-white font-bold px-4 py-2 rounded-lg shadow transition-all duration-200"
+              className="flex md:hidden items-center gap-2 text-white font-bold px-4 py-2 rounded-lg shadow transition-all duration-300 hover:scale-105 hover:shadow-[0_0_20px_rgba(236,72,153,0.6)]"
               style={{
                 minWidth: 100,
-                background: "linear-gradient(90deg, #00C6FB 0%, #005BEA 100%)"
+                background: "linear-gradient(90deg, #ec4899 0%, #6366f1 100%)"
               }}
               onClick={() => setShowRobotChat(true)}
             >
