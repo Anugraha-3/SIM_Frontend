@@ -2,9 +2,9 @@ import { useState, useEffect, useRef } from "react";
 
 // Mock images for demo - replace with your actual imports
 import keerthi from "../assets/keerthivarman.png";
-import muthu from "../assets/muthu.jpg";
+
 import siva from "../assets/sivaperumal.png";
-import seenu from "../assets/seenu.png";
+import selvi from "../assets/selvi.jpg";
 import anuz from "../assets/anuz.jpg";
 //import dinesh from "../assets/dine.jpg";
 import kalai from "../assets/kalai.png";
@@ -14,7 +14,7 @@ import ayub from "../assets/ayub.jpg"
 import deva from "../assets/deva.jpg"// 
  import kavya from "../assets/kavya.jpg"
  import vivek from "../assets/vivek.jpg"// Updated Anu image
-// import sandra from "../assets/sandra.jpg"; // Updated Sandra image
+ import madhana from "../assets/madhana.jpg"; // Updated Sandra image
 
 const members = [
   {
@@ -44,6 +44,20 @@ const members = [
     role: "Junior 3D Designer & Content Writer",
     description:
       "Combines 3D design skills with a flair for content creation. Sandra supports visual development and helps shape engaging written content.",
+  },
+  {
+    name: "KalaiSelvi",
+    image: selvi,
+    role: "FoPoster Designer & Documentation Coordinator",
+    description:
+      "Blends creative flair with operational strength—Kalaiselvi designs visually compelling posters while taking charge of critical documentation processes. Her organized approach ensures accuracy, compliance, and smooth coordination across teams.",
+  },
+  {
+    name: "Madhana Devi",
+    image: keerthi,
+    role: "Founder & CEO – Sun Info Media",
+    description:
+      "The visionary behind Sun Info Media, Keerthi Varman leads the team with a passion for innovation and technology. With a clear focus on growth and creativity, he drives the company toward building impactful digital experiences and future-ready solutions.",
   },
   {
     name: "Anuz Balamurali",
