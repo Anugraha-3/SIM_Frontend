@@ -54,10 +54,10 @@ const members = [
   },
   {
     name: "Madhana Devi",
-    image: keerthi,
-    role: "Founder & CEO – Sun Info Media",
+    image: madhana,
+    role: "Content Writer",
     description:
-      "The visionary behind Sun Info Media, Keerthi Varman leads the team with a passion for innovation and technology. With a clear focus on growth and creativity, he drives the company toward building impactful digital experiences and future-ready solutions.",
+      "Crafts clear, engaging, and purposeful content across digital platforms. With a strong command of language and a creative mindset, Madhana Devi brings ideas to life through compelling writing that resonates with the audience.",
   },
   {
     name: "Anuz Balamurali",
