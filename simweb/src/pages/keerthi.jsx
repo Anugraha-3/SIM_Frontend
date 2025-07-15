@@ -209,64 +209,68 @@ export default function KeerthiProfile() {
   }, []);
 
   const startRocketAnimation = () => {
-    setRocketAnimation(prev => ({ 
-      ...prev, 
-      isActive: true,
-      currentYearIndex: timeline.length - 1,
-      position: (timeline.length - 1) * 100,
-      opacity: 1,
-      isFlying: false
-    }));
-    
-    // Animate rocket through each year from 2009 to 2025
-    timeline.forEach((_, index) => {
-      setTimeout(() => {
-        const targetIndex = timeline.length - 1 - index;
-        const position = targetIndex * 100;
-        setRocketAnimation(prev => ({
-          ...prev,
-          currentYearIndex: targetIndex,
-          position: position,
-          isFlying: false
-        }));
-      }, index * 1500);
-    });
-    
-    // Final launch sequence after reaching 2025
+  // Start at 2009 (last item in timeline array)
+  setRocketAnimation(prev => ({ 
+    ...prev, 
+    isActive: true,
+    currentYearIndex: timeline.length - 1,
+    position: (timeline.length - 1) * 100,
+    opacity: 1,
+    isFlying: false
+  }));
+
+  // Create pauses at each point
+  timeline.forEach((_, index) => {
+    // Skip the first one (2009) since we're already there
+    if (index === 0) return;
+
     setTimeout(() => {
-      // Start flying animation
+      const targetIndex = timeline.length - 1 - index;
+      const position = targetIndex * 100;
+      
       setRocketAnimation(prev => ({
         ...prev,
-        isFlying: true
+        currentYearIndex: targetIndex,
+        position: position,
+        isFlying: false
       }));
-      
-      // Fly upwards smoothly
-      setTimeout(() => {
-        setRocketAnimation(prev => ({
-          ...prev,
-          position: -300 // Move much higher
-        }));
-      }, 200);
-      
-      // Start fading out
-      setTimeout(() => {
-        setRocketAnimation(prev => ({
-          ...prev,
-          opacity: 0
-        }));
-      }, 1000);
-      
-      // Complete fade and reset
-      setTimeout(() => {
-        setRocketAnimation(prev => ({
-          ...prev,
-          isActive: false,
-          position: -500
-        }));
-      }, 2000);
-      
-    }, timeline.length * 1500 + 1000);
-  };
+    }, index * 2000); // 2000ms pause at each point
+  });
+
+  // Final launch sequence after reaching the top (2025)
+  setTimeout(() => {
+    // Start flying animation
+    setRocketAnimation(prev => ({
+      ...prev,
+      isFlying: true
+    }));
+    
+    // Fly upwards smoothly
+    setTimeout(() => {
+      setRocketAnimation(prev => ({
+        ...prev,
+        position: -300 // Move much higher
+      }));
+    }, 200);
+    
+    // Start fading out
+    setTimeout(() => {
+      setRocketAnimation(prev => ({
+        ...prev,
+        opacity: 0
+      }));
+    }, 1000);
+    
+    // Complete fade and reset
+    setTimeout(() => {
+      setRocketAnimation(prev => ({
+        ...prev,
+        isActive: false,
+        position: -500
+      }));
+    }, 2000);
+  }, (timeline.length - 1) * 2000 + 1000); // Adjusted timing
+};
 
   const handleBackClick = () => {
     console.log("Navigate back to home");

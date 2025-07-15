@@ -2,8 +2,9 @@ import { FaBars, FaTimes } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
 import logo from "../assets/sim_logo.png";
-import RobotViewer from "./RobotViewer";
+//import RobotViewer from "./RobotViewer";
 import RobotChat from "../pages/RobotChat"; // Import the chat overlay
+import dogPng from "../assets/dog.png"; // Import the dog image
 
 const Navbar = ({ scrollToSection }) => {
   const navigate = useNavigate();
@@ -144,40 +145,42 @@ const Navbar = ({ scrollToSection }) => {
 
             {/* Robot Viewer Inline (Desktop only, larger and always visible) */}
             <div
-              className="hidden md:flex items-center ml-2 cursor-pointer transition-all duration-300 hover:scale-110 hover:shadow-[0_0_15px_rgba(236,72,153,0.6)]"
-              style={{
-                width: 90,
-                height: 60,
-                padding: 4,
-                background: "rgba(0,0,0,0.25)",
-                borderRadius: "12px",
-                alignItems: "center",
-                justifyContent: "center",
-                overflow: "hidden"
-              }}
-              role="button"
-              tabIndex={0}
-              onClick={() => setShowRobotChat(true)}
-              onKeyDown={e => {
-                if (e.key === "Enter" || e.key === " ") {
-                  e.preventDefault();
-                  setShowRobotChat(true);
-                }
-              }}
-              title="Open Dog Chat"
-              aria-label="Open Dog Chat"
-            >
-              <RobotViewer
-                key={isDesktop ? "desktop" : "mobile"}
-                width="28px"
-                height="28px"
-                position={[-0.9, -12.9, -45]}
-                rotation={[0, -Math.PI / 2 + 0.6, 0]}
-                scale={-1.2}
-                style={{ display: "block" }}
-              />
-            </div>
-
+                    className="hidden md:flex items-center ml-0 mr-2 cursor-pointer"
+                    style={{
+                    width: 90,
+                    height: 60,
+                    padding: 3,
+                    background: "rgba(0,0,0,0.25)",
+                    borderRadius: "12px",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    overflow: "hidden",
+                    position: "relative",
+                    left: -11 // Move a bit to the left
+                    }}
+                    role="button"
+                    tabIndex={0}
+                    onClick={() => setShowRobotChat(true)}
+                    onKeyDown={e => {
+                    if (e.key === "Enter" || e.key === " ") {
+                      e.preventDefault();
+                      setShowRobotChat(true);
+                    }
+                    }}
+                    title="Open AI chat"
+                    aria-label="Open Dog Chat"
+                  >
+                    <img
+                    src={dogPng}
+                    alt="Dog"
+                    style={{
+                      width: "60px",
+                      height: "48px",
+                      objectFit: "contain",
+                      display: "block"
+                    }}
+                    />
+                  </div>
             {/* DODDY AI Button (Mobile only) with enhanced hover */}
             <button
               className="flex md:hidden items-center gap-2 text-white font-bold px-4 py-2 rounded-lg shadow transition-all duration-300 hover:scale-105 hover:shadow-[0_0_20px_rgba(236,72,153,0.6)]"
