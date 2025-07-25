@@ -243,17 +243,17 @@ export default function Services() {
                         : 'border-white/20 shadow-black/60'
                     }`}>
                       <div
-                        className="h-[220px] bg-cover bg-center rounded-t-2xl relative overflow-hidden"
+                        className="h-[220px] bg-cover bg-center rounded-2xl relative overflow-hidden"
                         style={{ backgroundImage: `url(${service.image})` }}
                       >
-                        <div className={`absolute inset-0 transition-all duration-600 rounded-t-2xl ${
+                        <div className={`absolute inset-0 transition-all duration-600 rounded-2xl ${
                           isActive 
                             ? 'bg-black/10 hover:bg-black/30' 
                             : 'bg-black/20 hover:bg-black/40'
                         }`}></div>
                         
                         {/* Enhanced glow overlay */}
-                        <div className={`absolute inset-0 rounded-t-2xl transition-all duration-800 ${
+                        <div className={`absolute inset-0 rounded-2xl transition-all duration-800 ${
                           isActive 
                             ? 'bg-gradient-to-br from-pink-500/10 via-transparent to-indigo-500/10' 
                             : 'bg-gradient-to-br from-pink-500/5 via-transparent to-indigo-500/5'

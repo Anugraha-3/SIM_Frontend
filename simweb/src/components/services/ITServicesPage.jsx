@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
-import { ChevronLeft, ArrowRight, Globe, Map, Monitor, Zap, Eye, Layers, Smartphone, Star, Award, Clock, Shield, Users, Lightbulb, CheckCircle, MessageCircle, Linkedin, Mail, Phone, X } from "lucide-react";
+import { ChevronLeft, ArrowRight, Globe, Map, Monitor, Zap, Layers, Star, Award, Clock, Shield, Users, Lightbulb, CheckCircle, MessageCircle, Linkedin, Mail, Phone, X, Menu } from "lucide-react";
+
 const servicesData = {
   "website-development": {
     id: "website-development",
@@ -36,14 +37,17 @@ export default function ITServicesPage() {
   const [hoveredFeature, setHoveredFeature] = useState(null);
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const [showContactModal, setShowContactModal] = useState(false);
+  const [showMobileMenu, setShowMobileMenu] = useState(false);
   const service = servicesData[currentService];
 
   useEffect(() => {
     setIsLoaded(true);
     
-    // Mouse tracking for parallax effects
+    // Mouse tracking for parallax effects (disabled on mobile for performance)
     const handleMouseMove = (e) => {
-      setMousePosition({ x: e.clientX, y: e.clientY });
+      if (window.innerWidth > 768) {
+        setMousePosition({ x: e.clientX, y: e.clientY });
+      }
     };
     
     window.addEventListener('mousemove', handleMouseMove);
@@ -56,221 +60,138 @@ export default function ITServicesPage() {
     return () => clearTimeout(timer);
   }, [currentService]);
 
-const ContactModal = () => {
-  if (!showContactModal) return null;
+  useEffect(() => {
+    // Close mobile menu when service changes
+    setShowMobileMenu(false);
+  }, [currentService]);
 
-  const contactOptions = [
-    {
-      icon: <MessageCircle className="w-6 h-6" />,
-      title: "WhatsApp",
-      color: "hover:bg-green-500/20 hover:text-green-400",
-      action: () => window.open("https://wa.me/917788003366", "_blank")
-    },
-    {
-      icon: <Linkedin className="w-6 h-6" />,
-      title: "LinkedIn", 
-      color: "hover:bg-blue-500/20 hover:text-blue-400",
-      action: () => window.open("https://www.linkedin.com/company/suninfomedia/", "_blank")
-    },
-    {
-      icon: <Mail className="w-6 h-6" />,
-      title: "Email",
-      color: "hover:bg-red-500/20 hover:text-red-400", 
-      action: () => window.open("mailto:admin@sunnetwork.info", "_blank")
-    },
-    {
-      icon: <Phone className="w-6 h-6" />,
-      title: "Call Us",
-      color: "hover:bg-purple-500/20 hover:text-purple-400",
-      action: () => window.open("tel:+917788003366", "_blank")
-    }
-  ];
+  const ContactModal = () => {
+    if (!showContactModal) return null;
 
-  return (
-    <>
-      <div className="fixed inset-0 z-[9999] flex items-center justify-center p-4">
-        {/* Simplified Backdrop */}
-        <div 
-          className="absolute inset-0 bg-black/70 backdrop-blur-sm"
-          onClick={() => setShowContactModal(false)}
-        />
-        
-        {/* Simplified Modal */}
-<div className="relative bg-white/10 border border-white/20 rounded-2xl p-8 pb-12 shadow-2xl backdrop-blur-md transform transition-all duration-300 scale-100 opacity-100">          {/* Close Button */}
-          <button
+    const contactOptions = [
+      {
+        icon: <MessageCircle className="w-6 h-6" />,
+        title: "WhatsApp",
+        color: "hover:bg-green-500/20 hover:text-green-400",
+        action: () => window.open("https://wa.me/917788003366", "_blank")
+      },
+      {
+        icon: <Linkedin className="w-6 h-6" />,
+        title: "LinkedIn", 
+        color: "hover:bg-blue-500/20 hover:text-blue-400",
+        action: () => window.open("https://www.linkedin.com/company/suninfomedia/", "_blank")
+      },
+      {
+        icon: <Mail className="w-6 h-6" />,
+        title: "Email",
+        color: "hover:bg-red-500/20 hover:text-red-400", 
+        action: () => window.open("mailto:admin@sunnetwork.info", "_blank")
+      },
+      {
+        icon: <Phone className="w-6 h-6" />,
+        title: "Call Us",
+        color: "hover:bg-purple-500/20 hover:text-purple-400",
+        action: () => window.open("tel:+917788003366", "_blank")
+      }
+    ];
+
+    return (
+      <>
+        <div className="fixed inset-0 z-[9999] flex items-center justify-center p-4">
+          <div 
+            className="absolute inset-0 bg-black/70 backdrop-blur-sm"
             onClick={() => setShowContactModal(false)}
-            className="absolute -top-2 -right-2 p-2 bg-white/10 rounded-full border border-white/20 hover:bg-white/20 transition-colors duration-200"
-          >
-            <X className="w-4 h-4" />
-          </button>
+          />
+          
+          <div className="relative bg-white/10 border border-white/20 rounded-2xl p-6 md:p-8 pb-8 md:pb-12 shadow-2xl backdrop-blur-md transform transition-all duration-300 scale-100 opacity-100 w-full max-w-md">
+            <button
+              onClick={() => setShowContactModal(false)}
+              className="absolute -top-2 -right-2 p-2 bg-white/10 rounded-full border border-white/20 hover:bg-white/20 transition-colors duration-200"
+            >
+              <X className="w-4 h-4" />
+            </button>
 
-          {/* Header */}
-          <div className="text-center mb-8">
-            <div className="inline-flex p-3 bg-gradient-to-r from-pink-500 to-indigo-500 rounded-full mb-4">
-              <MessageCircle className="w-6 h-6 text-white" />
+            <div className="text-center mb-6 md:mb-8">
+              <div className="inline-flex p-3 bg-gradient-to-r from-pink-500 to-indigo-500 rounded-full mb-4">
+                <MessageCircle className="w-6 h-6 text-white" />
+              </div>
+              <h3 className="text-xl md:text-2xl font-semibold text-white mb-2">
+                Get In Touch
+              </h3>
+              <p className="text-gray-400 text-sm">
+                Choose your preferred contact method
+              </p>
             </div>
-            <h3 className="text-2xl font-semibold text-white mb-2">
-              Get In Touch
-            </h3>
-            <p className="text-gray-400 text-sm">
-              Choose your preferred contact method
-            </p>
+
+            <div className="grid grid-cols-2 gap-3 md:flex md:gap-4 md:justify-center">
+              {contactOptions.map((option, index) => (
+                <button
+                  key={index}
+                  onClick={option.action}
+                  title={option.title}
+                  className={`p-3 md:p-4 bg-white/5 border border-white/10 rounded-xl backdrop-blur-sm transition-all duration-200 hover:scale-105 ${option.color} flex flex-col items-center gap-2 md:flex-row md:gap-0`}
+                >
+                  {option.icon}
+                  <span className="text-xs md:hidden">{option.title}</span>
+                </button>
+              ))}
+            </div>
           </div>
-
-          {/* Simplified Contact Options */}
-          <div className="flex gap-4 justify-center">
-  {contactOptions.map((option, index) => (
-    <button
-      key={index}
-      onClick={option.action}
-      title={option.title}
-      className={`p-4 bg-white/5 border border-white/10 rounded-xl backdrop-blur-sm transition-all duration-200 hover:scale-105 ${option.color}`}
-    >
-      {option.icon}
-    </button>
-  ))}
-</div>
         </div>
-      </div>
+      </>
+    );
+  };
 
-
-      <style jsx>{`
-
-      @keyframes contactFloat {
-  0%, 100% { 
-    transform: translateY(0px) rotate(0deg); 
-  }
-  25% { 
-    transform: translateY(-3px) rotate(1deg); 
-  }
-  75% { 
-    transform: translateY(-1px) rotate(-1deg); 
-  }
-}
-
-@keyframes contactGlow {
-  0%, 100% { 
-    box-shadow: 0 4px 15px rgba(236, 72, 153, 0.3);
-  }
-  50% { 
-    box-shadow: 0 8px 25px rgba(236, 72, 153, 0.5), 0 0 30px rgba(99, 102, 241, 0.3);
-  }
-}
-
-@keyframes iconBounce {
-  0%, 100% { 
-    transform: scale(1) rotate(0deg); 
-  }
-  50% { 
-    transform: scale(1.1) rotate(5deg); 
-  }
-}
-
-.animate-contact-float {
-  animation: contactFloat 3s ease-in-out infinite;
-}
-
-.animate-contact-glow {
-  animation: contactGlow 2s ease-in-out infinite;
-}
-
-.animate-icon-bounce {
-  animation: iconBounce 0.6s ease-in-out;
-}
-        .modal-appear {
-          animation: modalAppear 0.3s ease-out;
-        }
-        
-        .header-float {
-          animation: headerFloat 2s ease-in-out infinite;
-        }
-        
-        @keyframes modalAppear {
-          from {
-            opacity: 0;
-            transform: scale(0.95);
-          }
-          to {
-            opacity: 1;
-            transform: scale(1);
-          }
-        }
-        
-        @keyframes slideUp {
-          from {
-            opacity: 0;
-            transform: translateY(20px);
-          }
-          to {
-            opacity: 1;
-            transform: translateY(0);
-          }
-        }
-        
-        @keyframes headerFloat {
-          0%, 100% {
-            transform: translateY(0px);
-          }
-          50% {
-            transform: translateY(-3px);
-          }
-        }
-        
-        .contact-btn:hover {
-          box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
-        }
-      `}</style>
-    </>
-  );
-};
   const handleBackClick = () => {
     window.history.back();
   };
 
   return (
     <div className="min-h-screen bg-black text-white font-sans overflow-x-hidden relative">
-      {/* Enhanced Animated Background */}
-      <div className="fixed inset-0 opacity-30">
+      {/* Enhanced Animated Background - Optimized for mobile */}
+      <div className="fixed inset-0 opacity-20 md:opacity-30">
         <div className="absolute inset-0 bg-gradient-to-br from-pink-900/30 via-purple-900/30 to-indigo-900/30 animate-gradient-shift"></div>
         
-        {/* Enhanced Floating Orbs with Parallax */}
+        {/* Floating Orbs with Parallax - Reduced on mobile */}
         <div 
-          className="absolute w-96 h-96 bg-gradient-to-r from-pink-500/20 to-indigo-500/20 rounded-full blur-3xl animate-float-slow"
+          className="absolute w-48 h-48 md:w-96 md:h-96 bg-gradient-to-r from-pink-500/10 md:from-pink-500/20 to-indigo-500/10 md:to-indigo-500/20 rounded-full blur-3xl animate-float-slow"
           style={{
-            left: `${20 + (mousePosition.x * 0.02)}px`,
-            top: `${20 + (mousePosition.y * 0.01)}px`,
+            left: `${20 + (mousePosition.x * 0.01)}px`,
+            top: `${20 + (mousePosition.y * 0.005)}px`,
           }}
         ></div>
         <div 
-          className="absolute w-80 h-80 bg-gradient-to-r from-indigo-500/20 to-pink-500/20 rounded-full blur-3xl animate-float-reverse"
+          className="absolute w-40 h-40 md:w-80 md:h-80 bg-gradient-to-r from-indigo-500/10 md:from-indigo-500/20 to-pink-500/10 md:to-pink-500/20 rounded-full blur-3xl animate-float-reverse"
           style={{
-            right: `${20 - (mousePosition.x * 0.01)}px`,
-            bottom: `${20 - (mousePosition.y * 0.02)}px`,
+            right: `${20 - (mousePosition.x * 0.005)}px`,
+            bottom: `${20 - (mousePosition.y * 0.01)}px`,
           }}
         ></div>
-        <div className="absolute w-64 h-64 bg-gradient-to-r from-purple-500/15 to-cyan-500/15 rounded-full blur-2xl animate-pulse-slow top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"></div>
+        <div className="absolute w-32 h-32 md:w-64 md:h-64 bg-gradient-to-r from-purple-500/10 md:from-purple-500/15 to-cyan-500/10 md:to-cyan-500/15 rounded-full blur-2xl animate-pulse-slow top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"></div>
         
-        {/* Animated Grid Pattern */}
-        <div className="absolute inset-0 opacity-5">
+        {/* Animated Grid Pattern - Hidden on small mobile */}
+        <div className="absolute inset-0 opacity-5 hidden sm:block">
           <div className="grid-pattern animate-grid-flow"></div>
         </div>
       </div>
 
-      {/* Enhanced Fixed Header */}
+      {/* Enhanced Fixed Header - Mobile Responsive */}
       <div className="fixed top-0 left-0 right-0 z-50 bg-black/90 backdrop-blur-xl border-b border-white/20 animate-slide-down">
-        <div className="max-w-7xl mx-auto px-6 py-4">
+        <div className="max-w-7xl mx-auto px-4 md:px-6 py-3 md:py-4">
           <div className="flex items-center justify-between">
             <button
               onClick={handleBackClick}
-              className="flex items-center gap-2 px-4 py-2 bg-white/10 rounded-lg border border-white/20 hover:bg-white/20 transition-all duration-300 group hover:scale-105 hover:shadow-lg hover:shadow-pink-500/20"
+              className="flex items-center gap-2 px-3 py-2 md:px-4 bg-white/10 rounded-lg border border-white/20 hover:bg-white/20 transition-all duration-300 group hover:scale-105 hover:shadow-lg hover:shadow-pink-500/20"
             >
-              <ChevronLeft className="w-5 h-5 transition-transform group-hover:-translate-x-1 group-hover:scale-110" />
-              <span className="font-medium">Back to Services</span>
+              <ChevronLeft className="w-4 h-4 md:w-5 md:h-5 transition-transform group-hover:-translate-x-1 group-hover:scale-110" />
+              <span className="font-medium text-sm md:text-base hidden sm:inline">Back to Services</span>
+              <span className="font-medium text-sm md:text-base sm:hidden">Back</span>
             </button>
 
-            <div className="flex-1 max-w-3xl mx-8">
+            {/* Desktop Service Navigation */}
+            <div className="hidden lg:flex flex-1 max-w-3xl mx-8">
               <div className="flex gap-2 overflow-x-auto scrollbar-hide">
-                {Object.values(servicesData).map((serviceItem, index) => (
+                {Object.values(servicesData).map((serviceItem) => (
                   <button
                     key={serviceItem.id}
                     onClick={() => setCurrentService(serviceItem.id)}
@@ -279,7 +200,6 @@ const ContactModal = () => {
                         ? "bg-gradient-to-r from-pink-500 to-indigo-500 text-white border-transparent shadow-lg shadow-pink-500/25 scale-105"
                         : "bg-white/5 border-white/20 hover:bg-white/10 hover:border-pink-300/30 hover:shadow-md"
                     }`}
-                    style={{ animationDelay: `${index * 100}ms` }}
                   >
                     <div className="flex items-center gap-2 whitespace-nowrap">
                       <div className="w-5 h-5 transition-transform hover:rotate-12">
@@ -292,7 +212,16 @@ const ContactModal = () => {
               </div>
             </div>
 
-            <div className="text-right animate-fade-in-left">
+            {/* Mobile Service Menu Button */}
+            <button
+              onClick={() => setShowMobileMenu(!showMobileMenu)}
+              className="lg:hidden p-2 bg-white/10 rounded-lg border border-white/20 hover:bg-white/20 transition-all duration-300"
+            >
+              <Menu className="w-5 h-5" />
+            </button>
+
+            {/* Rating Section */}
+            <div className="text-right animate-fade-in-left hidden md:block">
               <div className="text-sm text-gray-400">Premium Service</div>
               <div className="flex items-center gap-1">
                 {[...Array(5)].map((_, i) => (
@@ -305,11 +234,35 @@ const ContactModal = () => {
               </div>
             </div>
           </div>
+
+          {/* Mobile Service Navigation */}
+          {showMobileMenu && (
+            <div className="lg:hidden mt-4 space-y-2 animate-fade-in-up">
+              {Object.values(servicesData).map((serviceItem) => (
+                <button
+                  key={serviceItem.id}
+                  onClick={() => setCurrentService(serviceItem.id)}
+                  className={`w-full p-3 rounded-lg border transition-all duration-300 ${
+                    currentService === serviceItem.id
+                      ? "bg-gradient-to-r from-pink-500 to-indigo-500 text-white border-transparent"
+                      : "bg-white/5 border-white/20 hover:bg-white/10"
+                  }`}
+                >
+                  <div className="flex items-center gap-3">
+                    <div className="w-6 h-6">
+                      {React.cloneElement(serviceItem.icon, { className: "w-6 h-6" })}
+                    </div>
+                    <span className="font-medium text-left">{serviceItem.title}</span>
+                  </div>
+                </button>
+              ))}
+            </div>
+          )}
         </div>
       </div>
 
-      {/* Enhanced Hero Section */}
-      <div className={`relative h-[70vh] overflow-hidden transition-all duration-1000 mt-20 ${isLoaded ? 'opacity-100 transform-none' : 'opacity-0 transform scale-95'}`}>
+      {/* Enhanced Hero Section - Mobile Responsive */}
+      <div className={`relative h-[50vh] md:h-[70vh] overflow-hidden transition-all duration-1000 mt-16 md:mt-20 ${isLoaded ? 'opacity-100 transform-none' : 'opacity-0 transform scale-95'}`}>
         <div
           className="absolute inset-0 bg-cover bg-center transition-all duration-1000 scale-110 hover:scale-105"
           style={{ backgroundImage: `url(${service.image})` }}
@@ -318,81 +271,79 @@ const ContactModal = () => {
           <div className="absolute inset-0 bg-gradient-to-r from-pink-500/30 to-indigo-500/30 animate-gradient-shift"></div>
         </div>
 
-        <div className="absolute bottom-0 left-0 right-0 p-8 bg-gradient-to-t from-black via-black/90 to-transparent">
+        <div className="absolute bottom-0 left-0 right-0 p-4 md:p-8 bg-gradient-to-t from-black via-black/90 to-transparent">
           <div className="max-w-4xl mx-auto">
-            <div className={`flex items-center gap-6 mb-6 transition-all duration-1000 delay-300 ${isLoaded ? 'opacity-100 transform-none' : 'opacity-0 transform translate-y-8'}`}>
-              <div className="p-4 bg-gradient-to-r from-pink-500 to-indigo-500 rounded-2xl shadow-xl animate-bounce-gentle hover:scale-110 transition-transform duration-300">
-                {service.icon}
+            <div className={`flex items-center gap-3 md:gap-6 mb-4 md:mb-6 transition-all duration-1000 delay-300 ${isLoaded ? 'opacity-100 transform-none' : 'opacity-0 transform translate-y-8'}`}>
+              <div className="p-2 md:p-4 bg-gradient-to-r from-pink-500 to-indigo-500 rounded-xl md:rounded-2xl shadow-xl animate-bounce-gentle hover:scale-110 transition-transform duration-300">
+                {React.cloneElement(service.icon, { className: "w-6 h-6 md:w-8 md:h-8" })}
               </div>
               <div>
-                <h1 className="text-4xl md:text-6xl font-bold bg-gradient-to-r from-white via-pink-100 to-indigo-100 bg-clip-text text-transparent animate-text-glow">
+                <h1 className="text-2xl md:text-4xl lg:text-6xl font-bold bg-gradient-to-r from-white via-pink-100 to-indigo-100 bg-clip-text text-transparent animate-text-glow">
                   {service.title}
                 </h1>
               </div>
             </div>
-            <p className={`text-xl text-gray-300 max-w-3xl leading-relaxed transition-all duration-1000 delay-500 ${isLoaded ? 'opacity-100 transform-none' : 'opacity-0 transform translate-y-4'}`}>
+            <p className={`text-base md:text-xl text-gray-300 max-w-3xl leading-relaxed transition-all duration-1000 delay-500 ${isLoaded ? 'opacity-100 transform-none' : 'opacity-0 transform translate-y-4'}`}>
               {service.description}
             </p>
           </div>
         </div>
       </div>
 
-      {/* Enhanced Main Content Section */}
-      <div className="relative z-10 max-w-6xl mx-auto px-8 py-20">
-        <div className={`grid grid-cols-1 lg:grid-cols-2 gap-16 transition-all duration-1000 ${isLoaded ? 'opacity-100 transform-none' : 'opacity-0 transform translate-y-8'}`}>
+      {/* Enhanced Main Content Section - Mobile Responsive */}
+      <div className="relative z-10 max-w-6xl mx-auto px-4 md:px-8 py-10 md:py-20">
+        <div className={`grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-16 transition-all duration-1000 ${isLoaded ? 'opacity-100 transform-none' : 'opacity-0 transform translate-y-8'}`}>
           {/* Enhanced Service Details */}
-          <div className="space-y-10">
+          <div className="space-y-6 md:space-y-10">
             <div className="animate-fade-in-up">
-              <h2 className="text-4xl font-bold mb-8 bg-gradient-to-r from-pink-500 to-indigo-500 bg-clip-text text-transparent flex items-center gap-3 animate-text-glow">
-                <Award className="w-8 h-8 text-pink-500 animate-spin-slow" />
+              <h2 className="text-2xl md:text-4xl font-bold mb-4 md:mb-8 bg-gradient-to-r from-pink-500 to-indigo-500 bg-clip-text text-transparent flex items-center gap-2 md:gap-3 animate-text-glow">
+                <Award className="w-6 h-6 md:w-8 md:h-8 text-pink-500 animate-spin-slow" />
                 About This Service
               </h2>
-              <div className="relative p-6 bg-white/5 backdrop-blur-md rounded-2xl border border-white/10 hover:bg-white/10 transition-all duration-500 hover:scale-105 hover:shadow-xl hover:shadow-pink-500/20 group">
+              <div className="relative p-4 md:p-6 bg-white/5 backdrop-blur-md rounded-2xl border border-white/10 hover:bg-white/10 transition-all duration-500 hover:scale-105 hover:shadow-xl hover:shadow-pink-500/20 group">
                 <div className="absolute inset-0 bg-gradient-to-r from-pink-500/5 to-indigo-500/5 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                 <div className="absolute -inset-0.5 bg-gradient-to-r from-pink-500 to-indigo-500 rounded-2xl opacity-0 group-hover:opacity-20 blur transition-opacity duration-500"></div>
-                <p className="relative text-gray-300 text-lg leading-relaxed mb-8">
+                <p className="relative text-gray-300 text-sm md:text-lg leading-relaxed mb-4 md:mb-8">
                   {service.details}
                 </p>
               </div>
-              
-             
             </div>
 
-            {/* Enhanced Stats */}
-            <div className="grid grid-cols-3 gap-4">
+            {/* Enhanced Stats - Mobile Grid */}
+            <div className="grid grid-cols-3 gap-2 md:gap-4">
               {[
-                { icon: <Clock className="w-6 h-6" />, value: "24/7", label: "Support" },
-                { icon: <Award className="w-6 h-6" />, value: "100%", label: "Quality" },
-                { icon: <Star className="w-6 h-6" />, value: "500+", label: "Projects" }
+                { icon: <Clock className="w-5 h-5 md:w-6 md:h-6" />, value: "24/7", label: "Support" },
+                { icon: <Award className="w-5 h-5 md:w-6 md:h-6" />, value: "100%", label: "Quality" },
+                { icon: <Star className="w-5 h-5 md:w-6 md:h-6" />, value: "500+", label: "Projects" }
               ].map((stat, index) => (
                 <div 
                   key={index} 
-                  className="group p-4 bg-white/5 border border-white/10 rounded-xl backdrop-blur-md hover:bg-gradient-to-br hover:from-pink-500/10 hover:to-indigo-500/10 hover:border-pink-300/30 transition-all duration-500 hover:scale-110 hover:-translate-y-2 animate-fade-in-up"
+                  className="group p-3 md:p-4 bg-white/5 border border-white/10 rounded-xl backdrop-blur-md hover:bg-gradient-to-br hover:from-pink-500/10 hover:to-indigo-500/10 hover:border-pink-300/30 transition-all duration-500 hover:scale-110 hover:-translate-y-2 animate-fade-in-up"
                   style={{ animationDelay: `${index * 200}ms` }}
                 >
                   <div className="flex flex-col items-center text-center">
-                    <div className="p-2 bg-gradient-to-r from-pink-500 to-indigo-500 rounded-lg mb-2 group-hover:rotate-12 transition-transform duration-300 group-hover:scale-110">
+                    <div className="p-1.5 md:p-2 bg-gradient-to-r from-pink-500 to-indigo-500 rounded-lg mb-2 group-hover:rotate-12 transition-transform duration-300 group-hover:scale-110">
                       {stat.icon}
                     </div>
-                    <div className="text-2xl font-bold text-white mb-1 animate-number-count">{stat.value}</div>
-                    <div className="text-sm text-gray-400">{stat.label}</div>
+                    <div className="text-lg md:text-2xl font-bold text-white mb-1 animate-number-count">{stat.value}</div>
+                    <div className="text-xs md:text-sm text-gray-400">{stat.label}</div>
                   </div>
                 </div>
               ))}
             </div>
           </div>
 
-          {/* Enhanced Key Features */}
+          {/* Enhanced Key Features - Mobile Optimized */}
           <div className="animate-fade-in-up" style={{ animationDelay: '200ms' }}>
-            <h2 className="text-4xl font-bold mb-8 flex items-center gap-3 animate-text-glow">
-              <Layers className="w-8 h-8 text-indigo-500 animate-float" />
+            <h2 className="text-2xl md:text-4xl font-bold mb-4 md:mb-8 flex items-center gap-2 md:gap-3 animate-text-glow">
+              <Layers className="w-6 h-6 md:w-8 md:h-8 text-indigo-500 animate-float" />
               Key Features
             </h2>
-            <div className="space-y-4">
+            <div className="space-y-3 md:space-y-4">
               {service.features.map((feature, index) => (
                 <div
                   key={index}
-                  className={`group p-6 bg-white/5 border border-white/10 rounded-xl backdrop-blur-md hover:bg-gradient-to-r hover:from-pink-500/10 hover:to-indigo-500/10 hover:border-pink-300/30 transition-all duration-500 cursor-pointer relative overflow-hidden hover:scale-105 hover:-translate-y-1 animate-fade-in-right ${
+                  className={`group p-4 md:p-6 bg-white/5 border border-white/10 rounded-xl backdrop-blur-md hover:bg-gradient-to-r hover:from-pink-500/10 hover:to-indigo-500/10 hover:border-pink-300/30 transition-all duration-500 cursor-pointer relative overflow-hidden hover:scale-105 hover:-translate-y-1 animate-fade-in-right ${
                     hoveredFeature === index ? 'shadow-xl shadow-pink-500/30 scale-105 -translate-y-1' : ''
                   }`}
                   onMouseEnter={() => setHoveredFeature(index)}
@@ -401,14 +352,14 @@ const ContactModal = () => {
                 >
                   <div className="absolute inset-0 bg-gradient-to-r from-pink-500/5 to-indigo-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                   <div className="absolute -inset-0.5 bg-gradient-to-r from-pink-500 to-indigo-500 rounded-xl opacity-0 group-hover:opacity-10 blur transition-opacity duration-500"></div>
-                  <div className="relative flex items-center gap-4">
-                    <div className="p-3 rounded-xl bg-gradient-to-r from-pink-500 to-indigo-500 shadow-lg group-hover:rotate-12 group-hover:scale-110 transition-transform duration-300">
-                      <CheckCircle className="w-5 h-5 text-white" />
+                  <div className="relative flex items-center gap-3 md:gap-4">
+                    <div className="p-2 md:p-3 rounded-xl bg-gradient-to-r from-pink-500 to-indigo-500 shadow-lg group-hover:rotate-12 group-hover:scale-110 transition-transform duration-300">
+                      <CheckCircle className="w-4 h-4 md:w-5 md:h-5 text-white" />
                     </div>
                     <div className="flex-1">
-                      <span className="font-semibold text-lg">{feature}</span>
+                      <span className="font-semibold text-base md:text-lg">{feature}</span>
                       {hoveredFeature === index && (
-                        <div className="mt-2 text-sm text-gray-400 animate-fade-in">
+                        <div className="mt-2 text-sm text-gray-400 animate-fade-in hidden md:block">
                           Premium {feature.toLowerCase()} with cutting-edge technology and expert implementation
                         </div>
                       )}
@@ -420,89 +371,90 @@ const ContactModal = () => {
           </div>
         </div>
 
-        {/* Enhanced Why Choose Us Section */}
-        <div className={`mt-20 transition-all duration-1000 delay-700 ${isLoaded ? 'opacity-100 transform-none' : 'opacity-0 transform translate-y-8'}`}>
-          <div className="text-center mb-12 animate-fade-in-up">
-            <h3 className="text-4xl font-bold mb-4 bg-gradient-to-r from-pink-500 to-indigo-500 bg-clip-text text-transparent animate-text-glow">
+        {/* Enhanced Why Choose Us Section - Mobile Grid */}
+        <div className={`mt-12 md:mt-20 transition-all duration-1000 delay-700 ${isLoaded ? 'opacity-100 transform-none' : 'opacity-0 transform translate-y-8'}`}>
+          <div className="text-center mb-8 md:mb-12 animate-fade-in-up">
+            <h3 className="text-2xl md:text-4xl font-bold mb-4 bg-gradient-to-r from-pink-500 to-indigo-500 bg-clip-text text-transparent animate-text-glow">
               Why Choose Our {service.title} Service?
             </h3>
-            <p className="text-gray-300 text-xl leading-relaxed max-w-3xl mx-auto">
+            <p className="text-gray-300 text-base md:text-xl leading-relaxed max-w-3xl mx-auto px-4">
               We combine cutting-edge technology with creative expertise to deliver exceptional results that transform your business.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
             {[
               {
-                icon: <Lightbulb className="w-8 h-8" />,
+                icon: <Lightbulb className="w-6 h-6 md:w-8 md:h-8" />,
                 title: "Innovation",
                 description: "Cutting-edge solutions using the latest technology trends and methodologies"
               },
               {
-                icon: <Award className="w-8 h-8" />,
+                icon: <Award className="w-6 h-6 md:w-8 md:h-8" />,
                 title: "Quality Assurance",
                 description: "Rigorous testing and quality control ensures flawless delivery every time"
               },
               {
-                icon: <Users className="w-8 h-8" />,
+                icon: <Users className="w-6 h-6 md:w-8 md:h-8" />,
                 title: "Expert Support",
                 description: "Dedicated team of professionals providing 24/7 technical assistance"
               },
               {
-                icon: <Shield className="w-8 h-8" />,
+                icon: <Shield className="w-6 h-6 md:w-8 md:h-8" />,
                 title: "Reliability",
                 description: "Proven track record with 500+ successful projects and satisfied clients"
               }
             ].map((item, index) => (
               <div
                 key={index}
-                className="group p-6 bg-gradient-to-br from-white/5 to-white/10 border border-white/10 rounded-2xl backdrop-blur-md hover:bg-gradient-to-br hover:from-pink-500/10 hover:to-indigo-500/10 hover:border-pink-300/30 transition-all duration-500 hover:scale-110 hover:-translate-y-4 animate-fade-in-up hover:shadow-xl hover:shadow-pink-500/20"
+                className="group p-4 md:p-6 bg-gradient-to-br from-white/5 to-white/10 border border-white/10 rounded-2xl backdrop-blur-md hover:bg-gradient-to-br hover:from-pink-500/10 hover:to-indigo-500/10 hover:border-pink-300/30 transition-all duration-500 hover:scale-110 hover:-translate-y-4 animate-fade-in-up hover:shadow-xl hover:shadow-pink-500/20"
                 style={{ animationDelay: `${index * 150}ms` }}
               >
                 <div className="absolute -inset-0.5 bg-gradient-to-r from-pink-500 to-indigo-500 rounded-2xl opacity-0 group-hover:opacity-10 blur transition-opacity duration-500"></div>
-                <div className="p-4 bg-gradient-to-r from-pink-500 to-indigo-500 rounded-xl mb-4 inline-block group-hover:rotate-12 group-hover:scale-110 transition-transform duration-300">
+                <div className="p-3 md:p-4 bg-gradient-to-r from-pink-500 to-indigo-500 rounded-xl mb-4 inline-block group-hover:rotate-12 group-hover:scale-110 transition-transform duration-300">
                   {item.icon}
                 </div>
-                <h4 className="text-xl font-bold mb-3 text-white">{item.title}</h4>
+                <h4 className="text-lg md:text-xl font-bold mb-3 text-white">{item.title}</h4>
                 <p className="text-gray-300 text-sm leading-relaxed">{item.description}</p>
               </div>
             ))}
           </div>
         </div>
 
-        {/* Enhanced Contact CTA */}
-        <div className="mt-20 text-center animate-fade-in-up" style={{ animationDelay: '800ms' }}>
-          <div className="inline-block p-12 bg-gradient-to-br from-pink-500/20 to-indigo-500/20 rounded-3xl border border-white/10 backdrop-blur-md hover:shadow-2xl hover:shadow-pink-500/30 transition-all duration-500 hover:scale-105 group relative overflow-hidden">
+        {/* Enhanced Contact CTA - Mobile Responsive */}
+        <div className="mt-12 md:mt-20 text-center animate-fade-in-up" style={{ animationDelay: '800ms' }}>
+          <div className="inline-block p-6 md:p-12 bg-gradient-to-br from-pink-500/20 to-indigo-500/20 rounded-3xl border border-white/10 backdrop-blur-md hover:shadow-2xl hover:shadow-pink-500/30 transition-all duration-500 hover:scale-105 group relative overflow-hidden mx-4">
             <div className="absolute inset-0 bg-gradient-to-r from-pink-500/5 to-indigo-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
             <div className="absolute -inset-0.5 bg-gradient-to-r from-pink-500 to-indigo-500 rounded-3xl opacity-0 group-hover:opacity-20 blur transition-opacity duration-500"></div>
             <div className="relative">
-              <div className="mb-6">
-                <div className="inline-flex p-4 bg-gradient-to-r from-pink-500 to-indigo-500 rounded-full animate-pulse-glow group-hover:rotate-12 group-hover:scale-110 transition-transform duration-300">
-                  <Zap className="w-8 h-8" />
+              <div className="mb-4 md:mb-6">
+                <div className="inline-flex p-3 md:p-4 bg-gradient-to-r from-pink-500 to-indigo-500 rounded-full animate-pulse-glow group-hover:rotate-12 group-hover:scale-110 transition-transform duration-300">
+                  <Zap className="w-6 h-6 md:w-8 md:h-8" />
                 </div>
               </div>
-              <h3 className="text-3xl font-bold mb-4 bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent animate-text-glow">
+              <h3 className="text-2xl md:text-3xl font-bold mb-4 bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent animate-text-glow">
                 Ready to Transform Your Business?
               </h3>
-              <p className="text-gray-300 text-lg mb-8 max-w-lg mx-auto">
+              <p className="text-gray-300 text-base md:text-lg mb-6 md:mb-8 max-w-lg mx-auto px-4">
                 Experience the future with our cutting-edge {service.title.toLowerCase()} solutions. 
                 Let's bring your vision to life.
               </p>
               <button 
-  onClick={() => setShowContactModal(true)}
-  className="group px-12 py-4 bg-gradient-to-r from-pink-500 to-indigo-500 rounded-xl font-semibold hover:shadow-xl hover:shadow-pink-500/30 transition-all duration-300 hover:scale-110 relative overflow-hidden animate-pulse-glow"
->
-  <div className="absolute inset-0 bg-gradient-to-r from-white/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 animate-shimmer"></div>
-  <div className="relative flex items-center gap-3">
-    <span className="text-lg">Contact Us Today</span>
-    <ArrowRight className="w-5 h-5 group-hover:translate-x-2 group-hover:scale-110 transition-transform" />
-  </div>
-</button>
+                onClick={() => setShowContactModal(true)}
+                className="group px-8 md:px-12 py-3 md:py-4 bg-gradient-to-r from-pink-500 to-indigo-500 rounded-xl font-semibold hover:shadow-xl hover:shadow-pink-500/30 transition-all duration-300 hover:scale-110 relative overflow-hidden animate-pulse-glow"
+              >
+                <div className="absolute inset-0 bg-gradient-to-r from-white/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 animate-shimmer"></div>
+                <div className="relative flex items-center gap-2 md:gap-3">
+                  <span className="text-base md:text-lg">Contact Us Today</span>
+                  <ArrowRight className="w-4 h-4 md:w-5 md:h-5 group-hover:translate-x-2 group-hover:scale-110 transition-transform" />
+                </div>
+              </button>
             </div>
           </div>
         </div>
       </div>
-<ContactModal />
+
+      <ContactModal />
 
       <style jsx>{`
         .scrollbar-hide {
@@ -693,8 +645,68 @@ const ContactModal = () => {
         .animate-number-count {
           animation: numberCount 0.5s ease-out;
         }
-      `}
-      </style>
-      </div>
+
+        /* Mobile-specific optimizations */
+        @media (max-width: 768px) {
+          .animate-float-slow,
+          .animate-float-reverse {
+            animation-duration: 8s;
+          }
+          
+          .animate-pulse-slow {
+            animation-duration: 6s;
+          }
+          
+          .hover\\:scale-110:hover {
+            transform: scale(1.05);
+          }
+          
+          .hover\\:-translate-y-4:hover {
+            transform: translateY(-8px);
+          }
+          
+          .hover\\:-translate-y-2:hover {
+            transform: translateY(-4px);
+          }
+        }
+
+        /* Reduce motion for users who prefer it */
+        @media (prefers-reduced-motion: reduce) {
+          .animate-float,
+          .animate-float-slow,
+          .animate-float-reverse,
+          .animate-bounce-gentle,
+          .animate-spin-slow,
+          .animate-pulse-glow,
+          .animate-pulse-slow,
+          .animate-pulse-subtle,
+          .animate-twinkle,
+          .animate-shimmer,
+          .animate-gradient-shift,
+          .animate-grid-flow {
+            animation: none;
+          }
+          
+          .transition-transform {
+            transition: none;
+          }
+        }
+
+        /* Better touch targets for mobile */
+        @media (max-width: 768px) {
+          button {
+            min-height: 44px;
+            min-width: 44px;
+          }
+        }
+
+        /* Prevent horizontal scroll on mobile */
+        @media (max-width: 768px) {
+          * {
+            max-width: 100%;
+          }
+        }
+      `}</style>
+    </div>
   );
 }
