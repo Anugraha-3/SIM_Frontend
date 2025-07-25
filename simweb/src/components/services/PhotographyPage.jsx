@@ -5,7 +5,7 @@ const serviceData = {
   id: "photography",
   title: "Photography",
   image: "/photography.jpg",
-  icon: <Camera className="w-8 h-8" />,
+  icon: <Camera className="w-6 h-6 md:w-8 md:h-8" />,
   description: "Professional photography services capturing moments, products, and celestial wonders with expertise and creativity.",
   features: [
     "Event Photography", 
@@ -89,7 +89,7 @@ export default function PhotographyPage() {
   return (
     <div className="min-h-screen bg-black text-white font-primary overflow-x-hidden">
       {/* Header */}
-      <div className="relative h-[60vh] overflow-hidden">
+      <div className="relative h-[50vh] sm:h-[60vh] overflow-hidden">
         <div
           className="absolute inset-0 bg-cover bg-center transform transition-transform duration-1000 ease-out hover:scale-105"
           style={{ backgroundImage: `url(${serviceData.image})` }}
@@ -99,27 +99,28 @@ export default function PhotographyPage() {
         
         <button
           onClick={handleBackClick}
-          className={`absolute top-8 left-8 flex items-center gap-2 px-4 py-2 bg-white/10 backdrop-blur-md rounded-lg border border-white/20 hover:bg-white/20 hover:scale-105 transition-all duration-300 z-10 transform ${
+          className={`absolute top-4 left-4 md:top-8 md:left-8 flex items-center gap-2 px-3 py-2 md:px-4 md:py-2 bg-white/10 backdrop-blur-md rounded-lg border border-white/20 hover:bg-white/20 hover:scale-105 transition-all duration-300 z-10 transform text-sm md:text-base ${
             isLoaded ? 'translate-x-0 opacity-100' : '-translate-x-full opacity-0'
           }`}
         >
-          <ChevronLeft className="w-5 h-5 transition-transform duration-300 group-hover:-translate-x-1" />
-          Back to Services
+          <ChevronLeft className="w-4 h-4 md:w-5 md:h-5 transition-transform duration-300 group-hover:-translate-x-1" />
+          <span className="hidden sm:inline">Back to Services</span>
+          <span className="sm:hidden">Back</span>
         </button>
 
-        <div className="absolute bottom-0 left-0 right-0 p-8 bg-gradient-to-t from-black via-black/80 to-transparent">
+        <div className="absolute bottom-0 left-0 right-0 p-4 md:p-8 bg-gradient-to-t from-black via-black/80 to-transparent">
           <div className="max-w-4xl mx-auto">
-            <div className={`flex items-center gap-4 mb-4 transform transition-all duration-800 delay-300 ${
+            <div className={`flex items-center gap-3 md:gap-4 mb-3 md:mb-4 transform transition-all duration-800 delay-300 ${
               isLoaded ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'
             }`}>
-              <div className="p-3 bg-gradient-to-r from-pink-500 to-indigo-500 rounded-xl animate-pulse hover:animate-none hover:scale-110 transition-transform duration-300">
+              <div className="p-2 md:p-3 bg-gradient-to-r from-pink-500 to-indigo-500 rounded-xl animate-pulse hover:animate-none hover:scale-110 transition-transform duration-300">
                 {serviceData.icon}
               </div>
-              <h1 className="text-4xl md:text-6xl font-bold bg-gradient-to-r from-white via-gray-100 to-gray-300 bg-clip-text text-transparent">
+              <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-6xl font-bold bg-gradient-to-r from-white via-gray-100 to-gray-300 bg-clip-text text-transparent">
                 {serviceData.title}
               </h1>
             </div>
-            <p className={`text-xl text-gray-300 max-w-2xl transform transition-all duration-800 delay-500 ${
+            <p className={`text-base md:text-xl text-gray-300 max-w-2xl transform transition-all duration-800 delay-500 ${
               isLoaded ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'
             }`}>
               {serviceData.description}
@@ -129,8 +130,8 @@ export default function PhotographyPage() {
       </div>
 
       {/* Content */}
-      <div className="max-w-6xl mx-auto px-8 py-16">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+      <div className="max-w-6xl mx-auto px-4 md:px-8 py-8 md:py-16">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12">
           {/* Details */}
           <div 
             id="details-section"
@@ -139,23 +140,23 @@ export default function PhotographyPage() {
               visibleSections['details-section'] ? 'translate-x-0 opacity-100' : '-translate-x-20 opacity-0'
             }`}
           >
-            <h2 className="text-3xl font-bold mb-6 bg-gradient-to-r from-pink-500 to-indigo-500 bg-clip-text text-transparent animate-gradient">
+            <h2 className="text-2xl md:text-3xl font-bold mb-4 md:mb-6 bg-gradient-to-r from-pink-500 to-indigo-500 bg-clip-text text-transparent animate-gradient">
               About This Service
             </h2>
-            <p className="text-gray-300 text-lg leading-relaxed mb-8 hover:text-white transition-colors duration-300">
+            <p className="text-gray-300 text-base md:text-lg leading-relaxed mb-6 md:mb-8 hover:text-white transition-colors duration-300">
               {serviceData.details}
             </p>
             
-            <div className="flex items-center gap-4">
+            <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 md:gap-4">
               <button 
                 onClick={handleWhatsAppClick}
-                className="px-8 py-3 bg-gradient-to-r from-pink-500 to-indigo-500 rounded-lg font-semibold hover:shadow-lg hover:shadow-pink-500/25 hover:scale-105 transition-all duration-300 transform hover:-translate-y-1"
+                className="px-6 md:px-8 py-3 bg-gradient-to-r from-pink-500 to-indigo-500 rounded-lg font-semibold hover:shadow-lg hover:shadow-pink-500/25 hover:scale-105 transition-all duration-300 transform hover:-translate-y-1 text-center"
               >
                 Get Started
               </button>
               <button 
                 onClick={handleLearnMoreClick}
-                className="px-8 py-3 border border-white/20 rounded-lg font-semibold hover:bg-white/5 hover:border-white/40 hover:scale-105 transition-all duration-300 transform hover:-translate-y-1"
+                className="px-6 md:px-8 py-3 border border-white/20 rounded-lg font-semibold hover:bg-white/5 hover:border-white/40 hover:scale-105 transition-all duration-300 transform hover:-translate-y-1 text-center"
               >
                 Learn More
               </button>
@@ -170,17 +171,17 @@ export default function PhotographyPage() {
               visibleSections['features-section'] ? 'translate-x-0 opacity-100' : 'translate-x-20 opacity-0'
             }`}
           >
-            <h2 className="text-3xl font-bold mb-6">Key Features</h2>
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <h2 className="text-2xl md:text-3xl font-bold mb-4 md:mb-6">Key Features</h2>
+            <div className="grid grid-cols-1 gap-3 md:gap-4">
               {serviceData.features.map((feature, index) => (
                 <div
                   key={index}
-                  className={`p-4 bg-white/5 border border-white/10 rounded-lg backdrop-blur-md hover:bg-white/10 hover:border-white/20 hover:scale-105 transition-all duration-300 transform hover:-translate-y-1 animate-fade-in-up`}
+                  className={`p-3 md:p-4 bg-white/5 border border-white/10 rounded-lg backdrop-blur-md hover:bg-white/10 hover:border-white/20 hover:scale-105 transition-all duration-300 transform hover:-translate-y-1 animate-fade-in-up`}
                   style={{ animationDelay: `${index * 100}ms` }}
                 >
                   <div className="flex items-center gap-3">
-                    <ArrowRight className="w-5 h-5 text-pink-500 transition-transform duration-300 group-hover:translate-x-1" />
-                    <span className="font-medium">{feature}</span>
+                    <ArrowRight className="w-4 h-4 md:w-5 md:h-5 text-pink-500 transition-transform duration-300 group-hover:translate-x-1 flex-shrink-0" />
+                    <span className="font-medium text-sm md:text-base">{feature}</span>
                   </div>
                 </div>
               ))}
@@ -189,29 +190,29 @@ export default function PhotographyPage() {
         </div>
 
         {/* Photography Services Details */}
-        <div className="mt-16 space-y-12">
+        <div className="mt-12 md:mt-16 space-y-8 md:space-y-12">
           {/* Event Photography */}
           <div 
             id="event-section"
             data-animate
-            className={`p-8 bg-gradient-to-r from-pink-500/10 to-indigo-500/10 rounded-2xl border border-white/10 backdrop-blur-sm hover:border-pink-500/30 transition-all duration-500 transform ${
+            className={`p-4 md:p-8 bg-gradient-to-r from-pink-500/10 to-indigo-500/10 rounded-2xl border border-white/10 backdrop-blur-sm hover:border-pink-500/30 transition-all duration-500 transform ${
               visibleSections['event-section'] ? 'translate-y-0 opacity-100 scale-100' : 'translate-y-20 opacity-0 scale-95'
             }`}
           >
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-8 items-center">
               <div className="transform transition-all duration-700 delay-200 hover:translate-x-2">
-                <h3 className="text-2xl font-bold mb-4 bg-gradient-to-r from-pink-500 to-indigo-500 bg-clip-text text-transparent">
+                <h3 className="text-xl md:text-2xl font-bold mb-3 md:mb-4 bg-gradient-to-r from-pink-500 to-indigo-500 bg-clip-text text-transparent">
                   Event Photography
                 </h3>
-                <p className="text-gray-300 text-lg leading-relaxed hover:text-white transition-colors duration-300">
+                <p className="text-gray-300 text-sm md:text-lg leading-relaxed hover:text-white transition-colors duration-300">
                   {serviceData.eventPhotography}
                 </p>
               </div>
-              <div className="relative group">
+              <div className="relative group order-first lg:order-last">
                 <img 
                   src="/src/components/service/event.jpg" 
                   alt="Event Photography" 
-                  className="w-full h-64 object-cover rounded-xl shadow-lg transition-all duration-500 group-hover:scale-105 group-hover:shadow-pink-500/20"
+                  className="w-full h-48 md:h-64 object-cover rounded-xl shadow-lg transition-all duration-500 group-hover:scale-105 group-hover:shadow-pink-500/20"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent rounded-xl group-hover:from-pink-500/20 transition-all duration-500"></div>
                 <div className="absolute inset-0 bg-pink-500/0 group-hover:bg-pink-500/10 rounded-xl transition-all duration-500"></div>
@@ -223,27 +224,25 @@ export default function PhotographyPage() {
           <div 
             id="astro-section"
             data-animate
-            className={`p-8 bg-gradient-to-r from-indigo-500/10 to-purple-500/10 rounded-2xl border border-white/10 backdrop-blur-sm hover:border-indigo-500/30 transition-all duration-500 transform ${
+            className={`p-4 md:p-8 bg-gradient-to-r from-indigo-500/10 to-purple-500/10 rounded-2xl border border-white/10 backdrop-blur-sm hover:border-indigo-500/30 transition-all duration-500 transform ${
               visibleSections['astro-section'] ? 'translate-y-0 opacity-100 scale-100' : 'translate-y-20 opacity-0 scale-95'
             }`}
           >
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
-              <div className="order-2 lg:order-1">
-                <div className="relative group">
-                  <img 
-                    src="/src/components/service/astro.jpg" 
-                    alt="Astro Photography" 
-                    className="w-full h-64 object-cover rounded-xl shadow-lg transition-all duration-500 group-hover:scale-105 group-hover:shadow-indigo-500/20"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent rounded-xl group-hover:from-indigo-500/20 transition-all duration-500"></div>
-                  <div className="absolute inset-0 bg-indigo-500/0 group-hover:bg-indigo-500/10 rounded-xl transition-all duration-500"></div>
-                </div>
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-8 items-center">
+              <div className="relative group">
+                <img 
+                  src="/src/components/service/astro.jpg" 
+                  alt="Astro Photography" 
+                  className="w-full h-48 md:h-64 object-cover rounded-xl shadow-lg transition-all duration-500 group-hover:scale-105 group-hover:shadow-indigo-500/20"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent rounded-xl group-hover:from-indigo-500/20 transition-all duration-500"></div>
+                <div className="absolute inset-0 bg-indigo-500/0 group-hover:bg-indigo-500/10 rounded-xl transition-all duration-500"></div>
               </div>
-              <div className="order-1 lg:order-2 transform transition-all duration-700 delay-200 hover:-translate-x-2">
-                <h3 className="text-2xl font-bold mb-4 bg-gradient-to-r from-indigo-500 to-purple-500 bg-clip-text text-transparent">
+              <div className="transform transition-all duration-700 delay-200 hover:-translate-x-2">
+                <h3 className="text-xl md:text-2xl font-bold mb-3 md:mb-4 bg-gradient-to-r from-indigo-500 to-purple-500 bg-clip-text text-transparent">
                   Astro Photography
                 </h3>
-                <p className="text-gray-300 text-lg leading-relaxed hover:text-white transition-colors duration-300">
+                <p className="text-gray-300 text-sm md:text-lg leading-relaxed hover:text-white transition-colors duration-300">
                   {serviceData.astroPhotography}
                 </p>
               </div>
@@ -254,24 +253,24 @@ export default function PhotographyPage() {
           <div 
             id="professional-section"
             data-animate
-            className={`p-8 bg-gradient-to-r from-purple-500/10 to-pink-500/10 rounded-2xl border border-white/10 backdrop-blur-sm hover:border-purple-500/30 transition-all duration-500 transform ${
+            className={`p-4 md:p-8 bg-gradient-to-r from-purple-500/10 to-pink-500/10 rounded-2xl border border-white/10 backdrop-blur-sm hover:border-purple-500/30 transition-all duration-500 transform ${
               visibleSections['professional-section'] ? 'translate-y-0 opacity-100 scale-100' : 'translate-y-20 opacity-0 scale-95'
             }`}
           >
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-8 items-center">
               <div className="transform transition-all duration-700 delay-200 hover:translate-x-2">
-                <h3 className="text-2xl font-bold mb-4 bg-gradient-to-r from-purple-500 to-pink-500 bg-clip-text text-transparent">
+                <h3 className="text-xl md:text-2xl font-bold mb-3 md:mb-4 bg-gradient-to-r from-purple-500 to-pink-500 bg-clip-text text-transparent">
                   Professional Photography
                 </h3>
-                <p className="text-gray-300 text-lg leading-relaxed hover:text-white transition-colors duration-300">
+                <p className="text-gray-300 text-sm md:text-lg leading-relaxed hover:text-white transition-colors duration-300">
                   {serviceData.professionalPhotography}
                 </p>
               </div>
-              <div className="relative group">
+              <div className="relative group order-first lg:order-last">
                 <img 
                   src="/src/components/service/professional.jpg" 
                   alt="Professional Photography" 
-                  className="w-full h-64 object-cover rounded-xl shadow-lg transition-all duration-500 group-hover:scale-105 group-hover:shadow-purple-500/20"
+                  className="w-full h-48 md:h-64 object-cover rounded-xl shadow-lg transition-all duration-500 group-hover:scale-105 group-hover:shadow-purple-500/20"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent rounded-xl group-hover:from-purple-500/20 transition-all duration-500"></div>
                 <div className="absolute inset-0 bg-purple-500/0 group-hover:bg-purple-500/10 rounded-xl transition-all duration-500"></div>
@@ -283,34 +282,32 @@ export default function PhotographyPage() {
           <div 
             id="drone-section"
             data-animate
-            className={`p-8 bg-gradient-to-r from-cyan-500/10 to-blue-500/10 rounded-2xl border border-white/10 backdrop-blur-sm hover:border-cyan-500/30 transition-all duration-500 transform ${
+            className={`p-4 md:p-8 bg-gradient-to-r from-cyan-500/10 to-blue-500/10 rounded-2xl border border-white/10 backdrop-blur-sm hover:border-cyan-500/30 transition-all duration-500 transform ${
               visibleSections['drone-section'] ? 'translate-y-0 opacity-100 scale-100' : 'translate-y-20 opacity-0 scale-95'
             }`}
           >
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
-              <div className="order-2 lg:order-1">
-                <div className="relative group">
-                  <img 
-                    src="/drone.jpg" 
-                    alt="Drone Sales & Training" 
-                    className="w-full h-64 object-cover rounded-xl shadow-lg transition-all duration-500 group-hover:scale-105 group-hover:shadow-cyan-500/20"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent rounded-xl group-hover:from-cyan-500/20 transition-all duration-500"></div>
-                  <div className="absolute inset-0 bg-cyan-500/0 group-hover:bg-cyan-500/10 rounded-xl transition-all duration-500"></div>
-                </div>
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-8 items-center">
+              <div className="relative group">
+                <img 
+                  src="/drone.jpg" 
+                  alt="Drone Sales & Training" 
+                  className="w-full h-48 md:h-64 object-cover rounded-xl shadow-lg transition-all duration-500 group-hover:scale-105 group-hover:shadow-cyan-500/20"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent rounded-xl group-hover:from-cyan-500/20 transition-all duration-500"></div>
+                <div className="absolute inset-0 bg-cyan-500/0 group-hover:bg-cyan-500/10 rounded-xl transition-all duration-500"></div>
               </div>
-              <div className="order-1 lg:order-2 transform transition-all duration-700 delay-200 hover:-translate-x-2">
-                <h3 className="text-2xl font-bold mb-4 bg-gradient-to-r from-cyan-500 to-blue-500 bg-clip-text text-transparent">
+              <div className="transform transition-all duration-700 delay-200 hover:-translate-x-2">
+                <h3 className="text-xl md:text-2xl font-bold mb-3 md:mb-4 bg-gradient-to-r from-cyan-500 to-blue-500 bg-clip-text text-transparent">
                   Drone Sales & Training Programs
                 </h3>
-                <p className="text-gray-300 text-lg leading-relaxed mb-6 hover:text-white transition-colors duration-300">
+                <p className="text-gray-300 text-sm md:text-lg leading-relaxed mb-4 md:mb-6 hover:text-white transition-colors duration-300">
                   {serviceData.droneSalesTraining}
                 </p>
                 <button 
                   onClick={() => setShowDroneDetails(!showDroneDetails)}
-                  className="flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-cyan-500 to-blue-500 rounded-lg font-semibold hover:shadow-lg hover:shadow-cyan-500/25 hover:scale-105 transition-all duration-300 transform hover:-translate-y-1 group"
+                  className="flex items-center gap-2 px-4 md:px-6 py-2 md:py-3 bg-gradient-to-r from-cyan-500 to-blue-500 rounded-lg font-semibold hover:shadow-lg hover:shadow-cyan-500/25 hover:scale-105 transition-all duration-300 transform hover:-translate-y-1 group text-sm md:text-base w-full sm:w-auto justify-center sm:justify-start"
                 >
-                  <Eye className={`w-5 h-5 transition-transform duration-300 ${showDroneDetails ? 'rotate-180' : 'group-hover:scale-110'}`} />
+                  <Eye className={`w-4 h-4 md:w-5 md:h-5 transition-transform duration-300 ${showDroneDetails ? 'rotate-180' : 'group-hover:scale-110'}`} />
                   {showDroneDetails ? 'Hide' : 'View'} Drone Details
                 </button>
               </div>
@@ -323,34 +320,34 @@ export default function PhotographyPage() {
               ? 'opacity-100 scale-y-100 max-h-screen translate-y-0' 
               : 'opacity-0 scale-y-0 max-h-0 -translate-y-10'
           }`}>
-            <div className="p-8 bg-gradient-to-r from-cyan-900/20 to-blue-900/20 rounded-2xl border border-cyan-500/20 backdrop-blur-sm">
-              <h4 className="text-2xl font-bold mb-6 bg-gradient-to-r from-cyan-400 to-blue-400 bg-clip-text text-transparent animate-pulse">
+            <div className="p-4 md:p-8 bg-gradient-to-r from-cyan-900/20 to-blue-900/20 rounded-2xl border border-cyan-500/20 backdrop-blur-sm">
+              <h4 className="text-xl md:text-2xl font-bold mb-4 md:mb-6 bg-gradient-to-r from-cyan-400 to-blue-400 bg-clip-text text-transparent animate-pulse">
                 Available Drone Models
               </h4>
               
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 mb-6 md:mb-8">
                 {droneModels.map((drone, index) => (
                   <div 
                     key={index} 
-                    className={`p-4 bg-white/5 border border-cyan-500/20 rounded-lg backdrop-blur-md hover:bg-white/10 hover:border-cyan-500/40 hover:scale-105 transition-all duration-300 transform hover:-translate-y-1 animate-fade-in-up`}
+                    className={`p-3 md:p-4 bg-white/5 border border-cyan-500/20 rounded-lg backdrop-blur-md hover:bg-white/10 hover:border-cyan-500/40 hover:scale-105 transition-all duration-300 transform hover:-translate-y-1 animate-fade-in-up`}
                     style={{ animationDelay: `${index * 100}ms` }}
                   >
                     <div className="flex items-center justify-between mb-2">
-                      <h5 className="font-semibold text-cyan-400">{drone.name}</h5>
-                      <MapPin className="w-4 h-4 text-blue-400 animate-bounce" />
+                      <h5 className="font-semibold text-cyan-400 text-sm md:text-base">{drone.name}</h5>
+                      <MapPin className="w-3 h-3 md:w-4 md:h-4 text-blue-400 animate-bounce flex-shrink-0" />
                     </div>
-                    <p className="text-sm text-gray-400">{drone.category}</p>
+                    <p className="text-xs md:text-sm text-gray-400">{drone.category}</p>
                   </div>
                 ))}
               </div>
 
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                <div className="p-6 bg-gradient-to-br from-cyan-500/10 to-transparent rounded-xl border border-cyan-500/20 hover:border-cyan-500/40 hover:scale-105 transition-all duration-300 transform hover:-translate-y-1">
-                  <div className="flex items-center gap-3 mb-4">
-                    <Settings className="w-6 h-6 text-cyan-400 animate-spin-slow" />
-                    <h5 className="text-xl font-bold text-cyan-400">Training Programs</h5>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
+                <div className="p-4 md:p-6 bg-gradient-to-br from-cyan-500/10 to-transparent rounded-xl border border-cyan-500/20 hover:border-cyan-500/40 hover:scale-105 transition-all duration-300 transform hover:-translate-y-1">
+                  <div className="flex items-center gap-3 mb-3 md:mb-4">
+                    <Settings className="w-5 h-5 md:w-6 md:h-6 text-cyan-400 animate-spin-slow flex-shrink-0" />
+                    <h5 className="text-lg md:text-xl font-bold text-cyan-400">Training Programs</h5>
                   </div>
-                  <ul className="space-y-2 text-gray-300">
+                  <ul className="space-y-2 text-gray-300 text-sm md:text-base">
                     <li className="hover:text-white hover:translate-x-2 transition-all duration-300">• Flight Operations & Safety</li>
                     <li className="hover:text-white hover:translate-x-2 transition-all duration-300">• Aerial Photography Techniques</li>
                     <li className="hover:text-white hover:translate-x-2 transition-all duration-300">• Professional Videography</li>
@@ -359,12 +356,12 @@ export default function PhotographyPage() {
                   </ul>
                 </div>
 
-                <div className="p-6 bg-gradient-to-br from-blue-500/10 to-transparent rounded-xl border border-blue-500/20 hover:border-blue-500/40 hover:scale-105 transition-all duration-300 transform hover:-translate-y-1">
-                  <div className="flex items-center gap-3 mb-4">
-                    <Camera className="w-6 h-6 text-blue-400 hover:animate-pulse" />
-                    <h5 className="text-xl font-bold text-blue-400">Applications</h5>
+                <div className="p-4 md:p-6 bg-gradient-to-br from-blue-500/10 to-transparent rounded-xl border border-blue-500/20 hover:border-blue-500/40 hover:scale-105 transition-all duration-300 transform hover:-translate-y-1">
+                  <div className="flex items-center gap-3 mb-3 md:mb-4">
+                    <Camera className="w-5 h-5 md:w-6 md:h-6 text-blue-400 hover:animate-pulse flex-shrink-0" />
+                    <h5 className="text-lg md:text-xl font-bold text-blue-400">Applications</h5>
                   </div>
-                  <ul className="space-y-2 text-gray-300">
+                  <ul className="space-y-2 text-gray-300 text-sm md:text-base">
                     <li className="hover:text-white hover:translate-x-2 transition-all duration-300">• Recreational Flying</li>
                     <li className="hover:text-white hover:translate-x-2 transition-all duration-300">• Professional Photography</li>
                     <li className="hover:text-white hover:translate-x-2 transition-all duration-300">• Real Estate Marketing</li>
@@ -374,9 +371,9 @@ export default function PhotographyPage() {
                 </div>
               </div>
 
-              <div className="mt-6 flex gap-4">
+              <div className="mt-4 md:mt-6 flex gap-4">
                 <button 
-                  className="px-6 py-3 bg-gradient-to-r from-cyan-500 to-blue-500 rounded-lg font-semibold hover:shadow-lg hover:shadow-cyan-500/25 hover:scale-105 transition-all duration-300 transform hover:-translate-y-1"
+                  className="px-4 md:px-6 py-2 md:py-3 bg-gradient-to-r from-cyan-500 to-blue-500 rounded-lg font-semibold hover:shadow-lg hover:shadow-cyan-500/25 hover:scale-105 transition-all duration-300 transform hover:-translate-y-1 text-sm md:text-base w-full sm:w-auto"
                   onClick={() => window.location.href = "https://www.indiamart.com/sun-info-mediacoimbatore/drone-camera.html"}
                 >
                   Explore Drones
@@ -389,14 +386,14 @@ export default function PhotographyPage() {
           <div 
             id="why-choose-section"
             data-animate
-            className={`mt-16 p-8 bg-gradient-to-r from-pink-500/10 to-indigo-500/10 rounded-2xl border border-white/10 backdrop-blur-sm hover:border-pink-500/30 transition-all duration-500 transform ${
+            className={`mt-12 md:mt-16 p-4 md:p-8 bg-gradient-to-r from-pink-500/10 to-indigo-500/10 rounded-2xl border border-white/10 backdrop-blur-sm hover:border-pink-500/30 transition-all duration-500 transform ${
               visibleSections['why-choose-section'] ? 'translate-y-0 opacity-100 scale-100' : 'translate-y-20 opacity-0 scale-95'
             }`}
           >
-            <h3 className="text-2xl font-bold mb-4 bg-gradient-to-r from-pink-500 to-indigo-500 bg-clip-text text-transparent">
+            <h3 className="text-xl md:text-2xl font-bold mb-3 md:mb-4 bg-gradient-to-r from-pink-500 to-indigo-500 bg-clip-text text-transparent">
               Why Choose Our {serviceData.title} Service?
             </h3>
-            <p className="text-gray-300 text-lg hover:text-white transition-colors duration-300">
+            <p className="text-gray-300 text-sm md:text-lg hover:text-white transition-colors duration-300">
               We combine cutting-edge technology with creative expertise to deliver exceptional results. 
               Our team of professionals is dedicated to bringing your vision to life with precision, 
               innovation, and attention to detail that sets us apart in the industry. From ground-based 
