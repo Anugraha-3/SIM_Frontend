@@ -357,7 +357,14 @@ export default function DigitalMarketingServicesPage() {
           </div>
           
           <div className="flex gap-2 sm:gap-3">
-            {servicesArray.map((service) => (
+            {servicesArray.map((service 
+
+
+
+
+
+
+            ) => (
               <button
                 key={service.id}
                 onClick={() => handleServiceChange(service.id)}

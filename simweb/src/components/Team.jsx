@@ -57,7 +57,7 @@ const members = [
     image: madhana,
     role: "Content Writer",
     description:
-      "Crafts clear, engaging, and purposeful content across digital platforms. With a strong command of language and a creative mindset, Madhana Devi brings ideas to life through compelling writing that resonates with the audience.",
+      "Crafts clear, engaging, and purposeful content across digital platforms. With a strong command of language and a creative mindset, Madhana Devi brings ideas to life through compelling writing that resonates with the audience.",
   },
   {
     name: "Anuz Balamurali",
@@ -148,7 +148,7 @@ export default function CrewPage() {
   const member = members[current];
 
   return (
-    <div className="bg-black text-white px-5 py-20 overflow-hidden font-sans">
+    <div className="bg-black text-white px-4 md:px-5 py-10 md:py-20 overflow-hidden font-sans">
       <style jsx>{`
         @keyframes glow {
           0%, 100% { box-shadow: 0 0 20px rgba(168, 85, 247, 0.4); }
@@ -196,80 +196,23 @@ export default function CrewPage() {
         }
       `}</style>
       
-      <h2 className="text-3xl md:text-4xl font-bold uppercase tracking-wider mb-10 relative text-left inline-block">
-        <span className="text-gray-400 mr-3">03</span>
+      <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold uppercase tracking-wider mb-6 md:mb-10 relative text-left inline-block">
+        <span className="text-gray-400 mr-2 md:mr-3">03</span>
         <span className="text-white">
           The Minds Behind the Mission
         </span>
         <span className="absolute left-0 -bottom-1 w-full h-1 bg-gradient-to-r from-red-500 via-purple-500 to-blue-500"></span>
       </h2>
 
-      <div className="flex flex-col lg:flex-row items-center justify-between gap-10 lg:gap-20">
-        {/* Left: Text Content */}
-        <div className="w-full lg:w-1/2 text-center lg:text-left lg:pl-60">
-          <div key={member.name} className="fade-in">
-            <h4 className="text-lg uppercase opacity-60 tracking-widest mb-2.5 text-gray-300">
-              {member.role}
-            </h4>
-            <h3 className="text-4xl uppercase text-white mb-5 bg-gradient-to-r from-red-500 via-purple-500 to-blue-500 bg-clip-text text-transparent font-bold">
-              {member.name}
-            </h3>
-            <p className="text-base leading-relaxed text-gray-300 whitespace-pre-wrap px-2.5 lg:px-0">
-              {member.description}
-            </p>
-
-            {/* Dots */}
-            <div className="flex gap-3 justify-center lg:justify-start mt-7">
-              {members.map((_, i) => (
-                <span
-                  key={i}
-                  className={`w-3.5 h-3.5 rounded-full transition-all duration-300 cursor-pointer ${
-                    current === i
-                      ? 'bg-gradient-to-r from-red-500 via-purple-500 to-blue-500 opacity-100 animate-glow'
-                      : 'bg-white/30 opacity-30 hover:opacity-60 hover:scale-125 hover:bg-purple-500/50'
-                  }`}
-                  onClick={() => {
-                    if (!isAnimating) {
-                      setCurrent(i);
-                      resetAutoSlide();
-                    }
-                  }}
-                />
-              ))}
-            </div>
-
-            {/* Navigation Buttons */}
-            <div className="flex gap-4 justify-center lg:justify-start mt-6">
-              <button
-                className="nav-button text-white p-4 rounded-full text-lg font-medium cursor-pointer flex items-center justify-center w-14 h-14"
-                onClick={prevMember}
-                disabled={isAnimating}
-              >
-                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M15 19l-7-7 7-7"/>
-                </svg>
-              </button>
-              <button
-                className="nav-button text-white p-4 rounded-full text-lg font-medium cursor-pointer flex items-center justify-center w-14 h-14"
-                onClick={nextMember}
-                disabled={isAnimating}
-              >
-                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M9 5l7 7-7 7"/>
-                </svg>
-              </button>
-            </div>
-          </div>
-        </div>
-
-        {/* Right: Image */}
-        <div className="w-full lg:w-1/2 flex justify-center lg:justify-end lg:pr-60">
+      <div className="flex flex-col lg:flex-row items-center justify-between gap-6 md:gap-10 lg:gap-20">
+        {/* Mobile: Image First */}
+        <div className="w-full lg:w-1/2 flex justify-center lg:justify-end lg:pr-60 order-1 lg:order-2">
           <div className="relative animate-float">
             <img
               key={member.name}
               src={member.image}
               alt={member.role}
-              className="w-72 h-72 md:w-96 md:h-96 object-cover object-center rounded-full transition-all duration-500 ease-in-out hover:scale-105 fade-in"
+              className="w-60 h-60 sm:w-72 sm:h-72 md:w-80 md:h-80 lg:w-96 lg:h-96 object-cover object-center rounded-full transition-all duration-500 ease-in-out hover:scale-105 fade-in"
               style={{
                 boxShadow: '0 0 40px 10px rgba(168, 85, 247, 0.4)',
                 border: '3px solid transparent',
@@ -286,9 +229,66 @@ export default function CrewPage() {
             />
             
             {/* Floating decorative elements */}
-            <div className="absolute -top-4 -right-4 w-8 h-8 bg-red-500/20 rounded-full animate-pulse"></div>
-            <div className="absolute -bottom-6 -left-6 w-6 h-6 bg-blue-500/20 rounded-full animate-bounce"></div>
-            <div className="absolute top-1/2 -right-8 w-4 h-4 bg-purple-500/30 rounded-full animate-ping"></div>
+            <div className="absolute -top-4 -right-4 w-6 h-6 md:w-8 md:h-8 bg-red-500/20 rounded-full animate-pulse"></div>
+            <div className="absolute -bottom-6 -left-6 w-4 h-4 md:w-6 md:h-6 bg-blue-500/20 rounded-full animate-bounce"></div>
+            <div className="absolute top-1/2 -right-6 md:-right-8 w-3 h-3 md:w-4 md:h-4 bg-purple-500/30 rounded-full animate-ping"></div>
+          </div>
+        </div>
+
+        {/* Mobile: Text Content Second */}
+        <div className="w-full lg:w-1/2 text-center lg:text-left lg:pl-60 order-2 lg:order-1">
+          <div key={member.name} className="fade-in">
+            <h4 className="text-sm md:text-lg uppercase opacity-60 tracking-widest mb-2 md:mb-2.5 text-gray-300">
+              {member.role}
+            </h4>
+            <h3 className="text-2xl sm:text-3xl md:text-4xl uppercase text-white mb-3 md:mb-5 bg-gradient-to-r from-red-500 via-purple-500 to-blue-500 bg-clip-text text-transparent font-bold">
+              {member.name}
+            </h3>
+            <p className="text-sm md:text-base leading-relaxed text-gray-300 whitespace-pre-wrap px-2 md:px-2.5 lg:px-0 mb-4 md:mb-0">
+              {member.description}
+            </p>
+
+            {/* Dots */}
+            <div className="flex gap-2 md:gap-3 justify-center lg:justify-start mt-5 md:mt-7">
+              {members.map((_, i) => (
+                <span
+                  key={i}
+                  className={`w-2.5 h-2.5 md:w-3.5 md:h-3.5 rounded-full transition-all duration-300 cursor-pointer ${
+                    current === i
+                      ? 'bg-gradient-to-r from-red-500 via-purple-500 to-blue-500 opacity-100 animate-glow'
+                      : 'bg-white/30 opacity-30 hover:opacity-60 hover:scale-125 hover:bg-purple-500/50'
+                  }`}
+                  onClick={() => {
+                    if (!isAnimating) {
+                      setCurrent(i);
+                      resetAutoSlide();
+                    }
+                  }}
+                />
+              ))}
+            </div>
+
+            {/* Navigation Buttons */}
+            <div className="flex gap-3 md:gap-4 justify-center lg:justify-start mt-4 md:mt-6">
+              <button
+                className="nav-button text-white p-3 md:p-4 rounded-full text-base md:text-lg font-medium cursor-pointer flex items-center justify-center w-12 h-12 md:w-14 md:h-14"
+                onClick={prevMember}
+                disabled={isAnimating}
+              >
+                <svg className="w-5 h-5 md:w-6 md:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M15 19l-7-7 7-7"/>
+                </svg>
+              </button>
+              <button
+                className="nav-button text-white p-3 md:p-4 rounded-full text-base md:text-lg font-medium cursor-pointer flex items-center justify-center w-12 h-12 md:w-14 md:h-14"
+                onClick={nextMember}
+                disabled={isAnimating}
+              >
+                <svg className="w-5 h-5 md:w-6 md:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M9 5l7 7-7 7"/>
+                </svg>
+              </button>
+            </div>
           </div>
         </div>
       </div>
