@@ -6,7 +6,7 @@ const simulatorsData = [
     id: "car-simulator",
     title: "Car Simulator",
     image: "/src/components/service/car_simulator.jpg",
-    icon: <Car className="w-8 h-8" />,
+    icon: <Car className="w-6 h-6 md:w-8 md:h-8" />,
     description: "Sophisticated system replicating real-world driving conditions with immersive authentic experience.",
     features: ["Day/Night Modes", "All Weather Conditions", "BENZ/BMW/LAMBORGHINI Compatible", "Compact Setup"],
     details: "The simulator is a sophisticated system meticulously designed to replicate real-world driving conditions, offering users an immersive and authentic driving experience. Equipped with high-quality components such as a monitor from renowned brands and a fully functional CPU running on Windows OS, it provides a seamless and responsive interface.",
@@ -30,7 +30,7 @@ const simulatorsData = [
   id: "truck-simulator",
   title: "Truck Simulator",
   image: "/src/components/service/truck_simulator.jpg",
-  icon: <Truck className="w-8 h-8" />,
+  icon: <Truck className="w-6 h-6 md:w-8 md:h-8" />,
   description: "Immersive truck driving experience with container delivery across multiple countries.",
   features: ["Multi-Country Routes", "Container Delivery", "BENZ/BMW/MAN/VOLVO Support", "Multiple Play Modes"],
   details: "The Truck Simulator offers users an immersive and lifelike truck driving experience. With versatile Day and Night Modes, and All Climatic Modes, accessible in Euro and major countries, users can explore various environments. Users can enjoy delivering containers from source to destination across multiple countries.",
@@ -55,7 +55,7 @@ const simulatorsData = [
   id: "train-simulator",
   title: "Indian Train Simulator",
   image: "/src/components/service/train_simulator.jpg",
-  icon: <Train className="w-8 h-8" />,
+  icon: <Train className="w-6 h-6 md:w-8 md:h-8" />,
   description: "Meticulously crafted railway experience for enthusiasts with authentic locomotive operation.",
   features: [
     "Steam & Modern Engines", 
@@ -87,7 +87,7 @@ const simulatorsData = [
   id: "ship-simulator",
   title: "Ship Training Simulator",
   image: "/src/components/service/ship_simulator.jpg",
-  icon: <Ship className="w-8 h-8" />,
+  icon: <Ship className="w-6 h-6 md:w-8 md:h-8" />,
   description: "Thrilling maritime adventures with precision navigation and realistic weather conditions.",
   features: [
     "Maritime Navigation",
@@ -119,7 +119,7 @@ const simulatorsData = [
   id: "ocean-simulator",
   title: "Ocean Simulators Services",
   image: "/src/components/service/ocean_simulation.jpeg",
-  icon: <Waves className="w-8 h-8" />,
+  icon: <Waves className="w-6 h-6 md:w-8 md:h-8" />,
   description: "Portal to marine exploration with immersive underwater environment experiences.",
   features: [
     "Dynamic Water Simulation",
@@ -152,7 +152,7 @@ const simulatorsData = [
   id: "submarine-simulator",
   title: "Under Ocean Simulator",
   image: "/src/components/service/submarine_simulator.jpg",
-  icon: <Navigation className="w-8 h-8" />,
+  icon: <Navigation className="w-6 h-6 md:w-8 md:h-8" />,
   description: "Cutting-edge deep-sea exploration with authentic submarine operation experience.",
   features: [
     "Deep-Sea Exploration",
@@ -185,7 +185,7 @@ const simulatorsData = [
   id: "spacex-simulator",
   title: "Space X Engine Simulator",
   image: "/src/components/service/spacex_engine_simulator.jpg",
-  icon: <Rocket className="w-8 h-8" />,
+  icon: <Rocket className="w-6 h-6 md:w-8 md:h-8" />,
   description: "Gateway to extraordinary space exploration with VR immersion and Earth viewing.",
   features: ["VR Oculus Integration", "3D Earth Exploration", "Astronaut Experience", "Space Navigation"],
   details: "The Space X Engine simulator is your gateway to an extraordinary journey into the depths of space. Step into the role of an intrepid astronaut with realistic controls and responsive handling as you navigate the vast expanse of space with VR Oculus devices for complete immersion.",
@@ -207,12 +207,12 @@ const simulatorsData = [
     id: "flight-simulator",
     title: "Flight Simulator",
     image: "/src/components/service/jet_simulator.jpg",
-    icon: <Plane className="w-8 h-8" />,
+    icon: <Plane className="w-6 h-6 md:w-8 md:h-8" />,
     description: "Complete aviation experience with real-time weather data and diverse aircraft selection.",
     features: ["Multiple Aircraft Types", "Real-time Weather", "Global Navigation", "Cessna to Boeing"],
     details: "The flight simulator is crafted to captivate aviation enthusiasts worldwide. With real-time weather and climate data sourced from satellites, navigate through every country on Earth. Available aircraft include Cessna 172, Rafale with Oculus technology, Airbus 320/380, and Boeing 737/777/787 models.",
     technicalDetails: {
-  price: "₹ 7,00,000 - ₹ 10,00,000/Piece", // Based on your document showing different aircraft prices
+  price: "₹ 7,00,000 - ₹ 10,00,000/Piece",
   minOrder: "1 Piece",
   brochure: "Product Brochure Available",
   specifications: {
@@ -231,7 +231,7 @@ const simulatorsData = [
     id: "jet-simulator",
     title: "Jet Simulator",
     image: "/src/components/service/jet_simulator.jpg",
-    icon: <Zap className="w-8 h-8" />,
+    icon: <Zap className="w-6 h-6 md:w-8 md:h-8" />,
     description: "State-of-the-art fighter jet cockpit with advanced HUD and combat systems.",
     features: ["Fighter Jet Cockpit", "HUD Display", "Combat Systems", "VR Integration"],
     details: "The Jet Simulator is meticulously designed to replicate the cockpit of a state-of-the-art fighter jet. Features advanced Heads-Up Display (HUD), multiple digital screens for radar, navigation, and weapon systems, with integrated VR headset option for dogfights and aerial refueling.",
@@ -255,7 +255,7 @@ const simulatorsData = [
     id: "mars-rover-simulator",
     title: "Mars Rover 3D Simulation",
     image: "/src/components/service/mars_rover_simulator.jpg",
-    icon: <Target className="w-8 h-8" />,
+    icon: <Target className="w-6 h-6 md:w-8 md:h-8" />,
     description: "Expertly designed Mars exploration with realistic rover operations and Martian surface interaction.",
     features: ["Mars Surface Exploration", "Robotic Arm Control", "Scientific Analysis", "Realistic Martian Environment"],
     details: "The Mars Rover 3D Simulator is expertly designed to replicate the rugged and functional aesthetic of a real Mars rover. Features multiple interactive screens displaying real-time data from the rover's sensors, including panoramic views and geological analysis of the Martian surface.",
@@ -300,15 +300,16 @@ export default function LinearSimulatorsPage() {
     setIsModalOpen(false);
     setSelectedSimulator(null);
   };
+  
   const handleWhatsAppRedirect = () => {
-  const phoneNumber = "917788003366"; // Remove spaces and add country code
-  const message = selectedSimulator 
-    ? `Hi, I'm interested in the ${selectedSimulator.title}. Can you provide more information?`
-    : "Hi, I'm interested in your simulation services. Can you provide more information?";
-  const encodedMessage = encodeURIComponent(message);
-  const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
-  window.open(whatsappUrl, '_blank');
-};
+    const phoneNumber = "917788003366";
+    const message = selectedSimulator 
+      ? `Hi, I'm interested in the ${selectedSimulator.title}. Can you provide more information?`
+      : "Hi, I'm interested in your simulation services. Can you provide more information?";
+    const encodedMessage = encodeURIComponent(message);
+    const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
+    window.open(whatsappUrl, '_blank');
+  };
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -346,28 +347,28 @@ export default function LinearSimulatorsPage() {
       {/* Animated Background */}
       <div className="fixed inset-0 opacity-10">
         <div className="absolute inset-0 bg-gradient-to-br from-pink-500/20 via-purple-500/20 to-indigo-500/20 animate-pulse"></div>
-        <div className="absolute top-1/4 left-1/4 w-64 h-64 bg-pink-500/10 rounded-full blur-3xl animate-bounce"></div>
-        <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-indigo-500/10 rounded-full blur-3xl animate-pulse delay-1000"></div>
+        <div className="absolute top-1/4 left-1/4 w-32 h-32 md:w-64 md:h-64 bg-pink-500/10 rounded-full blur-3xl animate-bounce"></div>
+        <div className="absolute bottom-1/4 right-1/4 w-48 h-48 md:w-96 md:h-96 bg-indigo-500/10 rounded-full blur-3xl animate-pulse delay-1000"></div>
       </div>
 
       {/* Header */}
-      <div className="relative h-[60vh] bg-gradient-to-br from-pink-900/50 via-purple-900/50 to-indigo-900/50 overflow-hidden">
-        {/* Animated Geometric Shapes */}
+      <div className="relative h-[50vh] md:h-[60vh] bg-gradient-to-br from-pink-900/50 via-purple-900/50 to-indigo-900/50 overflow-hidden">
+        {/* Animated Geometric Shapes - Mobile Optimized */}
         <div className="absolute inset-0 pointer-events-none">
           {/* Rotating Geometric Shapes */}
-          <div className="absolute top-20 left-20 w-32 h-32 border-2 border-pink-500/30 rounded-full animate-spin" style={{ animationDuration: '20s' }}></div>
-          <div className="absolute top-40 right-32 w-24 h-24 border-2 border-indigo-500/30 rotate-45 animate-pulse"></div>
-          <div className="absolute bottom-32 left-1/4 w-16 h-16 bg-purple-500/20 rounded-lg animate-bounce" style={{ animationDelay: '1s' }}></div>
-          <div className="absolute top-1/3 right-1/4 w-20 h-20 border-2 border-cyan-500/30 rounded-full animate-ping" style={{ animationDuration: '3s' }}></div>
+          <div className="absolute top-10 md:top-20 left-10 md:left-20 w-16 h-16 md:w-32 md:h-32 border-2 border-pink-500/30 rounded-full animate-spin" style={{ animationDuration: '20s' }}></div>
+          <div className="absolute top-20 md:top-40 right-16 md:right-32 w-12 h-12 md:w-24 md:h-24 border-2 border-indigo-500/30 rotate-45 animate-pulse"></div>
+          <div className="absolute bottom-16 md:bottom-32 left-1/4 w-8 h-8 md:w-16 md:h-16 bg-purple-500/20 rounded-lg animate-bounce" style={{ animationDelay: '1s' }}></div>
+          <div className="absolute top-1/3 right-1/4 w-10 h-10 md:w-20 md:h-20 border-2 border-cyan-500/30 rounded-full animate-ping" style={{ animationDuration: '3s' }}></div>
           
-          {/* Moving Lines */}
-          <div className="absolute top-0 left-1/4 w-px h-full bg-gradient-to-b from-transparent via-pink-500/50 to-transparent animate-pulse"></div>
-          <div className="absolute top-0 right-1/3 w-px h-full bg-gradient-to-b from-transparent via-indigo-500/50 to-transparent animate-pulse" style={{ animationDelay: '1s' }}></div>
+          {/* Moving Lines - Hidden on mobile for performance */}
+          <div className="hidden md:block absolute top-0 left-1/4 w-px h-full bg-gradient-to-b from-transparent via-pink-500/50 to-transparent animate-pulse"></div>
+          <div className="hidden md:block absolute top-0 right-1/3 w-px h-full bg-gradient-to-b from-transparent via-indigo-500/50 to-transparent animate-pulse" style={{ animationDelay: '1s' }}></div>
           
           {/* Floating Orbs */}
-          <div className="absolute top-1/4 left-1/2 w-8 h-8 bg-pink-500/40 rounded-full blur-sm animate-float"></div>
-          <div className="absolute bottom-1/3 right-1/5 w-12 h-12 bg-indigo-500/40 rounded-full blur-sm animate-float" style={{ animationDelay: '2s' }}></div>
-          <div className="absolute top-1/2 left-1/5 w-6 h-6 bg-purple-500/40 rounded-full blur-sm animate-float" style={{ animationDelay: '3s' }}></div>
+          <div className="absolute top-1/4 left-1/2 w-4 h-4 md:w-8 md:h-8 bg-pink-500/40 rounded-full blur-sm animate-float"></div>
+          <div className="absolute bottom-1/3 right-1/5 w-6 h-6 md:w-12 md:h-12 bg-indigo-500/40 rounded-full blur-sm animate-float" style={{ animationDelay: '2s' }}></div>
+          <div className="absolute top-1/2 left-1/5 w-3 h-3 md:w-6 md:h-6 bg-purple-500/40 rounded-full blur-sm animate-float" style={{ animationDelay: '3s' }}></div>
         </div>
         
         {/* Dynamic Background Layers */}
@@ -376,16 +377,16 @@ export default function LinearSimulatorsPage() {
           <div className="absolute inset-0 bg-gradient-to-t from-purple-500/10 via-transparent to-cyan-500/10 animate-pulse" style={{ animationDuration: '6s', animationDelay: '2s' }}></div>
         </div>
         
-        {/* Matrix-style flowing lines */}
+        {/* Matrix-style flowing lines - Reduced on mobile */}
         <div className="absolute inset-0 opacity-20">
-          {[...Array(8)].map((_, i) => (
+          {[...Array(4)].map((_, i) => (
             <div
               key={i}
-              className="absolute w-px bg-gradient-to-b from-transparent via-cyan-400/50 to-transparent animate-matrix-flow"
+              className="hidden md:block absolute w-px bg-gradient-to-b from-transparent via-cyan-400/50 to-transparent animate-matrix-flow"
               style={{
-                left: `${10 + i * 12}%`,
+                left: `${10 + i * 20}%`,
                 height: '100%',
-                animationDelay: `${i * 0.5}s`,
+                animationDelay: `${i * 1}s`,
                 animationDuration: '8s'
               }}
             ></div>
@@ -396,26 +397,27 @@ export default function LinearSimulatorsPage() {
         
         <button
           onClick={handleBackClick}
-          className="absolute top-8 left-8 flex items-center gap-2 px-6 py-3 bg-white/10 backdrop-blur-xl rounded-xl border border-white/20 hover:bg-white/20 hover:scale-105 transition-all duration-300 z-10 group"
+          className="absolute top-4 md:top-8 left-4 md:left-8 flex items-center gap-2 px-4 md:px-6 py-2 md:py-3 bg-white/10 backdrop-blur-xl rounded-xl border border-white/20 hover:bg-white/20 hover:scale-105 transition-all duration-300 z-10 group text-sm md:text-base"
         >
-          <ChevronLeft className="w-5 h-5 group-hover:-translate-x-1 transition-transform" />
-          Back to Services
+          <ChevronLeft className="w-4 h-4 md:w-5 md:h-5 group-hover:-translate-x-1 transition-transform" />
+          <span className="hidden sm:inline">Back to Services</span>
+          <span className="sm:hidden">Back</span>
         </button>
 
-        <div className="absolute inset-0 flex items-center justify-center">
+        <div className="absolute inset-0 flex items-center justify-center px-4">
           <div className="text-center">
-            <h1 className="text-6xl md:text-8xl font-bold bg-gradient-to-r from-white via-pink-200 to-indigo-200 bg-clip-text text-transparent mb-6">
+            <h1 className="text-3xl sm:text-4xl md:text-6xl lg:text-8xl font-bold bg-gradient-to-r from-white via-pink-200 to-indigo-200 bg-clip-text text-transparent mb-3 md:mb-6">
               Simulation Center
             </h1>
-            <p className="text-xl md:text-2xl text-gray-300 max-w-4xl mx-auto px-8">
+            <p className="text-sm sm:text-lg md:text-xl lg:text-2xl text-gray-300 max-w-4xl mx-auto px-4 md:px-8">
               Experience cutting-edge simulation technology across multiple domains - from terrestrial vehicles to space exploration
             </p>
           </div>
         </div>
 
-        {/* Enhanced floating particles */}
+        {/* Enhanced floating particles - Reduced on mobile */}
         <div className="absolute inset-0 pointer-events-none">
-          {[...Array(50)].map((_, i) => (
+          {[...Array(25)].map((_, i) => (
             <div
               key={i}
               className="absolute bg-white/20 rounded-full animate-float-particles"
@@ -444,62 +446,61 @@ export default function LinearSimulatorsPage() {
           <div
             key={simulator.id}
             id={simulator.id}
-            className={`simulator-section min-h-screen flex items-center py-20 transition-all duration-1000 ${
+            className={`simulator-section min-h-screen flex items-center py-10 md:py-20 transition-all duration-1000 ${
               visibleSections.has(simulator.id) 
                 ? 'opacity-100 translate-y-0' 
                 : 'opacity-0 translate-y-16'
             }`}
           >
-            <div className="max-w-7xl mx-auto px-8 w-full">
-              <div className={`grid grid-cols-1 lg:grid-cols-2 gap-16 items-center ${
+            <div className="max-w-7xl mx-auto px-4 md:px-8 w-full">
+              <div className={`grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-16 items-center ${
                 index % 2 === 0 ? '' : 'lg:grid-flow-col-dense'
               }`}>
                 {/* Content */}
-                <div className={`space-y-8 ${index % 2 === 0 ? '' : 'lg:col-start-2'}`}>
-                  <div className="flex items-center gap-6 mb-8">
-                    <div className="p-4 bg-gradient-to-r from-pink-500 to-indigo-500 rounded-2xl animate-pulse">
+                <div className={`space-y-6 md:space-y-8 ${index % 2 === 0 ? '' : 'lg:col-start-2'}`}>
+                  <div className="flex items-center gap-3 md:gap-6 mb-6 md:mb-8">
+                    <div className="p-3 md:p-4 bg-gradient-to-r from-pink-500 to-indigo-500 rounded-2xl animate-pulse">
                       {simulator.icon}
                     </div>
                     <div>
-                      <h2 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-pink-500 to-indigo-500 bg-clip-text text-transparent">
+                      <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold bg-gradient-to-r from-pink-500 to-indigo-500 bg-clip-text text-transparent">
                         {simulator.title}
                       </h2>
-                      <div className="h-1 w-20 bg-gradient-to-r from-pink-500 to-indigo-500 rounded-full mt-2"></div>
+                      <div className="h-1 w-12 md:w-20 bg-gradient-to-r from-pink-500 to-indigo-500 rounded-full mt-1 md:mt-2"></div>
                     </div>
                   </div>
                   
-                  <p className="text-xl text-gray-300 leading-relaxed">
+                  <p className="text-lg md:text-xl text-gray-300 leading-relaxed">
                     {simulator.description}
                   </p>
                   
-                  <p className="text-lg text-gray-400 leading-relaxed">
+                  <p className="text-base md:text-lg text-gray-400 leading-relaxed">
                     {simulator.details}
                   </p>
 
                   {/* Features Grid */}
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-8">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 md:gap-4 mt-6 md:mt-8">
                     {simulator.features.map((feature, featureIndex) => (
                       <div
                         key={featureIndex}
-                        className="group p-4 bg-white/5 border border-white/10 rounded-xl backdrop-blur-md hover:bg-white/10 hover:border-white/20 transition-all duration-300 hover:scale-105"
+                        className="group p-3 md:p-4 bg-white/5 border border-white/10 rounded-xl backdrop-blur-md hover:bg-white/10 hover:border-white/20 transition-all duration-300 hover:scale-105"
                         style={{ animationDelay: `${featureIndex * 100}ms` }}
                       >
-                        <div className="flex items-center gap-3">
-                          <div className="p-2 bg-gradient-to-r from-pink-500 to-indigo-500 rounded-lg group-hover:rotate-12 transition-transform duration-300">
-                            <ArrowRight className="w-4 h-4" />
+                        <div className="flex items-center gap-2 md:gap-3">
+                          <div className="p-1.5 md:p-2 bg-gradient-to-r from-pink-500 to-indigo-500 rounded-lg group-hover:rotate-12 transition-transform duration-300">
+                            <ArrowRight className="w-3 h-3 md:w-4 md:h-4" />
                           </div>
-                          <span className="font-medium">{feature}</span>
+                          <span className="font-medium text-sm md:text-base">{feature}</span>
                         </div>
                       </div>
                     ))}
                   </div>
 
                   {/* Action Buttons */}
-                  <div className="flex flex-wrap gap-4 pt-6">
-
+                  <div className="flex flex-col sm:flex-row gap-3 md:gap-4 pt-4 md:pt-6">
                     <button 
                       onClick={() => openTechnicalDetails(simulator)}
-                      className="px-8 py-4 border border-white/20 rounded-xl font-semibold hover:bg-white/5 hover:border-white/40 transition-all duration-300 hover:scale-105"
+                      className="w-full sm:w-auto px-6 md:px-8 py-3 md:py-4 border border-white/20 rounded-xl font-semibold hover:bg-white/5 hover:border-white/40 transition-all duration-300 hover:scale-105 text-sm md:text-base"
                     >
                       Technical Details
                     </button>
@@ -507,8 +508,8 @@ export default function LinearSimulatorsPage() {
                 </div>
 
                 {/* Image/Visual */}
-                <div className={`relative ${index % 2 === 0 ? '' : 'lg:col-start-1'}`}>
-                  <div className="relative aspect-video rounded-3xl overflow-hidden group">
+                <div className={`relative ${index % 2 === 0 ? '' : 'lg:col-start-1'} order-first lg:order-none`}>
+                  <div className="relative aspect-video rounded-2xl md:rounded-3xl overflow-hidden group">
                     {!imageErrors.has(simulator.id) ? (
                       <img
                         src={simulator.image}
@@ -518,11 +519,11 @@ export default function LinearSimulatorsPage() {
                       />
                     ) : (
                       <div className="absolute inset-0 bg-gradient-to-br from-pink-500/20 via-purple-500/20 to-indigo-500/20 flex items-center justify-center">
-                        <div className="text-center p-8">
-                          <div className="mb-4 p-4 bg-white/10 rounded-full w-fit mx-auto">
+                        <div className="text-center p-4 md:p-8">
+                          <div className="mb-3 md:mb-4 p-3 md:p-4 bg-white/10 rounded-full w-fit mx-auto">
                             {simulator.icon}
                           </div>
-                          <p className="text-gray-400">Image Loading...</p>
+                          <p className="text-gray-400 text-sm md:text-base">Image Loading...</p>
                         </div>
                       </div>
                     )}
@@ -533,14 +534,14 @@ export default function LinearSimulatorsPage() {
                     <div className="absolute inset-0 bg-gradient-to-r from-pink-500/20 to-indigo-500/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                     
                     {/* Corner Number */}
-                    <div className="absolute top-6 right-6 w-12 h-12 bg-white/10 backdrop-blur-xl rounded-full border border-white/20 flex items-center justify-center font-bold text-lg">
+                    <div className="absolute top-3 md:top-6 right-3 md:right-6 w-8 h-8 md:w-12 md:h-12 bg-white/10 backdrop-blur-xl rounded-full border border-white/20 flex items-center justify-center font-bold text-sm md:text-lg">
                       {String(index + 1).padStart(2, '0')}
                     </div>
                   </div>
                   
                   {/* Decorative Elements */}
-                  <div className="absolute -top-4 -left-4 w-8 h-8 bg-pink-500/30 rounded-full blur-sm"></div>
-                  <div className="absolute -bottom-4 -right-4 w-12 h-12 bg-indigo-500/30 rounded-full blur-sm"></div>
+                  <div className="absolute -top-2 md:-top-4 -left-2 md:-left-4 w-4 h-4 md:w-8 md:h-8 bg-pink-500/30 rounded-full blur-sm"></div>
+                  <div className="absolute -bottom-2 md:-bottom-4 -right-2 md:-right-4 w-6 h-6 md:w-12 md:h-12 bg-indigo-500/30 rounded-full blur-sm"></div>
                 </div>
               </div>
             </div>
@@ -550,7 +551,7 @@ export default function LinearSimulatorsPage() {
 
       {/* Technical Details Modal */}
       {isModalOpen && selectedSimulator && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-2 md:p-4">
           {/* Backdrop */}
           <div 
             className="absolute inset-0 bg-black/80 backdrop-blur-sm"
@@ -558,17 +559,17 @@ export default function LinearSimulatorsPage() {
           ></div>
           
           {/* Modal Content */}
-          <div className="relative bg-gradient-to-br from-gray-900/95 via-black/95 to-gray-900/95 backdrop-blur-xl rounded-3xl border border-white/20 max-w-4xl w-full max-h-[90vh] overflow-y-auto">
+          <div className="relative bg-gradient-to-br from-gray-900/95 via-black/95 to-gray-900/95 backdrop-blur-xl rounded-2xl md:rounded-3xl border border-white/20 max-w-4xl w-full max-h-[95vh] md:max-h-[90vh] overflow-y-auto">
             {/* Close Button */}
             <button
               onClick={closeModal}
-              className="absolute top-6 right-6 p-3 bg-white/10 backdrop-blur-xl rounded-full border border-white/20 hover:bg-white/20 hover:scale-110 transition-all duration-300 z-10 group"
+              className="absolute top-3 md:top-6 right-3 md:right-6 p-2 md:p-3 bg-white/10 backdrop-blur-xl rounded-full border border-white/20 hover:bg-white/20 hover:scale-110 transition-all duration-300 z-10 group"
             >
-              <X className="w-6 h-6 group-hover:rotate-90 transition-transform duration-300" />
+              <X className="w-5 h-5 md:w-6 md:h-6 group-hover:rotate-90 transition-transform duration-300" />
             </button>
 
             {/* Header Image */}
-            <div className="relative h-64 rounded-t-3xl overflow-hidden">
+            <div className="relative h-32 md:h-64 rounded-t-2xl md:rounded-t-3xl overflow-hidden">
               {!imageErrors.has(selectedSimulator.id) ? (
                 <img
                   src={selectedSimulator.image}
@@ -579,103 +580,101 @@ export default function LinearSimulatorsPage() {
               ) : (
                 <div className="w-full h-full bg-gradient-to-br from-pink-500/20 via-purple-500/20 to-indigo-500/20 flex items-center justify-center">
                   <div className="text-center">
-                    <div className="mb-4 p-4 bg-white/10 rounded-full w-fit mx-auto">
+                    <div className="mb-2 md:mb-4 p-2 md:p-4 bg-white/10 rounded-full w-fit mx-auto">
                       {selectedSimulator.icon}
                     </div>
-                    <p className="text-gray-400">Image Loading...</p>
+                    <p className="text-gray-400 text-sm md:text-base">Image Loading...</p>
                   </div>
                 </div>
               )}
               <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
               
               {/* Title Overlay */}
-              <div className="absolute bottom-6 left-6 flex items-center gap-4">
-                <div className="p-3 bg-gradient-to-r from-pink-500 to-indigo-500 rounded-xl">
+              <div className="absolute bottom-3 md:bottom-6 left-3 md:left-6 flex items-center gap-2 md:gap-4">
+                <div className="p-2 md:p-3 bg-gradient-to-r from-pink-500 to-indigo-500 rounded-xl">
                   {selectedSimulator.icon}
                 </div>
                 <div>
-                  <h3 className="text-3xl font-bold text-white">{selectedSimulator.title}</h3>
-                  <p className="text-gray-300">Technical Specifications</p>
+                  <h3 className="text-xl md:text-3xl font-bold text-white">{selectedSimulator.title}</h3>
+                  <p className="text-gray-300 text-sm md:text-base">Technical Specifications</p>
                 </div>
               </div>
             </div>
 
             {/* Content */}
-            <div className="p-8 space-y-8">
+            <div className="p-4 md:p-8 space-y-6 md:space-y-8">
               {/* Price and Order Info */}
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                <div className="bg-gradient-to-r from-pink-500/10 to-indigo-500/10 p-6 rounded-2xl border border-white/10">
-                  <div className="flex items-center gap-3 mb-2">
-                    <IndianRupee className="w-6 h-6 text-pink-500" />
-                    <span className="text-gray-400">Price</span>
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6">
+                <div className="bg-gradient-to-r from-pink-500/10 to-indigo-500/10 p-4 md:p-6 rounded-2xl border border-white/10">
+                  <div className="flex items-center gap-2 md:gap-3 mb-2">
+                    <IndianRupee className="w-5 h-5 md:w-6 md:h-6 text-pink-500" />
+                    <span className="text-gray-400 text-sm md:text-base">Price</span>
                   </div>
-                  <p className="text-2xl font-bold text-white">{selectedSimulator.technicalDetails.price}</p>
-                  <p className="text-sm text-gray-500 mt-1">Get Latest Price</p>
+                  <p className="text-lg md:text-2xl font-bold text-white">{selectedSimulator.technicalDetails.price}</p>
+                  <p className="text-xs md:text-sm text-gray-500 mt-1">Get Latest Price</p>
                 </div>
                 
-                <div className="bg-gradient-to-r from-indigo-500/10 to-purple-500/10 p-6 rounded-2xl border border-white/10">
-                  <div className="flex items-center gap-3 mb-2">
-                    <Package className="w-6 h-6 text-indigo-500" />
-                    <span className="text-gray-400">Min Order</span>
+                <div className="bg-gradient-to-r from-indigo-500/10 to-purple-500/10 p-4 md:p-6 rounded-2xl border border-white/10">
+                  <div className="flex items-center gap-2 md:gap-3 mb-2">
+                    <Package className="w-5 h-5 md:w-6 md:h-6 text-indigo-500" />
+                    <span className="text-gray-400 text-sm md:text-base">Min Order</span>
                   </div>
-                  <p className="text-2xl font-bold text-white">{selectedSimulator.technicalDetails.minOrder}</p>
+                  <p className="text-lg md:text-2xl font-bold text-white">{selectedSimulator.technicalDetails.minOrder}</p>
                 </div>
                 
-                <div className="bg-gradient-to-r from-purple-500/10 to-pink-500/10 p-6 rounded-2xl border border-white/10">
-                  <div className="flex items-center gap-3 mb-2">
-                    <Eye className="w-6 h-6 text-purple-500" />
-                    <span className="text-gray-400">Brochure</span>
+                <div className="bg-gradient-to-r from-purple-500/10 to-pink-500/10 p-4 md:p-6 rounded-2xl border border-white/10">
+                  <div className="flex items-center gap-2 md:gap-3 mb-2">
+                    <Eye className="w-5 h-5 md:w-6 md:h-6 text-purple-500" />
+                    <span className="text-gray-400 text-sm md:text-base">Brochure</span>
                   </div>
-                  <p className="text-lg font-semibold text-white">Available</p>
-                  <button className="text-sm text-pink-400 hover:text-pink-300 mt-1">Download PDF</button>
+                  <p className="text-base md:text-lg font-semibold text-white">Available</p>
+                  <button className="text-xs md:text-sm text-pink-400 hover:text-pink-300 mt-1">Download PDF</button>
                 </div>
               </div>
 
               {/* Technical Specifications */}
-              <div className="space-y-6">
-                <div className="flex items-center gap-3">
-                  <Settings className="w-6 h-6 text-indigo-500" />
-                  <h4 className="text-2xl font-bold text-white">Technical Specifications</h4>
+              <div className="space-y-4 md:space-y-6">
+                <div className="flex items-center gap-2 md:gap-3">
+                  <Settings className="w-5 h-5 md:w-6 md:h-6 text-indigo-500" />
+                  <h4 className="text-xl md:text-2xl font-bold text-white">Technical Specifications</h4>
                 </div>
                 
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div className="grid grid-cols-1 gap-3 md:gap-4">
                   {Object.entries(selectedSimulator.technicalDetails.specifications).map(([key, value], index) => (
                     <div
                       key={key}
-                      className="flex justify-between items-center p-4 bg-white/5 border border-white/10 rounded-xl hover:bg-white/10 transition-all duration-300"
+                      className="flex flex-col sm:flex-row sm:justify-between sm:items-center p-3 md:p-4 bg-white/5 border border-white/10 rounded-xl hover:bg-white/10 transition-all duration-300"
                       style={{ animationDelay: `${index * 50}ms` }}
                     >
-                      <span className="text-gray-400 font-medium">{key}</span>
-                      <span className="text-white font-semibold">{value}</span>
+                      <span className="text-gray-400 font-medium text-sm md:text-base mb-1 sm:mb-0">{key}</span>
+                      <span className="text-white font-semibold text-sm md:text-base">{value}</span>
                     </div>
                   ))}
                 </div>
               </div>
 
               {/* Description */}
-              <div className="space-y-6">
-                <div className="flex items-center gap-3">
-                  <Lightning className="w-6 h-6 text-pink-500" />
-                  <h4 className="text-2xl font-bold text-white">Product Description</h4>
+              <div className="space-y-4 md:space-y-6">
+                <div className="flex items-center gap-2 md:gap-3">
+                  <Lightning className="w-5 h-5 md:w-6 md:h-6 text-pink-500" />
+                  <h4 className="text-xl md:text-2xl font-bold text-white">Product Description</h4>
                 </div>
                 
-                <div className="p-6 bg-white/5 border border-white/10 rounded-2xl">
-                  <p className="text-gray-300 leading-relaxed text-lg">
+                <div className="p-4 md:p-6 bg-white/5 border border-white/10 rounded-2xl">
+                  <p className="text-gray-300 leading-relaxed text-sm md:text-lg">
                     {selectedSimulator.technicalDetails.description}
                   </p>
                 </div>
               </div>
 
               {/* Action Buttons */}
-              <div className="flex justify-center pt-6 border-t border-white/10">
-                
+              <div className="flex justify-center pt-4 md:pt-6 border-t border-white/10">
                 <button 
-  onClick={handleWhatsAppRedirect}
-  className="flex-1 min-w-[200px] px-8 py-4 border border-white/20 rounded-xl font-semibold hover:bg-white/5 hover:border-white/40 transition-all duration-300 hover:scale-105"
->
-  Contact Sales
-</button>
-                
+                  onClick={handleWhatsAppRedirect}
+                  className="w-full sm:w-auto min-w-[200px] px-6 md:px-8 py-3 md:py-4 border border-white/20 rounded-xl font-semibold hover:bg-white/5 hover:border-white/40 transition-all duration-300 hover:scale-105 text-sm md:text-base"
+                >
+                  Contact Sales
+                </button>
               </div>
             </div>
           </div>
@@ -683,21 +682,20 @@ export default function LinearSimulatorsPage() {
       )}
 
       {/* Final CTA Section */}
-      <div className="py-20 bg-gradient-to-br from-pink-500/10 via-purple-500/10 to-indigo-500/10 border-t border-white/10">
-        <div className="max-w-6xl mx-auto px-8 text-center">
-          <h3 className="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-pink-500 to-indigo-500 bg-clip-text text-transparent">
+      <div className="py-10 md:py-20 bg-gradient-to-br from-pink-500/10 via-purple-500/10 to-indigo-500/10 border-t border-white/10">
+        <div className="max-w-6xl mx-auto px-4 md:px-8 text-center">
+          <h3 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-4 md:mb-6 bg-gradient-to-r from-pink-500 to-indigo-500 bg-clip-text text-transparent">
             Ready to Experience the Future?
           </h3>
-          <p className="text-xl text-gray-300 mb-8 max-w-3xl mx-auto">
+          <p className="text-lg md:text-xl text-gray-300 mb-6 md:mb-8 max-w-3xl mx-auto">
             Step into our world of advanced simulation technology and discover experiences that push the boundaries of reality. 
             From the depths of the ocean to the vastness of space, your next adventure awaits.
           </p>
-          
         </div>
       </div>
 
       {/* Scroll Progress Indicator */}
-      <div className="fixed top-0 left-0 w-full h-1 bg-black/50 z-50">
+      <div className="fixed top-0 left-0 w-full h-0.5 md:h-1 bg-black/50 z-50">
         <div 
           className="h-full bg-gradient-to-r from-pink-500 to-indigo-500 transition-all duration-300"
           style={{ 
@@ -736,6 +734,21 @@ export default function LinearSimulatorsPage() {
         
         .animate-matrix-flow {
           animation: matrix-flow 8s linear infinite;
+        }
+
+        /* Mobile-specific optimizations */
+        @media (max-width: 768px) {
+          .animate-bounce {
+            animation-duration: 3s;
+          }
+          
+          .animate-pulse {
+            animation-duration: 3s;
+          }
+          
+          .animate-spin {
+            animation-duration: 30s;
+          }
         }
       `}</style>
     </div>
