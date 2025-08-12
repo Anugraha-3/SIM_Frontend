@@ -71,35 +71,35 @@ const members = [
     image: ayub,
     role: "Software Developer",
     description:
-      "Combines 3D design skills with a flair for content creation. Sandra supports visual development and helps shape engaging written content.",
+      "Ayub Alikhan J is a dedicated software developer specializing in large-scale application development and deployment. Renowned for delivering innovative and timely solutions, he excels at optimizing systems for peak performance and seamless scalability. Smart and adaptive, Ayub brings a sharp problem-solving mindset and unwavering focus to every project—ensuring the right solution is always delivered at the perfect moment.",
   },
   {
     name: "Vivekanandhan",
     image: vivek,
     role: "Software Developer",
     description:
-      "Combines 3D design skills with a flair for content creation. Sandra supports visual development and helps shape engaging written content.",
+      "Vivek is a technology enthusiast with a broad expertise spanning full-stack development, machine learning and cybersecurity. Driven by a deep curiosity for technology, he continuously explores emerging trends and applies them to build innovative and secure software solutions. Vivek combines his technical skills with a problem-solving mindset to contribute effectively to any tech-driven project",
   },
   {
     name: "Anugraha",
     image: anu,
     role: "Full Stack Developer",
     description:
-      "Combines 3D design skills with a flair for content creation. Sandra supports visual development and helps shape engaging written content.",
+      "Anugraha is a visionary UI developer, celebrated for her expertise in frontend design and mastery of large language models like Claude. She infuses each project with elegant style and creative flair, transforming interfaces into works of art. Her unique blend of design sensibility and technical skill extends to expert video editing. This makes her a standout in creating engaging and visually stunning digital experiences.",
   },
   {
     name: "Devaranjanaa",
     image: deva,
     role: "Software Developer",
     description:
-      "Combines 3D design skills with a flair for content creation. Sandra supports visual development and helps shape engaging written content.",
+      "Devaranjanaa is a skilled backend and AI developer who thrives on tackling complex challenges. Known for her creative thinking, she builds intelligent and scalable systems. With a strategic approach, she transforms problems into impactful solutions. Her drive for innovation ensures meaningful results every time.",
   },
   {
     name: "Kavya",
     image: kavya,
     role: "Full Stack Developer",
     description:
-      "Combines 3D design skills with a flair for content creation. Sandra supports visual development and helps shape engaging written content.",
+      "Kavya is a full stack developer who crafts clean, responsive digital experiences focused on users. She excels at creating intuitive, engaging interfaces with a meticulous eye for quality. Reliable and creative, she delivers production-ready solutions across the stack. Every project reflects her commitment to usability and excellence.",
   },
 ];
 
