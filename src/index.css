@@ -1,0 +1,28 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    @apply box-border;
+  }
+
+  html, body, #root, .App {
+    @apply m-0 p-0 h-full w-full max-w-full overflow-x-hidden;
+  }
+
+  body {
+    @apply bg-[#050510] overflow-hidden;
+  }
+}
+
+@layer utilities {
+  .text-glow {
+    text-shadow: 0 0 15px #ffffff, 0 0 30px #ffffff;
+  }
+  .pause-animation {
+    animation-play-state: paused;
+  }
+}
+
+

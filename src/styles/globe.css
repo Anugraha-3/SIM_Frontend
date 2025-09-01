@@ -1,0 +1,132 @@
+/* Full Page Layout */
+.globe-page {
+  width: 100vw;
+  height: 100vh;
+  background: #000;
+  color: #fff;
+  overflow: hidden;
+  position: relative;
+  cursor: none; /* Hide default cursor */
+}
+
+/* Canvas Container */
+.globe-canvas-container {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  z-index: 1;
+}
+
+/* Star Field Background */
+.globe-page::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%;
+  height: 100%;
+  background: url('/images/starfield.png') repeat;
+  background-size: cover;
+  animation: twinkle 5s infinite;
+  z-index: 0;
+  pointer-events: none;
+  opacity: 0.3;
+}
+
+@keyframes twinkle {
+  0%, 100% { opacity: 0.3; }
+  50% { opacity: 0.6; }
+}
+
+/* Comet Trail Animation */
+.globe-page::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(ellipse at center, rgba(255,255,255,0.1) 0%, transparent 70%);
+  animation: comets 20s linear infinite;
+  z-index: 0;
+  pointer-events: none;
+}
+
+@keyframes comets {
+  0% { transform: translateX(0%) translateY(0%) rotate(0deg); }
+  100% { transform: translateX(50%) translateY(50%) rotate(360deg); }
+}
+
+/* Patch Styling */
+.patch {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  user-select: none;
+  transform: translateZ(-0.1px); /* subtle glue effect */
+}
+
+/* Circular Patch */
+.patch mesh {
+  transition: transform 0.3s ease;
+}
+
+/* Caption Styling */
+.caption {
+  font-size: 0.9rem;
+  margin-top: 6px;
+  color: #aaa;
+  text-align: center;
+  background: rgba(0, 0, 0, 0.5);
+  padding: 4px 10px;
+  border-radius: 12px;
+  font-weight: 300;
+}
+
+/* Loader */
+.loader-wrapper {
+  background: radial-gradient(circle, #000 40%, #111 100%);
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.loader {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  border: 6px solid #222;
+  border-top-color: #00f7ff;
+  animation: spin 1s linear infinite;
+}
+
+.loader-text {
+  margin-top: 20px;
+  color: #ccc;
+  text-align: center;
+  font-family: 'Cinzel', serif;
+  font-size: 1.2rem;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* CUSTOM CURSOR */
+body {
+  cursor: none;
+}
+
+.cursor {
+  width: 25px;
+  height: 25px;
+  border: 2px solid #00f7ff;
+  border-radius: 50%;
+  position: fixed;
+  pointer-events: none;
+  z-index: 9999;
+  transform: translate(-50%, -50%);
+  transition: transform 0.1s ease;
+}
