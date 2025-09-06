@@ -9,6 +9,14 @@ import { ChevronDown } from "lucide-react";
 function HeroSection() {
   const location = useLocation();
   const canvasRef = useRef();
+  const [isIOS, setIsIOS] = useState(false);
+
+  useEffect(() => {
+    // Detect iOS device
+    const isIOSDevice = /iPad|iPhone|iPod/.test(navigator.userAgent) ||
+      (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
+    setIsIOS(isIOSDevice);
+  }, []);
   const controlsRef = useRef();
   const [autoRotateSpeed, setAutoRotateSpeed] = useState(0.5); // Start slow
 
@@ -62,44 +70,93 @@ function HeroSection() {
         transition={{ duration: 1 }}
         className="absolute inset-0 w-full h-full"
       >
-        <Canvas
-          ref={canvasRef}
-          key={location.pathname}
-          camera={{ position: [0, 0, 5], fov: 45 }}
-          style={{
-            display: 'block',
-            position: 'absolute',
-          }}
-        >
-          <color attach="background" args={["#050510"]} />
-          <ambientLight intensity={3} />
-          <pointLight position={[10, 10, 10]} intensity={1.5} />
-          <Stars
-            radius={100}
-            depth={50}
-            count={5000}
-            factor={4}
-            fade
-            saturation={0}
-          />
-          <EarthModel />
-          <OrbitControls
-            ref={controlsRef}
-            enableZoom={false}
-            enablePan={false}
-            autoRotate={true}
-            autoRotateSpeed={autoRotateSpeed}
-            enableRotate={true}
-            minPolarAngle={Math.PI / 2}
-            maxPolarAngle={Math.PI / 2}
-          />
-        </Canvas>
+        {isIOS ? (
+          <>
+            <Canvas
+              style={{
+                display: 'block',
+                position: 'absolute',
+              }}
+              camera={{ position: [0, 0, 5], fov: 45 }}
+            >
+              <color attach="background" args={["#050510"]} />
+              <ambientLight intensity={2} />
+              <Stars
+                radius={100}
+                depth={50}
+                count={5000}
+                factor={6}
+                fade
+                saturation={1}
+              />
+              <OrbitControls
+                enableZoom={false}
+                enablePan={false}
+                autoRotate={true}
+                autoRotateSpeed={autoRotateSpeed}
+                enableRotate={true}
+                minPolarAngle={Math.PI / 2}
+                maxPolarAngle={Math.PI / 2}
+              />
+            </Canvas>
+            <div 
+              style={{
+                width: '100%',
+                height: '100%',
+                position: 'absolute',
+                display: 'flex',
+                justifyContent: 'center',
+                alignItems: 'center',
+                zIndex: 1
+              }}
+            >
+              <img 
+                src="/textures/earth.png" 
+                alt="Earth"
+                className="w-[80%] h-[80%] object-contain"
+              />
+            </div>
+          </>
+        ) : (
+          <Canvas
+            ref={canvasRef}
+            key={location.pathname}
+            camera={{ position: [0, 0, 5], fov: 45 }}
+            style={{
+              display: 'block',
+              position: 'absolute',
+            }}
+          >
+            <color attach="background" args={["#050510"]} />
+            <ambientLight intensity={3} />
+            <pointLight position={[10, 10, 10]} intensity={1.5} />
+            <Stars
+              radius={100}
+              depth={50}
+              count={5000}
+              factor={4}
+              fade
+              saturation={0}
+            />
+            <EarthModel />
+            <OrbitControls
+              ref={controlsRef}
+              enableZoom={false}
+              enablePan={false}
+              autoRotate={true}
+              autoRotateSpeed={autoRotateSpeed}
+              enableRotate={true}
+              minPolarAngle={Math.PI / 2}
+              maxPolarAngle={Math.PI / 2}
+            />
+          </Canvas>
+        )}
       </motion.div>
 
       {/* Scroll Down Indicator */}
       <div
         onClick={scrollToAbout}
-        className="absolute bottom-5 xs:bottom-10 left-1/2 -translate-x-1/2 z-10 flex flex-col items-center cursor-pointer group"
+        className="absolute bottom-32 sm:bottom-10 md:bottom-5 left-1/2 -translate-x-1/2 z-10 flex flex-col items-center cursor-pointer group"
       >
         <span className="text-sm text-white mb-2 transition-opacity duration-300 opacity-70 group-hover:opacity-100">
           Click to Scroll

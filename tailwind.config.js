@@ -23,8 +23,17 @@ export default {
         dashDraw: 'dashDraw var(--sped, 4s) linear infinite',
         glowFill: 'glowFill 2.5s ease-in-out infinite alternate',
         scroll_left: 'scroll_left 30s linear infinite',
+        'spin-slow': 'spin 20s linear infinite',
       },
       keyframes: {
+        spin: {
+          from: {
+            transform: 'rotate(0deg)',
+          },
+          to: {
+            transform: 'rotate(360deg)',
+          },
+        },
         pulseShadow: {
           '0%, 100%': {
             filter: 'drop-shadow(0 0 10px #00bfff) drop-shadow(0 0 20px #0077ff)',
