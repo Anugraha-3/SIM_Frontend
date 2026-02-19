@@ -2,16 +2,31 @@ import { useState, useEffect, useRef } from "react";
 
 // Mock images for demo - replace with your actual imports
 import keerthi from "../assets/keerthivarman.png";
-
-import siva from "../assets/sivaperumal.png";
-import anuz from "../assets/anuz.jpg";
-import kalai from "../assets/kalai.png";
+import siva from "../assets/siva.png";
+import anuz from "../assets/anuz copy.jpg";
+import kalai from "../assets/kalai.jpg";
 import anu from "../assets/anu.jpg"; 
-import ayub from "../assets/ayub.jpg";
-import deva from "../assets/deva.jpg";
- import kavya from "../assets/kavya.jpg";
- import vivek from "../assets/vivek.jpg";
- import madhana from "../assets/madhana.jpg"; 
+import ayub from "../assets/ayub copy.jpg";
+import deva from "../assets/deva copy.jpg";
+ import kavya from "../assets/kavya copy.jpg";
+ import vivek from "../assets/vivek copy.jpg";
+//  import madhana from "../assets/madhana copy.jpg";
+ import shaantha from "../assets/shaantha copy.jpeg";
+ import sandra from "../assets/sandra.jpg"; 
+ import muthu from "../assets/muthu.jpg";
+ import seenu from "../assets/seenu.png";
+ import sekar from "../assets/sekar.jpg";
+ import priya from "../assets/priya.jpg";
+ import kavya2 from "../assets/kavya2.jpg";
+ import rahini from "../assets/rahini.jpg";
+ import josna from "../assets/josna.jpg";
+ import varshini from "../assets/varshini.jpg";
+ import indhuja from "../assets/indhu.jpg";
+ import vikas from "../assets/vikas.jpg";
+ import azar from "../assets/azar.jpg";
+ import roshan from "../assets/roshan.jpeg";
+ import abhishek from "../assets/abhishek.PNG";
+ import kavin from "../assets/kavin.jpeg";
 
 const members = [
   {
@@ -22,32 +37,53 @@ const members = [
       "The visionary behind Sun Info Media, Keerthi Varman leads the team with a passion for innovation and technology. With a clear focus on growth and creativity, he drives the company toward building impactful digital experiences and future-ready solutions.",
   },
   {
-    name: "Siva Perumal",
-    image: siva,
-    role: "Videographer, Photographer & Senior Editor",
-    description:
-      "Specializes in capturing compelling visuals and delivering polished edits. With a sharp eye and years of experience, he brings stories to life through video.",
-  },
-  {
     name: "Kalaiyarasi",
     image: kalai,
-    role: "Junior Editor & Content Writer",
+    role: "Manager",
     description:
-      "Works on editing and writing content that communicates clearly and creatively. Passionate about storytelling and visual details.",
+      "Oversees and coordinates overall production operations acrossdepartments to ensure timely, efficient, and high-quality project delivery. Manages teams, resources, and workflows to achieve organizational goals and maintain performance excellence.",
   },
   {
-    name: "Madhana Devi",
-    image: madhana,
-    role: "Content Writer",
+    name: "Siva Perumal",
+    image: siva,
+    role: "Media Production Head",
     description:
-      "Crafts clear, engaging, and purposeful content across digital platforms. With a strong command of language and a creative mindset, Madhana Devi brings ideas to life through compelling writing that resonates with the audience.",
+      "Leads and manages end-to-end media production across video, photography, motion graphics, and digital content platforms. Oversees creative teams, workflows, and quality standards to deliver high-impact content aligned with organizational goals.",
+  },
+  {
+    name: "Sandra Grace",
+    image: sandra,
+    role: "3D Technical Artist",
+    description:
+      "Develops high-quality 3D models and digital characters using Blender,unity and unreal with expertise in creating expressive mascots and visual assets. Delivers optimized, visually stunning design",
+  },
+  {
+    name: "Muthupandian",
+    image: muthu,
+    role: "3D Creative & Meta Marketing Manager",
+    description:
+      "Leads the creation of high-impact 3D visual content and manages Meta platform campaigns to strengthen digital brand presence. Develops innovative marketing strategies using immersive designs and performance-driven creatives to maximize audience engagement and conversions.",
+  },
+  {
+    name: "Seenu Bala",
+    image: seenu,
+    role: "UI/UX Designer",
+    description:
+      "Designs intuitive, user-centered interfaces and seamless digital experiences through research, wireframing, and visual design. Creates visually appealing and functional layouts that enhance usability, engagement, and overall user satisfaction.",
+  },
+  {
+    name: "Sekar",
+    image: sekar,
+    role: "Cinematographer & Editor",
+    description:
+      "Captures high-quality visuals and crafts compelling stories through expert camera work and professional video editing. Produces visually stunning and engaging content that enhances brand identity and audience connection across digital platforms.",
   },
   {
     name: "Anuz Balamurali",
     image: anuz,
-    role: "Full Stack developer",
+    role: "Development Team Lead",
     description:
-      "Anuz Balamurali is a driven Software Systems student with hands-on experience in full-stack development and a keen eye on Human-Computer Interaction. With a solid grip on data structures and problem-solving, he builds intuitive digital solutions—from dynamic car resale platforms to offline payment systems.",
+      "Leads development teams in building scalable, high-quality software solutions through strong technical guidance and collaboration. Oversees architecture, code reviews, and project execution to ensure timely delivery. Mentors engineers, streamlines workflows, and drives innovation while maintaining performance, reliability, and best practices.",
   },
   {
     name: "Ayub Alikhan",
@@ -62,6 +98,13 @@ const members = [
     role: "Software Developer",
     description:
       "Vivek is a technology enthusiast with a broad expertise spanning full-stack development, machine learning and cybersecurity. Driven by a deep curiosity for technology, he continuously explores emerging trends and applies them to build innovative and secure software solutions. Vivek combines his technical skills with a problem-solving mindset to contribute effectively to any tech-driven project",
+  },
+  {
+    name: "Shaantha Kumar",
+    image: shaantha,
+    role: "Full Stack Developer",
+    description:
+      "Shaanthakumar is a passionate technology enthusiast with strong expertise in software systems, artificial intelligence, and data science. Driven by analytical thinking and innovation, he continuously explores emerging technologies and applies them to build efficient and scalable solutions. He combines technical proficiency with a structured problem-solving approach to design reliable, real-world applications. Shaanthakumar strives to contribute meaningfully to impactful, technology-driven initiatives.",
   },
   {
     name: "Anugraha",
@@ -83,6 +126,83 @@ const members = [
     role: "Full Stack Developer",
     description:
       "Kavya is a full stack developer who crafts clean, responsive digital experiences focused on users. She excels at creating intuitive, engaging interfaces with a meticulous eye for quality. Reliable and creative, she delivers production-ready solutions across the stack. Every project reflects her commitment to usability and excellence.",
+  },
+  {
+    name: "Priyadharshini",
+    image: priya,
+    role: "AI Content Specialist",
+    description:
+      "Creates high-quality AI-generated voice, image, and video content to support digital marketing and brand communication. Develops intelligent AI mascots with realistic gestures, expressive visuals, and accurate lip-syncing for enhanced audience engagement.",
+  },
+  {
+    name: "Kavya",
+    image: kavya2,
+    role: "Academic Content Developer",
+    description:
+      "Designs and develops high-quality educational content for technical training programs, combining theory with hands-on practical exercises. Specializes in curriculum and syllabus creation, instructional script writing, and content analysis to deliver structured, impactful, and industry-relevant learning experiences.",
+  },
+  {
+    name: "Rahini",
+    image: rahini,
+    role: "Academic Content Researcher",
+    description:
+      "Conducts in-depth research and content analysis to create industry relevant educational materials for technical training programs. Develops structured curriculum, syllabus, and instructional scripts that balance practical learning with strong theoretical foundations.",
+  },
+  {
+    name: "Josna",
+    image: josna,
+    role: "Aviation Simulation Trainer",
+    description:
+      "Configures and integrates hardware and software systems to deliver immersive virtual reality training environments. Trains learners to operate advanced simulators using platforms such as Oculus for realistic, interactive, and skill-based learning experiences.",
+  },
+  {
+    name: "Varshini",
+    image: varshini,
+    role: "E-Commerce Branding Executive (Textile)",
+    description:
+      "Creates and manages high-quality visual content by filming and editing textile and apparel products for digital platforms. Develops engaging videos and promotional media that strengthen brand identity and support online marketing and sales strategies.",
+  },
+  {
+    name: "Indhuja",
+    image: indhuja,
+    role: "Textile Marketing Executive",
+    description:
+      "Creates engaging visual content by shooting and editing textile products for social media and digital marketing platforms. Promotes fabrics and collections through creative videos and campaigns to enhance brand visibility and customer engagement.",
+  },
+  {
+    name: "Vikas",
+    image: vikas,
+    role: "Professional Educational Content Video Editor",
+    description:
+      "Edits and produces high-quality educational videos by sourcing content, developing structured storyboards, and integrating engaging motion graphics. Delivers visually polished and informative learning materials that enhance understanding and learner engagement.",
+  },
+  {
+    name: "Mohamed Azardeen",
+    image: azar,
+    role: "Professional Educational Content Video Editor",
+    description:
+      "Edits and produces high-quality educational videos by sourcing content, developing structured storyboards, and integrating engaging motion graphics. Delivers visually polished and informative learning materials that enhance understanding and learner engagement.",
+  },
+  {
+    name: "Krithik Roshan",
+    image: roshan,
+    role: "Business Analyst",
+    description:
+      "Analyzes business processes, requirements, and data to identify opportunities for improvement and support strategic decision-making. Collaborates with stakeholders to design effective solutions, optimize workflows, and drive operational efficiency and business growth.",
+  },
+  {
+    name: "Abhishek Ramesh",
+    image: abhishek,
+    role: "Cybersecurity Analyst",
+    description:
+      "Monitors security systems, analyzes threats, and responds to incidents as a GRC & SOC Analyst while ensuring compliance with governance, risk, and regulatory standards. Conducts security assessments, risk management, and continuous monitoring to protect organizational infrastructure and maintain strong cyber resilience.",
+  },
+  {
+    name: "Kavin",
+    image: kavin,
+    role: "Business Analyst",
+    description:
+      "Analyzes business processes, requirements, and data to identify opportunities for improvement and support strategic decision-making. Collaborates with stakeholders to design effective solutions, optimize workflows, and drive operational efficiency and business growth.",
   },
 ];
 
@@ -195,20 +315,11 @@ export default function CrewPage() {
               key={member.name}
               src={member.image}
               alt={member.role}
-              className="w-60 h-60 sm:w-72 sm:h-72 md:w-80 md:h-80 lg:w-96 lg:h-96 object-cover object-center rounded-full transition-all duration-500 ease-in-out hover:scale-105 fade-in"
+              className="w-60 h-60 sm:w-72 sm:h-72 md:w-80 md:h-80 lg:w-96 lg:h-96 object-cover object-center rounded-2xl transition-all duration-500 ease-in-out hover:scale-105 fade-in"
               style={{
-                boxShadow: '0 0 40px 10px rgba(168, 85, 247, 0.4)',
-                border: '3px solid transparent',
-                backgroundImage: 'linear-gradient(black, black), linear-gradient(45deg, #ef4444, #a855f7, #3b82f6)',
-                backgroundOrigin: 'border-box',
-                backgroundClip: 'content-box, border-box'
+                border: 'none'
               }}
-              onMouseEnter={(e) => {
-                e.target.style.boxShadow = '0 0 60px 20px rgba(168, 85, 247, 0.6)';
-              }}
-              onMouseLeave={(e) => {
-                e.target.style.boxShadow = '0 0 40px 10px rgba(168, 85, 247, 0.4)';
-              }}
+              // ...no boxShadow hover effect...
             />
             
             {/* Floating decorative elements */}
@@ -231,25 +342,7 @@ export default function CrewPage() {
               {member.description}
             </p>
 
-            {/* Dots */}
-            <div className="flex gap-2 md:gap-3 justify-center lg:justify-start mt-5 md:mt-7">
-              {members.map((_, i) => (
-                <span
-                  key={i}
-                  className={`w-2.5 h-2.5 md:w-3.5 md:h-3.5 rounded-full transition-all duration-300 cursor-pointer ${
-                    current === i
-                      ? 'bg-gradient-to-r from-red-500 via-purple-500 to-blue-500 opacity-100 animate-glow'
-                      : 'bg-white/30 opacity-30 hover:opacity-60 hover:scale-125 hover:bg-purple-500/50'
-                  }`}
-                  onClick={() => {
-                    if (!isAnimating) {
-                      setCurrent(i);
-                      resetAutoSlide();
-                    }
-                  }}
-                />
-              ))}
-            </div>
+
 
             {/* Navigation Buttons */}
             <div className="flex gap-3 md:gap-4 justify-center lg:justify-start mt-4 md:mt-6">
